@@ -1,0 +1,28 @@
+.triangle.filter.position1:after, .triangle.filter.position1:before{
+	left: calc(50% - 62px);
+}
+.triangle.filter.position2:after, .triangle.filter.position2:before{
+	left: calc(50% + 62px);
+}
+
+.triangle.filter:after, .triangle.filter:before{
+	bottom: calc(100% - 1px);
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+.triangle.filter:after {
+	border-color: rgba(255, 255, 255, 0);
+	border-bottom-color: #FFF;
+	border-width: 10px;
+	margin-left: -10px;
+}
+.triangle.filter:before {
+	border-color: rgba(191, 191, 191, 0);
+	border-bottom-color: #bfbfbf;
+	border-width: 11px;
+	margin-left: -11px;
+}

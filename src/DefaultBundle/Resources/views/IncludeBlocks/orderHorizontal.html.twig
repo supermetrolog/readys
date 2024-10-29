@@ -1,0 +1,34 @@
+<div class="canvas order-horizontal">
+	<div class="order-header line horizontal-center vertical-center">
+		<div class="line vertical-center">
+			<img alt="" src="/public/images/ico/a.png">
+			<span class="desctop">Я собственник, хочу продать / сдать квартиру <span>на выгодных условиях</span></span>
+			<span class="mobile">Я собственник,<br>хочу продать / сдать квартиру<br><span>на выгодных условиях</span></span>
+		</div>
+	</div>
+	<form class="order-body line horizontal-center vertical-center">
+		<div class="dialog_input" data-name="name">
+			<input class="requare {% if app.request.cookies.get("name") %}no_empty{% endif %}" type="text" name="name" value="{{ app.request.cookies.get("name", "") }}" placeholder="" autocomplete="off">
+			<span class="label">Имя</span>
+		</div>
+		<div class="dialog_input" data-name="email">	
+			<input  class="{% if app.request.cookies.get("email") %}no_empty{% endif %}" type="text" name="email" value="{{ app.request.cookies.get("email", "") }}" placeholder="" autocomplete="off">
+			<span class="label">E-mail</span>
+		</div>
+		<div class="dialog_input" data-name="phone">
+			<input  class="requare {% if app.request.cookies.get("phone") %}no_empty{% endif %}" type="text" name="phone" value="{{ app.request.cookies.get("phone", "") }}" placeholder="" autocomplete="off">
+			<span class="label">Телефон</span>
+		</div>
+		<input type="hidden" name="url" value="{{ app.request.uri }}"></input>
+		<input type="hidden" name="wish" value="Я собственник, хочу продать / сдать квартиру на выгодных условиях"></input>
+		<input type="hidden" name="user-agent" value="{{ app.request.headers.get('User-Agent') }}"></input>
+		<input type="hidden" name="reachGoal" value="ORDER"></input>
+		<div class="btn-ellipse btn-send send"><i class="fa fa-envelope-o" aria-hidden="true"></i> Оставить заявку</div>
+	</form>
+	<div class="order-footer line horizontal-center column vertical-center">
+		<div class="req"><span class="red">*</span> Все поля обязательны для заполнения</div>
+	</div>
+</div>
+<div class="order-success">
+	Спасибо! Данные успешно отправлены.
+</div>

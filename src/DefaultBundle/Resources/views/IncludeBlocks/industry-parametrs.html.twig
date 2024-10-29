@@ -1,0 +1,28 @@
+<div class="line">
+    <div class="flat-info">
+        {% for params in lot.stats|castToArray %}
+            {% if loop.index == 4 %}
+    </div>
+    <div class="flat-description">
+        {#{% if lot.description is defined and lot.description %}
+            <div class="title">Описание</div>
+            <div class="descr-box">
+                {{ lot.description|raw }}
+            </div>
+        {% endif %}#}
+            {% endif %}
+            {% if params[1] %}
+                <div class="title">{{ params[0][0] }}</div>
+                <div class="wrap-flats-ifo">
+                    {% for item in params[1]|castToArray %}
+                        <div class="line">
+                            <div>{{ item[0] }}:</div>
+                            <div>{{ item[1] }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+</div>

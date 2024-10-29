@@ -1,0 +1,46 @@
+{% import "DefaultBundle:Default:declension.html.twig" as utils %}
+{% if similar.rent or similar.sale %}
+	<div class="wrap similar">
+		<div class="title">Похожие предложения</div>
+		{% if (app.request.get("deal") == "rent" and similar.sale) or (app.request.get("deal") == "sale" and similar.rent) %}
+			<div class="tab">
+				<div class="line {% if similar.rent %}{% if app.request.get("deal") == "rent" or similar.sale|length == 0  %}horizontal-left a{% endif %}{% endif %}{% if similar.sale %}{% if app.request.get("deal") != "rent" %}horizontal-right b{% endif %}{% endif %}" data-general="tab-similar">
+					{% if similar.rent %}<div class="{% if app.request.get("deal") == "rent" or similar.sale|length == 0  %}active{% endif %}" data="a">Аренда <span class="small-text">{{ total.rent }}</span></div>{% endif %}
+					{% if similar.sale %}<div class="{% if app.request.get("deal") != "rent" %}active{% endif %}" data="b">Продажа <span class="small-text">{{ total.sale }}</span></div>{% endif %}
+				</div>
+			</div>
+		{% endif %}
+		<div>
+			{% if similar.rent %}
+				<div class="a tab-similar {% if app.request.get("deal") == "rent" or similar.sale|length == 0  %}active{% endif %}">
+					{% set lots = similar.rent %}
+					{% set deal = "rent" %}
+					<div class="line horizontal-left elements" data-deal="rent">
+						{% include "CityBundle:Default:list.html.twig" %}
+					</div>
+					{% if total.rent > 8 %}
+						{% set rest = (total.rent - (1 * 8)) %}
+						<div class="line horizontal-center">
+							<div class="btn-ellipse show-more lot-similar" data-url="{{ path("similar",{id: lot.lot_num, deal: "rent"}) }}" data-page="1" data-deal="rent"><span>Еще {% if 8 <= rest %}{{ utils.declension(8, ['лот', 'лота', 'лотов']) }}{% else %}{{ rest }}{% endif %} из {{ rest }}</span></div>
+						</div>
+					{% endif %}
+				</div>
+			{% endif %}
+			{% if similar.sale %}
+				<div class="b tab-similar {% if app.request.get("deal") != "rent" %}active{% endif %}">
+					{% set lots = similar.sale %}
+					{% set deal = "sale" %}
+					<div class="line horizontal-left elements" data-deal="sale">
+						{% include "CityBundle:Default:list.html.twig" %}
+					</div>
+					{% if total.sale > 8 %}
+						{% set rest = (total.sale - (1 * 8)) %}
+						<div class="line horizontal-center">
+							<div class="btn-ellipse show-more lot-similar" data-url="{{ path("similar",{id: lot.lot_num, deal: "sale"}) }}" data-page="1" data-deal="sale"><span>Еще {% if 8 <= rest %}{{ utils.declension(8, ['лот', 'лота', 'лотов']) }}{% else %}{{ rest }}{% endif %} из {{ rest }}</span></div>
+						</div>
+					{% endif %}
+				</div>
+			{% endif %}
+		</div>
+	</div>
+{% endif %}

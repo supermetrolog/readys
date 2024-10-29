@@ -1,0 +1,64 @@
+{% extends "DefaultBundle:Default:layout.html.twig" %}
+{% set styles = [
+	'plugins/slick/slick.css',
+	'plugins/slick/slick-theme.css',
+	'filter.css',
+	'mainpage.css',
+	'media_mainpage.css'
+] %}
+{% set scripts = [
+	'plugins/slick/slick.min.js',
+	'mainpage.js',
+	'plugins/jquery.iosslider.min.js',
+	'skelet.js'
+] %}
+
+{% block content %}
+	<div class="overlay">
+		<div class="line column vertical-center over-wrap horizontal-center">
+			<div class="title">Найди свой<br>объект за 2 минуты</div>
+			<div class="filter mainfilter">
+				{% include "DefaultBundle:IncludeBlocks:mainfilter.html.twig" %}
+				<div class="more-param"><a href="{{ path('catalog', {'deal_type': 'rent'}) }}#filter"><span>Больше параметров</span><i class="fa fa-angle-right"></i></a></div>
+			</div>
+		</div>
+		{#<div class="bottom-bar">
+			<a class="maplink" href="#">
+				<i class="fa fa-map-o" aria-hidden="true"></i>
+				Смотреть предложения на карте
+				<span>
+					<i class="fa fa-angle-right" aria-hidden="true"></i>
+				</span>
+			</a>
+		</div>#}
+		<div class="eclipse"></div>
+		<div class="image" style="background-image: url('/public/images/mainpage/{% if is_mobile() %}mobile/{% endif %}1.jpg')"></div>
+	</div>
+	<div class="overlay-btm line column vertical-center horizontal-center">
+		<div>Следите и смотрите за нами</div>
+ 		<div>Новости на Facebook, новые видео и фото в YouTube и Instagram</div>
+ 		<div class="social line">
+ 			<a target="_blank" class="social f" href="https://www.facebook.com/country.realtor.ru/" rel="nofollow" title="Penny Lane Realty Facebook">
+            	<img alt="" src="/public/images/facebook-round-corners.svg">
+			</a>
+			<a target="_blank" class="social u" href="http://www.youtube.com/channel/UCPOtKAZpK3MOAhjkHnqQ6pw" rel="nofollow" title="Penny Lane Realty Youtube">
+				<img alt="" src="/public/images/youtube-round-corners.svg">
+			</a>
+			<a target="_blank" class="social i" href="https://www.instagram.com/penny_lane_realty_life/" rel="nofollow" title="Penny Lane Realty Instagram">
+				<img alt="" src="/public/images/instagram-round-corners.svg">
+			</a>
+ 		</div>
+	</div>
+	{% include "DefaultBundle:IncludeBlocks:mainpage_block_links.html.twig" %}
+
+	<div class="profit">
+		<div class="title">Выгодные предложения</div>
+		<div class="wrap line horizontal-left elements">
+			{% include "DefaultBundle:Default:list_rent.html.twig" %}
+		</div>
+		<div class="wrap line horizontal-center">
+			<a class="btn-ellipse ripple hover-animate" href="#"><span>Смотреть все предложения</span></a>
+		</div>
+	</div>
+{% endblock %}
+

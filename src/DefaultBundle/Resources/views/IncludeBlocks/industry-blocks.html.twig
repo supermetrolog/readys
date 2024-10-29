@@ -1,0 +1,42 @@
+{% import "DefaultBundle:Macros:fromTo.html.twig" as info %}
+<table class="blocks">
+    <tr>
+        <th>ID блока</th>
+        <th>Этаж</th>
+        <th>Площадь, м<sup>2</sup></th>
+        <th>Высота, м</th>
+        <th>Пол</th>
+        <th>Ворота</th>
+        <th>Отопление</th>
+        <th>Цены {#без НДС, ₽ м<sup>2</sup>/год#}</th>
+    </tr>
+    {% for block in lot.blocks %}
+        <tr class="tr-block">
+            <td><a href="{{ path('block', {"blockid": block.object_id, "deal_type": app.request.get("deal_type"), "id": lot.original_id}) }}">{{ lot.original_id }} - {{ block.object_id }}</a></td>
+            <td>{{ block.floor_min }}</td>
+            <td>
+                {{ info.fromTo(block.area_min, block.area_max) }}
+            </td>
+            <td>
+                {{ info.fromTo(block.ceiling_height_min, block.ceiling_height_max) }}
+            </td>
+            <td>
+                {% if block.floor_type is defined %}{{ block.floor_type }}{% endif %}
+            </td>
+            <td>
+                {% if block.gate_type is defined %}{{ block.gate_type }}{% endif %}
+            </td>
+            <td>
+                {% if block.heating is defined %}{{ block.heating }}{% endif %}
+            </td>
+            <td>
+                {% if app.request.get("deal_type") == "rent" %}
+                    <div class="price-all">{{ info.fromTo(lot.price_min_month_all , lot.price_max_month_all ) }} <span>{{ 'rub'|get_currency_symbol()|raw }}/мес.</span></div>
+                {% else %}
+                    <div class="price-all">{{ info.fromTo(lot.price_sale_min_all, lot.price_sale_max_all) }} <span>{{ 'rub'|get_currency_symbol()|raw }}</span></div>
+                    <div class="price-detail">{{ info.fromTo(lot.price_sale_min, lot.price_sale_max) }} <span>{{ 'rub'|get_currency_symbol()|raw }} (за м<sup>2</sup>)</span></div>
+                {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+</table>

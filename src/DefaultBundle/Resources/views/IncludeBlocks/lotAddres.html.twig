@@ -1,0 +1,31 @@
+{% if lot.building[1].region is defined and lot.building[1].region[1] %}
+    <a class="link"
+       href="{{ path('catalog_type_region', {
+           'deal_type': app.request.get('deal_type'),
+           'object_type': 'sklad',
+           'reg': lot.building[1].region[1] == "московская область" ? "moscow_region" : "moscow"
+       }) }}">
+        {{ lot.building[1].region[1] }}
+    </a>
+{% endif %}
+{% if lot.building[1].town is defined and lot.building[1].town[1] %}
+    , <a class="link"
+         href="{{ path('catalog_type_polygon', {
+             'deal_type': app.request.get('deal_type'),
+             'object_type': 'sklad',
+             'polygon_type':'city',
+             "polygon": lot.building[1].town[1]|createLink
+         }) }}">{{ lot.building[1].town[1] }}</a>
+{% endif %}
+{% if lot.building[1].highway is defined and lot.building[1].highway[1] %}
+    , <a class="link"
+         href="{{ path('catalog_type_polygon', {
+             'deal_type': app.request.get('deal_type'),
+             'object_type': 'sklad',
+             'polygon_type':'highway',
+             "polygon": lot.building[1].highway[1]|createLink
+         }) }}">{{ lot.building[1].highway[1] }} шоссе</a>
+{% endif %}
+{% if lot.building[1].from_mkad[1] is defined and lot.building[1].from_mkad[1] %}
+    (<span class="small-text">{{ lot.building[1].from_mkad[1] }} км от МКАД</span>)
+{% endif %}

@@ -1,0 +1,76 @@
+@media screen and (max-width: 1180px) {
+	.tab-complex-title > div.jk-name{
+		line-height: 1;
+		text-align: center;
+	}
+	
+	.one-photo-media{
+		-webkit-box-orient: vertical;
+	    -moz-box-orient: vertical;
+	    -webkit-flex-direction: column;
+	    -moz-flex-direction: column;
+	    -ms-flex-direction: column;
+	    flex-direction: column;
+	    -webkit-box-orient: horizontal;
+	}
+	.half {
+	    width: 100%;
+	}
+	.half .tab-complex-title{
+		-webkit-box-align: center;
+	    -ms-flex-align: center;
+	    -webkit-align-items: center;
+	    -moz-align-items: center;
+	    align-items: center;
+	}
+}
+@media screen and (max-width: 1000px) {
+	#lightgallery div.c-photo-visible,
+	#lightgallery div.c-photo-main {
+		width: calc(100%);
+		margin: 0 0 10px 0;
+	}
+
+	#lightgallery div.c-photo-hidden > div {
+		width: calc(50% - 5px);
+		margin: 0 10px 10px 0;
+	}
+
+	#lightgallery div.c-photo-hidden > div:nth-child(even) {
+		margin-right: 0;
+	}
+}
+@media screen and (max-width: 660px) {
+	.lot{
+		padding-bottom: 10px;
+		position: relative;
+	}
+	.mobile-filter-btn{
+		display: block;
+	}
+}
+@media screen and (max-width: 550px) {
+
+	.tab-complex-title > div.jk-name{
+		font-size: 48px;
+	}
+	.tab-complex-title > div.address {
+	    padding: 0 20px;
+	    text-align: center;
+	}
+	#lightgallery{
+		display: none;
+	}
+	.mobilePhotoGallery{
+		display: block;
+	}
+	.lightSlider .item img{
+		width: 100%;
+	}
+	div.tagline{
+		font-size: 18px;
+	}
+	.see-apartment{
+		font-size: 14px;
+	}
+}

@@ -1,0 +1,44 @@
+{% import "DefaultBundle:Macros:fromTo.html.twig" as info %}
+{% for lot in lots %}
+    <div class="element line column">
+		<div class="img">
+			<a href="{% if lot.type_id == 2 %}{{ path('lot', {deal_type: 'otvetstvennoe-hranenie', id: lot.original_id}) }}{% else %}{{ path('block', {deal_type: 'otvetstvennoe-hranenie', id: lot.id, blockid: lot.original_id}) }}{% endif %}" target="_blank">
+				<img class="lot-photo" data-size="400" src="{{ lot.building.photos }}" alt="" title="">
+			</a>
+			{#<div class="favorite">
+				<div class="{% if id|is_fav(app.request.cookies.get("flat_"~app.request.get('deal'))) %}inFav{% else %}fav{% endif %}" data="{{ id }}" data_type="flat" data_deal="{{ app.request.get('deal') }}">
+					{% if id|is_fav(app.request.cookies.get("flat_"~app.request.get('deal'))) %}
+						{% include "CityBundle:Default:infav.html.twig" %}
+					{% else %}
+						{% include "CityBundle:Default:fav.html.twig" %}
+					{% endif %}
+				</div>
+			</div>#}
+		</div>
+		<a class="info line column" href="{% if lot.type_id == 2  %}{{ path('lot', {deal_type: 'otvetstvennoe-hranenie', id: lot.original_id}) }}{% else %}{{ path('block', {deal_type: 'rent', id: lot.id, blockid: lot.original_id}) }}{% endif %}"  target="_blank">
+			<div>
+				<div class="id">ID {{ lot.id }}</div>
+				{% if lot.building.title is defined and lot.building.title %}<div class="title">{{ lot.building.title }}</div>{% endif %}
+				<div class="small-text">
+					{{ lot.building.address }}
+                </div>
+                <div class="square">
+                    {{ info.fromTo(lot.area_min, lot.area_max) }} м<sup>2</sup>
+                </div>
+				<div class="line icon-box">
+					{% for key, val in lot.general_stats|castToArray  %}
+						<div class="{{ key }} line horizontal-left vertical-center flex-nowrap"><div class="icon-text">{{ val }}</div></div>
+					{% endfor %}
+				</div>
+			</div>
+			<div class="price">
+				{% if app.request.get('price_format', 7) == 7 %}
+					{{ info.fromTo(lot.price_safe_pallet_min, lot.price_safe_pallet_max) }} <span>{{ 'rub'|get_currency_symbol()|raw }}</span>
+				{% else %}
+					{{ info.fromTo(lot.price_sale_min_all, lot.price_sale_max_all) }} <span>{{ 'rub'|get_currency_symbol()|raw }}</span>
+				{% endif %}
+            </div>
+            <div class="small-text">{{ lot.tax }}</div>
+		</a>
+	</div>
+{% endfor %}

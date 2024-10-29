@@ -1,0 +1,33 @@
+{% set metro = deal|getAllMetroStation(type) %}
+{% if metro|length > 0 %}
+	<div class="title">{% if type == "lot" %}Квартиры у метро{% elseif type == "complex" %}ЖК у метро{% else %}Новостройки у метро{% endif %}</div>
+	<div class="result" data="1">
+			<div>
+				{% for mt in metro %}
+					{% if mt is defined and mt.link != ""  %}
+						<div class="el">
+							{% if substr is not defined or substr != mt.name|slice(0,1) %}
+								{% set substr = mt.name|slice(0,1) %}
+								<div class="index">{{ substr }}</div>
+							{% endif %}
+							{% if type == "lot" %}
+									{% set path = path("flats_metro",{"deal": deal, "metroLink": mt.link}) %}
+							{% elseif type == "complex" %}
+									{% set path = path("complex_metro",{"metroLink": mt.link}) %}
+							{% elseif  type == "new_building" %}
+									{% set path = path("new-buildings_metro",{"metroLink": mt.link}) %}
+							{% endif %}
+							<a href="{{ path }}" class="red-link">{{ mt.name }}</a>
+						</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+			
+	</div>
+	
+	<a class="action" style="left: calc(50% - 115.6px);" data="Скрыть">
+		<span>
+			<span>Показать все станции</span> <i class="fa fa-angle-down"></i>
+		</span>
+	</a>
+{% endif %}

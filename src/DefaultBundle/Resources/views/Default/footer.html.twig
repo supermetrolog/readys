@@ -1,0 +1,77 @@
+<div class="row footer">
+	<div class="wrap line">
+		<div class="child">
+			<div class="min_title">Индустриальная недвижимость</div>
+			<div><a href="" class="red-link">Аренда</a></div>
+			<div><a href="" class="red-link">Продажа</a></div>
+			<div><a href="" class="red-link">Ответ. хранение</a></div>
+			<div><a href="" class="red-link">Открытые площади</a></div>
+			<div><a href="" class="red-link">Продажа земельных участков</a></div>
+			<div><a href="" class="red-link">Строительство склада</a></div>
+			<div><a href="" class="red-link">На карте</a></div>
+		</div>
+		<div class="child">
+			<div class="min_title">Информация о департаменте</div>
+			<div><a href="" class="red-link">О департаменте</a></div>
+			<div><a href="" class="red-link">Контакты</a></div>
+			<div><a href="" class="start-dialog red-link"
+						data-wish="Пользователь отправил заявку из меню сайта"
+						data-title="Заявка"
+						data-reachgoal="ORDER"
+						data-field="name,phone,email,deal,comments"
+						data-requare="name,phone,deal">Оставить заявку</a>
+			</div>
+		</div>
+		<div class="child">
+			<div class="min_title">Офисы</div>
+			<div class="marker">
+				<div class="offtitle">Центральный офис</div>
+				<div class="off"><span class="glyphicon glyphicon-map-marker"></span> Москва, Знаменка д. 13,стр 3</div>
+			</div>
+		</div>
+		<div class="child">
+			<div class="fphone">
+				<i class="fa fa-phone"></i>
+				<span class="call_phone_new2">
+					<a class="ph" href="tel:+7 (495) {{ constant('PHONE')|replace({".":" "}) }}">+7 495 <span class="red bold">{{ constant('PHONE') }}</span></a>
+				</span>
+				<div class="clear"></div>
+				<a href="#" class="feedback start-dialog"
+						data-wish="Пользователь Заказал Звонок"
+						data-reachgoal="CALLBACK"
+						data-title="Заказать звонок"
+						data-field="name,phone,comments"
+						data-requare="name,phone">перезвоните мне</a>
+				<a href="#" class="feedback anchor-start-dialog">перезвоните мне</a>
+			</div>
+			<div class="fdescr">
+				<div>© 1993–{{ 'now'|date("Y") }} Penny Lane Realty</div>
+								Аренда и продажа складских и<br>
+								производственных помещений,<br>
+								промышленной земли в Москве и<br>
+								Подмосковье. Отвественное <br>
+								хранение товаров.
+			</div>
+			<div class="direct_box line horizontal-left">
+				<a target="_blank" class="social f" href="https://www.facebook.com/country.realtor.ru/" rel="nofollow" title="Penny Lane Realty Facebook">
+					<img alt="" class="gray" src="/public/images/facebook-round-corners-gray.svg">
+					<img alt="" class="color" src="/public/images/facebook-round-corners.svg">
+				</a>
+				<a target="_blank" class="social u" href="http://www.youtube.com/channel/UCPOtKAZpK3MOAhjkHnqQ6pw" rel="nofollow" title="Penny Lane Realty Youtube">
+					<img alt="" class="gray" src="/public/images/youtube-round-corners-gray.svg">
+					<img alt="" class="color" src="/public/images/youtube-round-corners.svg">
+				</a>
+				<a target="_blank" class="social i" href="https://www.instagram.com/penny_lane_realty_life/" rel="nofollow" title="Penny Lane Realty Instagram">
+					<img alt="" class="gray" src="/public/images/instagram-round-corners-gray.svg">
+					<img alt="" class="color" src="/public/images/instagram-round-corners.svg">
+				</a>
+			</div>
+			<div class="media-w">Разработка и поддержка сайта <br/><a class="fordev" target="_blank" href="http://mediawaves.ru/"><span>Media</span>Waves</a></div>
+		</div>
+{# 		<div class="copyright">#}
+{# 			<div class="left">#}
+{# 				<div class="right">© Penny Lane Realty 1993 - {{ 'now'|date("Y") }}</div>#}
+{# 			</div>#}
+{# 		</div>#}
+	</div>
+</div>

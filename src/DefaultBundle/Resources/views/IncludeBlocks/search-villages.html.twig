@@ -1,0 +1,16 @@
+<div class="areas-search">
+    {% set villages = filters.l_towns_central.value|castToArray|sort %}
+    <div class="result">
+        {% for village in villages %}
+            <div class="areas">
+                {% if substr is not defined or substr != village.name|slice(0,1) %}
+                    {% set substr = village.name|slice(0,1) %}
+                    <div class="index">{{ substr|upper }}</div>
+                {% endif %}
+                <div class="el">
+                    <a href="#" class="red-link towns{% if village.en|lower in app.request.get("towns_central") %} active{% endif %}" data-towns-id="{{ village.en|lower }}" data-towns-name="{{ village.name }}" data-url="towns_{{ village.en|lower }}">{{ village.name }}<span class="icon-clear-search"></span></a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

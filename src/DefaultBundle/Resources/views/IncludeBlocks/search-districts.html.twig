@@ -1,0 +1,16 @@
+<div class="areas-search">
+	{% set areas = filters.l_districts.value|castToArray|sort %}
+	<div class="result">
+		{% for key, area in areas %}
+			<div class="areas">
+				{% if substr is not defined or substr != area.name|slice(0,1) %}
+					{% set substr = area.name|slice(0,1) %}
+					<div class="index">{{ substr|upper }}</div>
+				{% endif %}
+				<div class="el">
+					<a href="#" class="red-link area{% if area.en|lower in app.request.get("area") %} active{% endif %}" data-area-id="{{ area.en }}" data-area-name="{{ area.name }}" data-url="area_{{ area.en|lower }}">{{ area.name }}<span class="icon-clear-search"></span></a>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</div>

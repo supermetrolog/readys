@@ -1,0 +1,65 @@
+{% if app.request.get("deal") %}
+	{% if app.request.get("deal") == "sale" %}
+		<div class="popular-filter line horizontal-left">
+			<div>
+				<span class="icon-fire-popular"></span>
+				<span class="label">Популярные запросы</span>
+				<i class="fa ismobile fa-angle-down"></i>
+			</div>
+			<div class="searches">
+				<div class="plink">
+					<a href="{{ path('flats_type_in_district', {flats_type: 'apartments', districtLink: "cao"}) }}">Апартаменты в ЦАО</a>{% if popular is defined %}<span class="small-text">{{ popular['sale'][0] }}</span>{% endif %}
+				</div>
+				<div class="plink">
+					<a href="{{ path('flats_area', {areaLink: 'zamoskvoreche', deal: "sale"}) }}">Квартиры в Замоскворечье</a>{% if popular is defined %}<span class="small-text">{{ popular['sale'][1] }}</span>{% endif %}
+				</div>
+				<div class="plink">
+					<a href="{{ path('flats_metro', {metroLink: "chistye_prudy", deal: "sale"}) }}">Квартиры на Чистых Прудах</a>{% if popular is defined %}<span class="small-text">{{ popular['sale'][2] }}</span>{% endif %}
+				</div>
+				<div class="plink">
+					<a href="{{ path('flats_type_in_district', {flats_type: "penthouses", districtLink: "cao"}) }}">Пентхаусы в ЦАО</a>{% if popular is defined %}<span class="small-text">{{ popular['sale'][3] }}</span>{% endif %}
+				</div>
+				<div class="plink">
+					<a href="{{ path('flats_area', {areaLink: "arbat", deal: "sale"}) }}">Арбат</a>{% if popular is defined %}<span class="small-text">{{ popular['sale'][4] }}</span>{% endif %}
+				</div>
+				<div class="plink">
+					<a href="{{ path("flats_type", {"flats_type": "moscow_city"}) }}">Москва Сити</a>{% if popular is defined %}<span class="small-text">{{ popular['sale'][5] }}</span>{% endif %}
+				</div>
+				<div class="plink">
+					<a href="{{ path("flats_area", {"areaLink": "hamovniki", "deal": "sale"}) }}">Хамовники</a>{% if popular is defined %}<span class="small-text">{{ popular['sale'][6] }}</span>{% endif %}
+				</div>
+			</div>
+		</div>
+	{% else %}
+		<div class="popular-filter line horizontal-left">
+			<div>
+				<span class="icon-fire-popular"></span>
+				<span class="label">Популярные запросы</span>
+				<i class="fa ismobile fa-angle-down"></i>
+			</div>
+			<div class="searches">
+				<div class="plink">
+					<a href="{{ path("flats_type", {"flats_type": "moscow_city"}) }}">Москва Сити</a>{% if popular is defined %}<span class="small-text">{{ popular['rent'][0] }}</span>{% endif %}
+				</div>
+				<div class="plink">
+					<a href="{{ path("flats_area", {"areaLink": "hamovniki", "deal": "rent"}) }}">Хамовники</a>{% if popular is defined %}<span class="small-text">{{ popular['rent'][1] }}</span>{% endif %}
+				</div>
+				<div class="plink">
+					<a href="{{ path("flats_type", {"flats_type": "patriarshi_prudy"}) }}">Патриаршие пруды</a>{% if popular is defined %}<span class="small-text">{{ popular['rent'][2] }}</span>{% endif %}
+				</div>
+				<div class="plink">
+					<a href="{{ path('flats_type', {flats_type: "parking"}) }}">Квартиры с паркингом</a>{% if popular is defined %}<span class="small-text">{{ popular['rent'][3] }}</span>{% endif %}
+				</div>
+				<div class="plink">
+					<a href="{{ path('flats_area', {areaLink: "arbat", deal: "rent"}) }}">Арбат</a>{% if popular is defined %}<span class="small-text">{{ popular['rent'][4] }}</span>{% endif %}
+				</div>
+				<div class="plink">
+					<a href="{{ path('flats_area', {areaLink: "yakimanka", deal: "rent"}) }}">Якиманка</a>{% if popular is defined %}<span class="small-text">{{ popular['rent'][5] }}</span>{% endif %}
+				</div>
+				<div class="plink">
+					<a href="{{ path('flats_type', {flats_type: "mosfilmovskaya"}) }}">На Мосфильмовской</a>{% if popular is defined %}<span class="small-text">{{ popular['rent'][6] }}</span>{% endif %}
+				</div>
+			</div>
+		</div>
+	{% endif %}
+{% endif %}

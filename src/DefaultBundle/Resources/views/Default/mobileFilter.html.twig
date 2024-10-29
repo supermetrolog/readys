@@ -1,0 +1,213 @@
+{% set form_route = path("search") %}
+<div class="mobile-filter-wrap">
+	<div class="mobile-filter">
+		<div class="filter-header">
+			<span>Уточнить поиск</span>
+			<span class="icon-clear-search"></span>
+		</div>
+		<div class="select-filter">
+			<div class="wrap-select-condition line horizontal-left">
+                {% if app.request.get("city") %}
+                    {% for v in app.request.get("city") %}
+						<div data-name="city" data-value="{{ v }}" class="line vertical-center">
+							<span class="first-span icon-city"></span>{{ v|getVillageName() }}<span class="icon-clear-search"></span>
+						</div>
+                    {% endfor %}
+                {% endif %}
+                {% if app.request.get("highway") %}
+                    {% for v in app.request.get("highway") %}
+						<div data-name="highway" data-value="{{ v }}" class="line vertical-center">
+							<span class="first-span icon-highway"></span>{{ v|getHighwayName() }}<span class="icon-clear-search"></span>
+						</div>
+                    {% endfor %}
+                {% endif %}
+			</div>
+		</div>
+		<div class="filter">
+			{% if app.request.get("select_condition") %}
+				<div class="type-search line flex-nowrap">
+					<a class="link-dash line column vertical-center horizontal-center" href="#" data-type="map">
+						<div class="ic-dash"><img alt="" src="/public/images/ico/map/triangle.svg"></div>
+						<div class="txt-dash">Область<br>на карте</div>
+					</a>
+					<a class="link-dash line column vertical-center horizontal-center" href="#" data-type="map">
+						<div class="ic-dash"><img alt="" src="/public/images/ico/map/triangle.svg"></div>
+						<div class="txt-dash">Населенный<br>пункт</div>
+					</a>
+					<a class="link-dash line column vertical-center horizontal-center" href="#" data-type="metro">
+						<div class="ic-dash"><img alt="" src="/public/images/ico/map/metro_mos.svg"></div>
+						<div class="txt-dash">Схема<br>метро</div>
+					</a>
+					<a class="link-dash line column vertical-center horizontal-center" href="#" data-type="areas">
+						<div class="ic-dash"><img alt="" src="/public/images/ico/map/highway.svg"></div>
+						<div class="txt-dash">Шоссе</div>
+					</a>
+				</div>
+			{% endif %}
+            {% if app.request.get("multy-play") is null %}
+				<div class="search_text">
+					<input class="multy-play" type="search" placeholder="Номер лота, город, район..." name="search">
+				</div>
+            {% endif %}
+			<div class="wrap-filter line">
+				<form data-action="{{ form_route }}">
+					<div class="line horizontal-left column">
+						{% if app.request.get("filterdeal") == "y" %}
+							<div class="line button-block horizontal-left wrap-el-filter" data-name="deal">
+								<div class="button ripple {% if app.request.get('deal') == null or app.request.get('deal') == 'sale' %}active{% endif %}" data-value="sale">Продажа</div>
+								<div class="button ripple {% if app.request.get('deal') == 'rent' %}active{% endif %}" data-value="rent">Аренда</div>
+							</div>
+						{% endif %}
+						<div class="line button-block horizontal-left wrap-el-filter" data-name="currency">
+							<div class="button ripple {% if app.request.cookies.get('currency') == null or app.request.cookies.get('currency') == 'rub' %}active{% endif %}" data-value="rub">&#8381;</div>
+							<div class="button ripple {% if app.request.cookies.get('currency') == 'usd' %}active{% endif %}" data-value="usd">$</div>
+							<div class="button ripple {% if app.request.cookies.get('currency') == 'eur' %}active{% endif %} " data-value="eur">€</div>
+						</div>
+                        {% if app.request.get("hide_parametrs_filter") is null %}
+							<div class="wrap-el-filter line horizontal-left column">
+								<div class="absolute-placehold"><input type="text" name="price_min" placeholder="{{ app.request.cookies.get('currency','rub')|get_price((app.request.get('deal',"sale") == 'sale'?price.sale_min:price.rent_min))|number_format(0, '.', ' ') }}" data-placeholder-sale="{{ app.request.cookies.get('currency','rub')|get_price(price.sale_min)|number_format(0, '.', ' ') }}" data-placeholder-rent="{{ app.request.cookies.get('currency','rub')|get_price(price.rent_min)|number_format(0, '.', ' ') }}" value="{{ app.request.get('price_min',"") }}"><span>от</span></div>
+								<div class="line vertical-center horizontal-left">
+									<div class="absolute-placehold"><input type="text" name="price_max" placeholder="{{ app.request.cookies.get('currency','rub')|get_price((app.request.get('deal',"sale") == 'sale'?price.sale_max:price.rent_max))|number_format(0, '.', ' ') }}" data-placeholder-sale="{{ app.request.cookies.get('currency','rub')|get_price(price.sale_max)|number_format(0, '.', ' ') }}" data-placeholder-rent="{{ app.request.cookies.get('currency','rub')|get_price(price.rent_max)|number_format(0, '.', ' ') }}" value="{{ app.request.get('price_max',"") }}"><span>до</span></div>
+									<span class="val">{% if app.request.cookies.get('currency') is null or app.request.cookies.get('currency')=='rub' %}&#8381;{% elseif app.request.cookies.get('currency')=='usd'%}${% elseif app.request.cookies.get('currency')=='eur' %}€{% endif %}</span>
+								</div>
+							</div>
+							{% if app.request.get("deal") != "rent" %}
+								<div class="line button-block horizontal-left wrap-el-filter not-rent vertical-end" data-name="type_square">
+									<div class="button ripple {% if app.request.get('type_square') == null or app.request.get('type_square') == 1 %}active{% endif %}" data-value="1">За все</div>
+									<div class="button ripple {% if app.request.get('type_square') == 2 %}active{% endif %}" data-value="2">За м<sup>2</sup></div>
+								</div>
+							{% endif %}
+							{% if app.request.get("deal") != "rent" %}
+								<div class="line button-block horizontal-left wrap-el-filter not-rent">
+									<div class="small-text">Ремонт</div>
+									<select class="custom-for-filter" name="repairId">
+										<option value="">Неважно</option>
+										<option value="3">Под ключ</option>
+										<option value="4">Без ремонта</option>
+									</select>
+								</div>
+							{% endif %}
+							<div class="wrap-el-filter">
+								<div class="small-text">Площадь квартиры</div>
+								<div class="line  horizontal-left column">
+									<div class="absolute-placehold"><input type="text" name="area_min" placeholder="100" value="{{ app.request.get('area_min',"") }}"><span>от</span></div>
+									<div class="line vertical-center horizontal-left">
+										<div class="absolute-placehold"><input type="text" name="area_max" placeholder="1 000" value="{{ app.request.get('area_max',"") }}"><span>до</span></div>
+										<span> м<sup>2</sup></span>
+									</div>
+								</div>
+
+							</div>
+							<div class="wrap-el-filter">
+								<div class="small-text">Количество комнат</div>
+								<div id="rooms" class="line button-block horizontal-left wrap-el-filter" data-name="rooms[]">
+									<div class="button ripple {% if 1 in app.request.get('rooms') %}active{% endif %}" data-value="1">1</div>
+									<div class="button ripple {% if 2 in app.request.get('rooms') %}active{% endif %}" data-value="2">2</div>
+									<div class="button ripple {% if 3 in app.request.get('rooms') %}active{% endif %}" data-value="3">3</div>
+									<div class="button ripple {% if 4 in app.request.get('rooms') %}active{% endif %}" data-value="4">4</div>
+									<div class="button ripple {% if 5 in app.request.get('rooms') %}active{% endif %}" data-value="5">5+</div>
+								</div>
+							</div>
+						{% endif %}
+					</div>
+                    {% if app.request.get("hide_parametrs_filter") is null %}
+						<div class="form-object-check-wrap">
+							<div class="form-object-check">
+								<span>Только в ЖК</span>
+								<div class="slide {% if app.request.get('only_jk') %}active{% endif %}" data-name="only_jk"><div class="cursor"></div></div>
+								{% if app.request.get('only_jk') %}
+									<input type="hidden" name="only_jk" value="1">
+								{% endif %}
+							</div>
+							{% if app.request.get("deal") != "rent" %}
+								<div class="form-object-check not-rent">
+									<span>Не показывать новостройки</span>
+									<div class="slide {% if app.request.get('not_building_new') %}active{% endif %}" data-name="not_building_new"><div class="cursor"></div></div>
+									{% if app.request.get('not_building_new') %}
+										<input type="hidden" name="not_building_new" value="1">
+									{% endif %}
+								</div>
+							{% endif %}
+							<div class="form-object-check">
+								<span>Не показывать апартаменты</span>
+								<div class="slide {% if app.request.get('is_not_apartments') %}active{% endif %}" data-name="is_not_apartments"><div class="cursor"></div></div>
+								{% if app.request.get('is_not_apartments') %}
+									<input type="hidden" name="is_not_apartments" value="1">
+								{% endif %}
+							</div>
+							<div class="form-object-check" data="is_planning_open">
+								<span>Только свободная планировка</span>
+								<div class="slide {% if app.request.get('is_planning_open') %}active{% endif %}" data-name="is_planning_open"><div class="cursor"></div></div>
+								{% if app.request.get('is_planning_open') %}
+									<input type="hidden" name="is_planning_open" value="1">
+								{% endif %}
+							</div>
+							<div class="form-object-check">
+								<span>Только с машиноместом</span>
+								<div class="slide {% if app.request.get('parking') %}active{% endif %}" data-name="parking"><div class="cursor"></div></div>
+								{% if app.request.get('parking') %}
+									<input type="hidden" name="parking" value="1">
+								{% endif %}
+							</div>
+						</div>
+					{% endif %}
+					<input type="hidden" name="deal" value="{{ app.request.get("deal", "sale") }}">
+					<input type="hidden" name="sort" value="{{ app.request.get("sort", "price_down") }}">
+					<input type="hidden" name="type_square" value="{{ app.request.get("type_square", 1) }}">
+					<input type="hidden" name="repairId" value="{{ app.request.get("repairId", "") }}">
+					<input type="hidden" name="pages" value="{{ app.request.get("pages", 1) }}">
+					<input type="hidden" name="overlay" value="{{ app.request.get("overlay","") }}">
+					<input type="hidden" name="coords" value="{{ app.request.get("coords","") }}">
+					<input type="hidden" name="radius" value="{{ app.request.get("radius") }}">
+					<input type="hidden" name="center" value="{{ app.request.get("center") }}">
+					<input type="hidden" name="zoom" value="{{ app.request.get("zoom") }}">
+					{% if app.request.get("rooms") %}
+						{% for v in app.request.get("rooms") %}
+							<input type="hidden" name="rooms[]" value="{{ v }}">
+						{% endfor %}
+					{% endif %}
+					{% if app.request.get("section") == "jk" or app.request.get("section") == "jk_location" %}
+						<input type="hidden" name="complex[]" value="{% if loc.getId() is defined %}{{ loc.getId() }}{% endif %}">
+					{% endif %}
+					{% if app.request.get("metro") %}
+						{% for v in app.request.get("metro") %}
+							<input type="hidden" name="metro[]" value="{{ v }}">
+						{% endfor %}
+					{% endif %}
+					{% if app.request.get("metroLink") %}
+						<input type="hidden" name="metro[]" value="{{ app.request.get("metroLink")|getMetroIdOfLink() }}">
+					{% endif %}
+					{% if app.request.get("district") %}
+						{% for v in app.request.get("district") %}
+							<input type="hidden" name="district[]" value="{{ v }}">
+						{% endfor %}
+					{% endif %}
+					{% if app.request.get("districtLink") %}
+						<input type="hidden" name="district[]" value="{{ app.request.get("districtLink")|getDistrictIdOfLink() }}">
+					{% endif %}
+					{% if app.request.get("area") %}
+						{% for v in app.request.get("area") %}
+							<input type="hidden" name="area[]" value="{{ v }}">
+						{% endfor %}
+					{% endif %}
+					{% if app.request.get("areaLink") %}
+						<input type="hidden" name="area[]" value="{{ app.request.get("areaLink")|getAreaIdOfLink() }}">
+					{% endif %}
+					
+					{% if fieldInDB is defined and valueFieldInDB is defined %}
+						{% if valueFieldInDB is iterable %}
+							{% for v in valueFieldInDB %}
+								<input type="hidden" name="{{ inputName }}[]" value="{{ v }}">
+							{% endfor %}
+						{% else %}
+							<input type="hidden" name="{{ fieldInDB }}" value="{{ valueFieldInDB }}">
+						{% endif %}
+					{% endif %}
+				</form>
+			</div>
+		</div>
+		<div class="filter-bottom line horizontal-center">
+			<div class="show-lots btn-purple ripple">Показать <span>{{ utils.declension(total, ['предложение', 'предложения', 'предложений']) }}</span></div>
+		</div>
+	</div>
+</div>

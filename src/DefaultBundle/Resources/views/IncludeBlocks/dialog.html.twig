@@ -1,0 +1,139 @@
+{% import "DefaultBundle:Default:declension.html.twig" as utils %}
+<div class="modal-wrap general-modal">
+	<div class="modal">
+		<div class="header line horizontal-center">
+			<span class="icon-clear-search"></span>
+			<div class="title">Посмотреть квартиру сейчас!</div>
+		</div>
+		<div class="body line horizontal-center">
+			<div class="wrap-form">
+				<form>
+					<div class="line horizontal-center not-valid" data-name="deal">
+						<div class="form-object-check">
+							<span>Снять</span>
+							<div class="slide " data-name="rent"><div class="cursor"></div></div>
+						</div>
+						<div class="form-object-check">
+							<span>Сдать</span>
+							<div class="slide " data-name="lease"><div class="cursor"></div></div>
+						</div>
+						<div class="form-object-check">
+							<span>Купить</span>
+							<div class="slide " data-name="buy"><div class="cursor"></div></div>
+						</div>
+						<div class="form-object-check">
+							<span>Продать</span>
+							<div class="slide " data-name="sale"><div class="cursor"></div></div>
+						</div>
+					</div>
+					<div class="dialog_input not-valid" data-name="name">
+						<input class="{% if app.request.cookies.get("name") %}no_empty{% endif %}" type="text" name="name" value="{{ app.request.cookies.get("name","") }}" placeholder="" autocomplete="off">
+						<span class="label">Имя</span>
+					</div>
+					<div class="line">
+						<div class="dialog_input not-valid" data-name="phone">
+							<input  class="{% if app.request.cookies.get("phone") %}no_empty{% endif %}" type="text" name="phone" value="{{ app.request.cookies.get("phone","") }}" placeholder="" autocomplete="off">
+							<span class="label">Телефон</span>
+						</div>
+						<div class="dialog_input not-valid" data-name="email">	
+							<input  class="{% if app.request.cookies.get("email") %}no_empty{% endif %}" type="text" name="email" value="{{ app.request.cookies.get("email","") }}" placeholder="" autocomplete="off">
+							<span class="label">E-mail</span>
+						</div>	
+					</div>
+					<div class="dialog_input not-valid" data-name="price">
+						<input id="price" class="" type="text" name="price" value="" placeholder="" autocomplete="off">
+						<span class="label">Предлагаемая цена</span>
+					</div>
+					<div class="dialog_input not-valid" data-name="comments">	
+						<textarea rows="3" name="comments"></textarea>
+						<span class="label">Комментарий</span>
+					</div>
+					<input type="hidden" name="url" value="{{ app.request.uri }}"></input>
+					<input type="hidden" name="wish" value=""></input>
+					<input type="hidden" name="reachGoal" value=""></input>
+					<input type="hidden" name="route" value="{{ path("ordersend") }}"></input>
+					<input type="hidden" name="user-agent" value="{{ app.request.headers.get('User-Agent') }}"></input>
+				</form>
+			</div>
+		</div>
+		<div class="footer line column vertical-center">
+			<div class="btn-ellipse send">Отправить</div>
+			<div class="req"><span class="req-star">*</span> Поля обязательны для заполнения</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal-wrap success">
+	<div class="modal-success">
+		<div class="success-header line horizontal-center">
+			<div class="text">
+				<span class="icon-circle-check"></span> Ваша заявка успешно отправлена!
+			</div>
+		</div>
+		<div class="success-footer line horizontal-center">
+			<div class="btn-ellipse">Ok</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal-wrap search-modal">
+	<div class="modal line column">
+		<div class="header line horizontal-center">
+			<span class="icon-clear-search"></span>
+			<div class="tab">
+				<div class="line horizontal-center a flex-nowrap" data-general="modal-type-search">
+					{#<div class="active" data="a">Область на карте</div>
+ 					<div class="" data="b">Схема метро</div>#}
+					<div class="" data="c">Районы</div>
+					<div class="" data="d">Населенные пункты</div>
+					<div class="" data="f">Шоссе</div>
+				</div>
+			</div>
+		</div>
+		<div class="body">
+			<div class="a modal-type-search">
+				<div class="line button-block horizontal-left wrap-el-filter map-control" data-name="map-type">
+					<div class="button active line" data-value="polygon"><span>Очертить границы</span></div>
+					<div class="button line" data-value="circle"><span>Поиск в радиусе</span></div>
+				</div>
+				<div id="map"></div>
+				<div class="map-trash"><span class="fa fa-trash"></span></div>
+			</div>
+			<div class="b modal-type-search">
+				<div class="metro-layer">
+					{#<div class="select-metro-btn {% if is_mobile() and is_ios() %}iphone-select-wrap{% endif %}">
+						<select class="metro-btn {% if is_mobile() and is_ios() %}iphone-select{% endif %}">
+							<option value="3">Группа станций не выбрана</option>
+							<option value="1">Все станции внутри кольца</option>
+							<option value="2">Все станции кольцевой</option>
+						</select>
+					</div>#}
+{# 					<div class="line button-block horizontal-left wrap-el-filter metro-btn" data-name="metro-dialog">#}
+{# 						<div class="button active" data-value="3">Не важно</div>#}
+{# 						<div class="button " data-value="1">Все станции внутри кольца</div>#}
+{# 						<div class="button " data-value="2">Все станции кольцевой</div>#}
+{# 					</div>#}
+					<div id="metro_map"></div>
+					{#{% include "DefaultBundle:svg:metro.svg.twig" %}#}
+				</div>
+			</div>
+			{% if filters is defined %}
+				<div class="c modal-type-search">
+					{% include "DefaultBundle:IncludeBlocks:search-districts.html.twig" %}
+				</div>
+				<div class="d modal-type-search">
+					{% include "DefaultBundle:IncludeBlocks:search-villages.html.twig" %}
+				</div>
+				<div class="f modal-type-search">
+					{% include "DefaultBundle:IncludeBlocks:search-highways.html.twig" %}
+				</div>
+			{% endif %}
+		</div>
+		<div class="footer line column vertical-center">
+			<div class="clear-map link-dash">
+				<span>Очистить границы</span>
+			</div>
+			<div class="show-lots btn-purple">Показать <span>{% if totlal is defined %}{{ utils.declension(total, ['предложение', 'предложения', 'предложений']) }}{% endif %}</span></div>
+		</div>
+	</div>
+</div>

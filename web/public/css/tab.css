@@ -1,0 +1,320 @@
+.tab, .tab-anchor{
+	width: 100%;
+}
+.tab > div,
+.tab-anchor > div{
+	width: 615px;
+	margin: 0 auto;
+	position: relative;
+}
+.tab > div > div,
+.tab-anchor > div > a{
+	padding: 0px 20px 20px 20px;
+	color: #000;
+	cursor: pointer;
+	font-size: 16px;
+	display: block;
+}
+.tab > div > div.active,
+.tab > div > div:hover,
+.tab-anchor > div > a.active,
+.tab-anchor > div > a:hover{
+	font-weight: 500;
+}
+.tab + div > div:not(.active){
+	display:none;
+}
+.tab > div:after,
+.tab-anchor > div:after{
+	content: " ";
+	width: 128px;
+	height: 3px;
+	background: #ea4e56;
+	position: absolute;
+    left: 0;
+    bottom: 0;
+    -webkit-transition: all 800ms ease-in-out;
+    -moz-transition: all 800ms ease-in-out;
+    -o-transition: all 800ms ease-in-out;
+    transition: all 800ms ease-in-out;
+}
+.tab > div.a:after{
+	left: 0px;
+	width: 128px;
+}
+.tab > div.b:after{
+	left: 154px;
+	width: 172px;
+}
+.tab > div.c:after{
+	left: 352px;
+	width: 138px;
+}
+.tab > div.d:after{
+	left: 517px;
+    width: 98px;
+}
+
+/*
+	Лот
+*/
+.tab-params.tab{
+	margin-top: 60px;
+}
+.tab-params.tab > div{
+	/*width: 770px;*/
+	width: 113px;
+}
+.tab-params.tab > div > div > span{
+	margin-right: 10px;
+}
+.tab-params.tab > div > div span{
+	color: #f03f3f;
+}
+.tab-params.tab > div.a:after{
+	left: 0px;
+	width: 115px;
+}
+.tab-params.tab > div.b:after{
+	left: 115px;
+	width: 132px;
+}
+.tab-params.tab > div.c:after{
+	left: 247px;
+    width: 254px
+}
+.tab-params.tab > div.d:after{
+	left: 500px;
+    width: 268px;
+}
+.tab-maps.tab > div{
+	/*width: 400px;*/
+	width: 165px;
+}
+.tab-maps.tab > div.a:after{
+	left: 0px;
+	width: 166px;
+}
+.tab-maps.tab > div.b:after{
+	left: 166px;
+	width: 232px;
+}
+/*
+	Контакты
+*/
+.tab > div[data-general="tab-params-filter"] {
+    width: 415px;
+    margin: 0 auto;
+    position: relative;
+}
+.tab > div.a[data-general="tab-params-filter"]:after {
+    left: 0px;
+    width: 186px;
+}
+.tab > div.b[data-general="tab-params-filter"]:after {
+    left: 200px;
+    width: 215px;
+}
+
+/*О ЖК*/
+.tab-complex.tab-anchor{
+	margin-top: 35px;
+}
+.tab-anchor > div[data-general="tab-complex-title"]{
+	width: 490px;
+}
+.tab-anchor > div.a[data-general="tab-complex-title"]:after{
+	width: 78px;
+}
+.tab-anchor > div.b[data-general="tab-complex-title"]:after{
+	left: 89px;
+	width: 145px;
+}
+.tab-anchor > div.c[data-general="tab-complex-title"]:after{
+	left: 247px;
+	width: 151px;
+}
+.tab-anchor > div.d[data-general="tab-complex-title"]:after{
+	left: 410px;
+	width: 80px;
+}
+
+/*Новостройка*/
+.tab-newbuilding.tab-anchor{
+	margin-top: 35px;
+}
+.tab-anchor > div[data-general="tab-newbuilding-title"]{
+	width: 539px;
+}
+.tab-anchor > div.a[data-general="tab-newbuilding-title"]:after{
+	width: 96px;
+}
+.tab-anchor > div.b[data-general="tab-newbuilding-title"]:after{
+	left: 96px;
+	width: 102px;
+}
+.tab-anchor > div.c[data-general="tab-newbuilding-title"]:after{
+	left: 198px;
+	width: 82px;
+}
+.tab-anchor > div.d[data-general="tab-newbuilding-title"]:after{
+	left: 280px;
+	width: 103px;
+}
+.tab-anchor > div.e[data-general="tab-newbuilding-title"]:after{
+	left: 383px;
+    width: 152px;
+}
+
+/*
+	ЖК Расположение
+*/
+.tab > div[data-general="tab-maps"] {
+	width: 420px;
+}
+.tab > div.a[data-general="tab-maps"]:after {
+    left: 0px;
+    width: 167px;
+}
+.tab > div.b[data-general="tab-maps"]:after {
+    left: 168px;
+    width: 116px;
+}
+.tab > div.c[data-general="tab-maps"]:after {
+    left: 284px;
+    width: 137px;
+}
+/*
+	Новостройки расположение	
+*/
+.tab > div[data-general="tab-maps-newbuilding"] {
+	width: 487px;
+}
+.tab > div.a[data-general="tab-maps-newbuilding"]:after {
+    left: 0px;
+    width: 167px;
+}
+.tab > div.b[data-general="tab-maps-newbuilding"]:after {
+    left: 168px;
+    width: 116px;
+}
+.tab > div.c[data-general="tab-maps-newbuilding"]:after {
+    left: 284px;
+    width: 204px;
+}
+
+/*
+	НОВОСТИ
+*/
+.tab > div[data-general="tab-news"] {
+	width: 530px;
+}
+.tab > div.a[data-general="tab-news"]:after {
+    left: 0px;
+    width: 159px;
+}
+.tab > div.b[data-general="tab-news"]:after {
+    left: 159px;
+    width: 210px;
+}
+.tab > div.c[data-general="tab-news"]:after {
+    left: 375px;
+    width: 154px;
+}
+
+/*
+	лот-блоки
+*/
+.tab > div[data-general="tab-description"] {
+    width: 430px;
+}
+.tab > div.a[data-general="tab-description"]:after {
+    left: 0px;
+    width: 117px;
+}
+.tab > div.b[data-general="tab-description"]:after {
+    left: 117px;
+    width: 176px;
+}
+.tab > div.c[data-general="tab-description"]:after {
+    left: 293px;
+    width: 133px;
+}
+
+.tab > div[data-general="tab-description-block"] {
+    width: 250px;
+}
+.tab > div.a[data-general="tab-description-block"]:after {
+    left: 0px;
+    width: 117px;
+}
+.tab > div.b[data-general="tab-description-block"]:after {
+    left: 117px;
+    width: 176px;
+}
+.tab > div.c[data-general="tab-description-block"]:after {
+    left: 115px;
+    width: 133px;
+}
+
+@media screen and (max-width: 550px) {
+    .tab-anchor:after, .tab-anchor:before,
+    .tab:after, .tab:before{
+        content: " ";
+        width: 20px;
+        height: 40px;
+        position: absolute;
+        z-index: 10;
+        pointer-events: none;
+    }
+    .tab-anchor, .tab{
+        overflow-x: scroll;
+    }
+    .tab-anchor:after,.tab:after{
+        right: 9px;
+        top: 29px;
+        background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 70%, rgba(255,255,255,1) 85%, rgba(255,255,255,1) 91%, rgba(255,255,255,1) 95%, rgba(255,255,255,1) 100%);
+        background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 70%,rgba(255,255,255,1) 85%,rgba(255,255,255,1) 91%,rgba(255,255,255,1) 95%,rgba(255,255,255,1) 100%);
+        background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 70%,rgba(255,255,255,1) 85%,rgba(255,255,255,1) 91%,rgba(255,255,255,1) 95%,rgba(255,255,255,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 );
+    }
+    .tab:after{
+        top: 88px;
+    }
+    .tab-anchor:before, .tab:before{
+        left: 9px;
+        background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 9%, rgba(255,255,255,1) 15%, rgba(255,255,255,1) 30%, rgba(255,255,255,0) 100%);
+        background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 5%,rgba(255,255,255,1) 9%,rgba(255,255,255,1) 15%,rgba(255,255,255,1) 30%,rgba(255,255,255,0) 100%);
+        background: linear-gradient(to right, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 5%,rgba(255,255,255,1) 9%,rgba(255,255,255,1) 15%,rgba(255,255,255,1) 30%,rgba(255,255,255,0) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 );
+    }
+}
+
+/*фильтр*/
+.search-modal .tab{
+    padding-top: 35px;
+}
+.search-modal .tab > div {
+    width: 700px;
+}
+.search-modal .tab > div.a:after{
+    left: 0px;
+    width: 178px;
+}
+.search-modal .tab > div.b:after{
+    left: 177px;
+    width: 137px;
+}
+.search-modal .tab > div.c:after{
+    left: 160px;
+    width: 98px;
+}
+.search-modal .tab > div.d:after{
+    left: 258px;
+    width: 193px;
+}
+.search-modal .tab > div.f:after{
+    left: 450px;
+    width: 90px;
+}
+

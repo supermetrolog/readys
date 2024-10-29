@@ -1,0 +1,48 @@
+{% extends "CityBundle:Default:layout.html.twig" %}
+{% set styles = ['map.css', 'zaglushka.css'] %}
+{% set scripts = ['order.js'] %}
+{% block content %}
+	<div class="wrap">
+		<div>
+			<h1>{% if h1 is defined %} {{ h1 }} {% endif %}</h1>
+		</div>
+	</div>
+	<div class="overlay-wrap line horizontal-center">
+		<div class="center-content">
+			<div class="clock"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
+			<div class="title">
+				Раздел находится<br/>
+				на этапе обновления
+			</div>
+		</div>
+	</div>
+	<div class="wrap">
+		<div class="line horizontal-center">
+			<div class="order">
+				<div class="title line vertical-center horizontal-center"><div class="at"><img alt="" src="/public/images/ico/at.svg"></div>Хотите мы сообщим, когда все будет готово?</div>
+				<div class="wrap-filter line vertical-center">
+					<form>
+						<div class="line">
+							<div class="dialog_input" data-name="name">
+								<input class="" type="text" name="name" value="" placeholder="" autocomplete="off">
+								<span class="label">Имя</span>
+							</div>
+							<div class="dialog_input" data-name="email">	
+								<input  class="" type="text" name="email" placeholder="" autocomplete="off">
+								<span class="label">E-mail</span>
+							</div>	
+						</div>
+						<input type="hidden" name="url" value="{{ app.request.uri }}"></input>
+						<input type="hidden" name="wish" value="Раздел: Хотите мы сообщим, когда все будет готово?"></input>
+						<input type="hidden" name="reachGoal" value="ORDER"></input>
+						<input type="hidden" name="user-agent" value="{{ app.request.headers.get('User-Agent') }}"></input>
+					</form>
+					<div class="btn-ellipse send"><i class="fa fa-envelope" aria-hidden="true"></i> Сообщить</div>
+				</div>
+			</div>
+		</div>
+		<div class="order-success">
+			Спасибо! Данные успешно отправлены.
+		</div>
+	</div>
+{% endblock %}

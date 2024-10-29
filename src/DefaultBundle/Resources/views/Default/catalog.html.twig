@@ -1,0 +1,67 @@
+{% extends "DefaultBundle:Default:layout.html.twig" %}
+{% set styles = [
+    'dialog-search.css',
+    'media_dialog_search.css'] %}
+{% set scripts = [
+    'plugins/svg-pan-zoom/dist/svg-pan-zoom.min.js',
+    'plugins/svg-pan-zoom/dist/hammer.js',
+    'svg-mobile-zoom.js',
+    'skelet.js',
+	'metro.js',
+    'map-polygon.js',
+    'filter-districts.js'
+] %}
+
+{% block content %}
+	{% import "DefaultBundle:Default:declension.html.twig" as utils %}
+    <script type="text/javascript" src="{{ asset('public/node_modules/yaMetro/dst/yaMetro.js') }}"></script>
+	<div class="wrap line">
+		<div>
+			<h1>{% if h1 is defined %} {{ h1 }} {% endif %}</h1><div class=""></div>
+            <div class="small-text count-lots">{{ utils.declension(total, ['предложение', 'предложения', 'предложений']) }}</div>
+		</div>
+		<div class="line vertical-center desctop-filter">
+            {#<div class="btn-ellipse subscribe">Подписаться</div>#}
+			<div class="btn-ellipse refine open ripple" data-txt2="Cкрыть поиск" data-txt="Уточнить поиск"><span>Cкрыть поиск</span> <i class="fa fa-angle-down"></i></div>
+		</div>
+	</div>
+	<div class="wrap mobile-refine line">
+		<div class="count"></div>
+		<div class="btn-ellipse ripple"><i class="fa fa-filter"></i><span>Уточнить поиск</span><i class="fa fa-angle-right"></i></div>
+	</div>
+	<div class="wrap-desctop-filter">
+		<div class="wrap desctop-filter">
+			{% include "DefaultBundle:Default:filter.html.twig" %}
+		</div>
+	</div>
+	{#<div class="wrap" id="popularSearches" data-route={{ path('popular_searches', {deal: app.request.get("deal","sale")}) }}>
+        {% if app.request.get("section") == "catalog" %}
+            {% include "DefaultBundle:IncludeBlocks:popularSearches.html.twig" %}
+        {% endif %}
+	</div>#}
+	<div class="wrap line sort-line">
+		<div class="line">
+			<div class="btn-ellipse sort ripple {% if app.request.get("sort", "price_up") == "price_up" or app.request.get("sort") == "price_down" %}active{% endif %}" data="price" data-value="{% if app.request.get("sort", "price_up") == "price_up" %}up{% else %}down{% endif %}">
+				<span>Цена</span>
+				<i class="fa {% if app.request.get("sort", "price_up") == "price_up" %}fa-sort-amount-desc{% else %}fa-sort-amount-asc{% endif %}"></i>
+			</div>
+			<div class="btn-ellipse sort ripple {% if app.request.get("sort") == "square_up" or app.request.get("sort") == "square_down" %}active{% endif %}" data="square" data-value="{% if app.request.get("sort", "square_up") == "square_up" %}up{% else %}down{% endif %}">
+				<span>Площадь</span>
+				<i class="fa {% if app.request.get("sort", "square_up") == "square_up" %}fa-sort-amount-desc{% else %}fa-sort-amount-asc{% endif %}"></i>
+			</div>
+		</div>
+	</div>
+	<div class="wrap line horizontal-left elements">
+		{% if app.request.get("deal_type", constant("DEAL")) == "rent" %}
+        	{% include "DefaultBundle:Default:list_rent.html.twig" %}
+		{% elseif app.request.get("deal_type") == "sale" %}
+            {% include "DefaultBundle:Default:list_sale.html.twig" %}
+		{% else %}
+			{% include "DefaultBundle:Default:list_otvetstvennoe-hranenie.html.twig" %}
+		{% endif %}
+	</div>
+	<div class="bottom_navigation line column vertical-center">
+        {% include "DefaultBundle:Default:pagination.html.twig" %}
+	</div>
+{% endblock %}
+

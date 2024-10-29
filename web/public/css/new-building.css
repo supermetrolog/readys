@@ -1,0 +1,243 @@
+h2{
+	font-family: 'Roboto Thin', sans-serif;
+    font-size: 41px;
+    margin: 0 auto 20px auto;
+    font-weight: 400;
+}
+.lot{
+	border-radius: 0;
+}
+.tab-newbuilding.tab-anchor {
+    margin-top: 35px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    margin-bottom: 10px;
+}
+.overlay {
+    width: 100%;
+    height: 600px;
+    margin: 0;
+    position: relative;
+    margin-bottom: 10px;
+}
+.eclipse {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: rgba(0,0,0,0.35);
+	z-index: 1;
+	border-radius: 3px 3px 0 0;
+}
+.over-wrap {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+}
+.over-wrap .title {
+    font-size: 60px;
+    color: #FFF;
+    font-family: "RalewayExtraBold";
+    text-align: center;
+    line-height: 1.2;
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+}
+.overlay .image {
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    border-radius: 0 0 3px 3px;
+}
+div.tagline{
+	max-width: 495px;
+	font-size: 24px;
+    color: #FFF;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.lot-description{
+	margin-top: 40px;
+	padding: 30px 10px;
+	border-radius: 3px;
+}
+.g-box{
+	margin-top: 10px;
+}
+.g-box h2{
+	text-align: center;
+}
+.info-block {
+    margin-top: 40px;
+}
+.wrap-description-block > div{
+	width: calc(50% - 25px);
+	
+}
+.wrap-description-img.right img{
+	float: right;
+}
+.wrap-description-img img{
+	width: 100%;
+}
+.wrap-description-block .title{
+	text-align: left;
+	max-width: 600px;
+}
+.wrap-description-text{
+	padding-top: 20px; 
+}
+.wrap-description-text .text{
+	color: #666;
+	font-size: 14px;
+	max-width: 600px;
+	line-height: 1.6;
+}
+.advantages{
+	padding: 35px 0;
+}
+.advantage{
+	flex: 1;
+	text-align: center;
+}
+.advantage:not(:last-child){
+	border-right: 1px solid #dfdfdf;
+}
+.advantage .advantage-digital{
+	font-size: 48px; 
+	color: #c2151c;
+	font-weight: bold;
+}
+.advantage .advantage-text{
+	font-family: "RalewayLight";
+	font-size: 24px; 
+	color: #666666;
+}
+.canvas {
+    background: #FFF;
+    box-shadow: none;
+    border-radius: 3px;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+.order-header .desctop{
+	color: #000000;
+	font-size: 18px;
+	font-weight: bold;
+}
+.order-header .small-text{
+	font-size: 18px;
+	font-weight: 300;	
+}
+.order-header > div  img{
+	margin-right: 15px;
+}
+
+#lightgallery {
+    margin-top: 10px;
+}
+/*price*/
+
+.wrap-price{
+	margin-bottom: 20px;
+}
+.wrap-price-block{
+	height: 190px;
+	flex: 1;
+	background: #FFF;
+}
+.wrap-price-block:not(:last-child){
+	margin-right: 20px;
+}
+.wrap-price-block > div{
+	padding: 20px;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+	border-radius: 3px;
+	height: 100%;
+}	
+.wrap-price-block .title{
+	color: #c2151c;
+	font-size: 30px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.wrap-price-block .subtitle{
+	font-size: 24px;
+	font-family: "RalewayLight";
+	line-height: 1;
+}
+
+.wrap-price-block:hover{
+	moz-transform: translateY(-1px);
+    -webkit-transform: translateY(-1px);
+    -o-transform: translateY(-1px);
+    -ms-transform: translateY(-1px);
+    transform: translateY(-1px);
+}	
+.wrap-price-block:hover > div:hover{
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+}
+.wrap-price-block .price{
+	font-size: 18px;
+}	
+.wrap-price-block .price span{
+	font-size: 24px;
+	font-weight: bold;
+}
+.wrap-price-block.special .price .subtitle{
+	color: rgba(255, 255, 255, 0.5);
+	font-size: 16px;
+	margin-bottom: 10px;
+}
+.wrap-price-block.special{
+	background: #c2151c;
+	color: #FFF;
+}
+.wrap-price-block.special .title{
+	color: #FFF;
+	line-height: 1;
+}
+
+/*repair*/
+.wrap-repair{
+	
+}
+.wrap-repair .wrap-repair-block{
+	flex: 1;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+	max-width: 650px;
+	margin-bottom: 20px;
+}
+.wrap-repair .wrap-repair-block:not(:last-child){
+	margin-right: 20px;
+}
+.wrap-repair .wrap-repair-block .wrap-img img{
+	border-radius: 3px 3px 0 0;
+	display: block;
+	width: 100%;
+}
+.wrap-repair .wrap-repair-block .wrap-info{
+	background: #FFF;
+    border-radius: 0 0 3px 3px;
+    padding: 20px;
+}
+.wrap-repair .wrap-repair-block .wrap-info>div:first-child{
+	font-size: 14px;
+	color: #aeadad;	
+	margin-bottom: 10px;
+}
+.wrap-repair .wrap-repair-block .wrap-info>div:last-child{
+	font-size: 20px;
+	font-family: "RalewayExtraBold"; 	
+}
+.fr{
+	float: right;
+}

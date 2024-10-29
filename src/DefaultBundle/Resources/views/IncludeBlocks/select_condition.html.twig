@@ -1,0 +1,61 @@
+<div class="wrap-select-condition line horizontal-left vertical-center">
+    {% if app.request.get("metros") %}
+        {% for v in app.request.get("metros") %}
+            <div data-name="metro" data-value="{{ v }}" class="line vertical-center">
+                <span class="first-span icon-metro" style=""></span>{{ v }}<span class="icon-clear-search"></span>
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% if app.request.get("districts") %}
+        {% for v in app.request.get("districts") %}
+            <div data-name="district" data-value="{{ v }}" class="line vertical-center">
+                <span class="first-span icon-district"></span>{{ v }}<span class="icon-clear-search"></span>
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% if app.request.get("districts_moscow") %}
+        {% for v in app.request.get("districts_moscow") %}
+            <div data-name="district" data-value="{{ v }}" class="line vertical-center">
+                <span class="first-span icon-district"></span>{{ v }}<span class="icon-clear-search"></span>
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% if app.request.get("highways") %}
+        {% for v in app.request.get("highways") %}
+            <div data-name="area" data-value="{{ v }}" class="line vertical-center" >
+                <span class="first-span icon-area"></span>{{ v }}<span class="icon-clear-search"></span>
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% if app.request.get("highways") %}
+        {% for v in app.request.get("highways") %}
+            <div data-name="area" data-value="{{ v }}" class="line vertical-center" >
+                <span class="first-span icon-area"></span>{{ v }}<span class="icon-clear-search"></span>
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% if app.request.get("highways_moscow") %}
+        {% for v in app.request.get("highways_moscow") %}
+            <div data-name="street" data-value="{{ v }}" class="line vertical-center" >
+                <span class="first-span icon-area"></span>{{ v }}<span class="icon-clear-search"></span>
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% if app.request.get("towns_central") %}
+        {% for v in app.request.get("towns_central") %}
+            <div data-name="street" data-value="{{ v }}" class="line vertical-center" >
+                <span class="first-span icon-area"></span>{{ v }}<span class="icon-clear-search"></span>
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% if app.request.get("overlay") == "polygon" %}
+        <div data-name="polygon" data-value="" class="line vertical-center">
+            <span class="first-span icon-polygon"></span>Очерченные границы<span class="icon-clear-search"></span>
+        </div>
+    {% endif %}
+    {% if app.request.get("overlay") == "circle" %}
+        <div data-name="circle" data-value="" class="line vertical-center">
+            <span class="first-span icon-circle"></span>Поиск в радиусе<span class="icon-clear-search"></span>
+        </div>
+    {% endif %}
+</div>

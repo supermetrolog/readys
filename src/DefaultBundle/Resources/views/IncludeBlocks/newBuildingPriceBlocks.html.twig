@@ -1,0 +1,73 @@
+{% set counter = 0 %}
+<div class="line wrap-price">
+	{% if property.price_studio %}
+		<div class="wrap-price-block">
+			<div class="line column vertical-start">
+				<div class="title">Студия</div>
+				<div class="price">от <span>{{ property.price_studio|number_format(0, '.', ' ') }}</span> {{ 'rub'|get_currency_symbol()|raw }}/м<sup>2</sup></div>
+			</div>
+		</div>
+	{% endif %}	
+	{% if property.price_flat_1 %}
+		<div class="wrap-price-block">
+			<div class="line column vertical-start">
+				<div>
+					<div class="title">1-комнатная</div>
+					<div class="subtitle">квартира</div>
+				</div>
+				<div class="price">от <span>{{ property.price_flat_1|number_format(0, '.', ' ') }}</span> {{ 'rub'|get_currency_symbol()|raw }}/м<sup>2</sup></div>
+			</div>
+		</div>
+	{% endif %}	
+	{% if property.price_flat_2 %}
+		<div class="wrap-price-block">
+			<div class="line column vertical-start">
+				<div>
+					<div class="title">2-комнатная</div>
+					<div class="subtitle">квартира</div>
+				</div>
+				<div class="price">от <span>{{ property.price_flat_2|number_format(0, '.', ' ') }}</span> {{ 'rub'|get_currency_symbol()|raw }}/м<sup>2</sup></div>
+			</div>
+		</div>
+	{% endif %}	
+	{% if property.price_flat_3 %}
+		<div class="wrap-price-block">
+			<div class="line column vertical-start">
+				<div>
+					<div class="title">3-комнатная</div>
+					<div class="subtitle">квартира</div>
+				</div>
+				<div class="price">от <span>{{ property.price_flat_3|number_format(0, '.', ' ') }}</span> {{ 'rub'|get_currency_symbol()|raw }}/м<sup>2</sup></div>
+			</div>
+		</div>
+	{% endif %}
+</div>	
+<div class="line wrap-price">
+	{% if property.price_flat_4 %}
+		<div class="wrap-price-block">
+			<div class="line column vertical-start">
+				<div>
+					<div class="title">4-комнатная</div>
+					<div class="subtitle">квартира</div>
+				</div>
+				<div class="price">от <span>{{ property.price_flat_4|number_format(0, '.', ' ') }}</span> {{ 'rub'|get_currency_symbol()|raw }}/м<sup>2</sup></div>
+			</div>
+		</div>
+	{% endif %}	
+	{% if property.special_title %}
+		<div class="wrap-price-block special">
+			<div class="line column vertical-start">
+				<div>
+					<div class="title">{{ property.special_title }}</div>
+				</div>
+				<div class="price">
+					<div class="line column vertical-start">
+						<div class="subtitle">Специальное предложение</div>	
+						<span>{{ property.special_text }}</span>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	{% endif %}	
+</div>

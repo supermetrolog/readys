@@ -1,0 +1,49 @@
+@media screen and (max-width: 650px) {
+	.modal-wrap{
+        overflow-y: hidden;
+    }
+	.modal-wrap.general-modal {
+	    position: relative;
+	    top: auto;
+	    right: auto;
+	    bottom: auto;
+	    left: auto;
+	    background: inherit;
+	    max-height: 0;
+		width: 100%;
+		z-index: 0;
+	}
+	.modal-wrap.general-modal.md-show{
+		background: inherit;
+		max-height: 2000px;
+	}
+	.general-modal .modal, .modal-success {
+	    width: 100%;
+	    position: relative;
+	    left: auto;
+	    margin-top: 0px;
+	    top: auto;
+	    border-radius: 0;
+   }
+   .general-modal .modal .header{
+		display: none;
+   }
+   .general-modal .modal .body {
+	    padding: 20px 10px;
+	}
+   .general-modal .modal .wrap-form {
+	    width: 100%
+	}
+	.general-modal .modal .body .wrap-form .dialog_input[data-name="email"] {
+	    flex: auto;
+	    width: 100%;
+	}
+	.general-modal .modal .body .wrap-form input,
+	.general-modal .modal .body .wrap-form textarea{
+		width: 100%;
+	}
+	.general-modal .modal .footer, .modal-success .success-footer {
+	    padding: 20px;
+	    background: inherit;
+	}
+}

@@ -1,0 +1,257 @@
+/*filter*/
+
+
+
+/*map*/
+
+.search-modal #map{
+	height: 100%;
+	width: 100%;
+	min-height: 437px;
+}
+.search-modal .btn-purple{
+	margin: 0;
+}
+.search-modal .body>div{
+	position: relative;
+	height: 100%;
+}
+
+.search-modal .body>div.b,
+.search-modal .body>div.c,
+.search-modal .body>div.d,
+.search-modal .body>div.f{
+	display: none;
+	overflow-y: scroll;
+}
+.areas .index{
+    position: absolute;
+}
+.search-modal .body>div.b svg{
+	width: 100%;
+	height: 100%;
+}
+.map-control{
+	position: absolute;
+    top: 20px;
+    z-index: 10;
+    margin-right: 0 !important;
+    left: calc(50% - 163px);
+}
+.map-control > div[data-value="polygon"]:before{
+	content: " ";
+	width: 18px;
+	height: 18px;
+	margin-right: 10px;
+	display: inline-block;
+	background: url("/public/images/ico/map/triangle.svg") no-repeat;
+}
+.map-control > div.active[data-value="polygon"]:before{
+	background: url("/public/images/ico/map/triangle-white.svg") no-repeat;
+}
+.map-control > div[data-value="circle"]:before{
+	content: " ";
+	width: 18px;
+	height: 18px;
+	margin-right: 10px;
+	display: inline-block;
+	background: url("/public/images/ico/map/radius.svg") no-repeat;
+}
+.map-control > div.active[data-value="circle"]:before{
+	background: url("/public/images/ico/map/radius-white.svg") no-repeat;
+}
+.map-trash{
+	display: none;
+	position: absolute;
+    z-index: 100;
+    top: 40%;
+    left: 20px;
+    background: #FFF;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding-top: 5px;
+    border-radius: 15px;
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.2); 
+}
+.search-modal .modal{
+	width: calc(100% - 60px);
+	max-width: 1260px;
+	left: calc(50% - 630px);
+	height: calc(100% - 60px); 
+	margin-top: 30px;
+	min-height: 600px;
+	flex-wrap: nowrap;
+}
+
+.clear-map{
+	position: absolute;
+	left: 25px;
+	cursor: pointer;
+}
+.clear-map:before{
+	content: "\f12d";
+	color: #b9b8b8;
+	font-size: 14px;
+	display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    margin-right: 10px;
+}
+.clear-map>span{
+	font-size: 14px;
+}
+
+.search-modal .body{
+	background: transparent;
+	padding: 0;
+	height: calc(100% - 161px);
+}
+/*metro*/
+
+.metro-markers{
+	position: absolute;
+    left: 0;
+    right: 0;
+}
+.metro-layer{
+	position: absolute;
+    left: 0;
+    right: 0;
+    height: 1350px;
+}
+
+.metro-marker-active{
+	position: absolute;
+	left: 0;
+    right: 0;
+    height: 100%;
+}
+svg g#Layer_2 g{
+	cursor: pointer;
+}
+svg g#Layer_2 g > g{
+	display:none;
+}
+svg g#Layer_2 g:hover > text{
+	fill: #ea4e56;
+}
+svg g#Layer_2 g.active > rect{
+	fill: #d1d1d1;
+}
+svg g#Layer_2 g.active > g{
+	display:block;
+}
+
+
+
+
+/*districts*/
+.search-modal .areas .el{
+	margin-bottom: 15px;	
+}
+.search-modal .areas .el a{
+	color: #575757;
+	font-size: 13px;	
+}
+.search-modal .areas .el a.active{
+	margin-left: 20px;	
+}
+.search-modal .areas .el a.active{
+	border: 1px solid #d1d1d1;
+    padding: 5px 8px;
+    background: #FFF;
+    border-radius: 4px;
+}
+.search-modal .areas .el a .icon-clear-search{
+	display:none;
+	content: "\e931";
+	-webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    color: #b9b8b8;
+    font-family: 'icomoon' !important;
+    cursor: pointer;
+    font-size: 10px;
+    margin-left: 10px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    color: #b9b8b8;
+}
+.search-modal .areas .el a.active .icon-clear-search{
+	display: inline-block;
+	
+}
+.search-modal .areas .el a.active .icon-clear-search:hover{
+	color: #181415;
+}
+.search-modal .areas .el a.active:hover{
+	color: #181415;
+}
+.search-modal .areas .el a:not(.active):not(.district){
+	margin-left: 30px;	
+	
+}
+
+.search-modal a.district.link-dash span{
+	font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+}
+.search-modal a.district.link-dash span:hover{
+	color: #ea4e56 !important;
+}
+.areas-search{
+	padding: 25px 20px;
+	background: #f6f6f6;	
+}
+.areas-search .result{
+    column-count: 5;
+}
+.search-modal a.district:before{
+	content: " ";
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	margin-right: 10px;
+}
+.search-modal a.district[data-link='cao']:before{
+	background: url("/public/images/ico/districts/cao.svg") no-repeat;
+}
+.search-modal a.district[data-link='sao']:before{
+	background: url("/public/images/ico/districts/sao.svg") no-repeat;
+}
+.search-modal a.district[data-link='svao']:before{
+	background: url("/public/images/ico/districts/svao.svg") no-repeat;
+}
+.search-modal a.district[data-link='szao']:before{
+	background: url("/public/images/ico/districts/szao.svg") no-repeat;
+}
+.search-modal a.district[data-link='vao']:before{
+	background: url("/public/images/ico/districts/vao.svg") no-repeat;
+}
+.search-modal a.district[data-link='yuao']:before{
+	background: url("/public/images/ico/districts/yuao.svg") no-repeat;
+}
+.search-modal a.district[data-link='yuvao']:before{
+	background: url("/public/images/ico/districts/yuvao.svg") no-repeat;
+}
+.search-modal a.district[data-link='yuzao']:before{
+	background: url("/public/images/ico/districts/yuzao.svg") no-repeat;
+}
+.search-modal a.district[data-link='zao']:before{
+	background: url("/public/images/ico/districts/zao.svg") no-repeat;
+}
+.select-metro-btn{
+	position: absolute;
+    top: 15px;
+    left: 20px;
+}
+.metro-btn{
+	background: #FFF;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #bfbfbf;
+}

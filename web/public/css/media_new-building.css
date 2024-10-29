@@ -1,0 +1,127 @@
+@media screen and (max-width: 1023px) {
+	.wrap-price-block {
+	    flex: auto;
+	    width: calc(50% - 10px);
+	    margin-bottom: 20px;
+	}
+	.wrap-price-block:nth-of-type(2n) {
+	    margin-right: 0;
+	}
+	.wrap-price {
+	    margin-bottom: 0px;
+	}
+	.wrap-price-block .title{
+		font-size: 27px;
+	}
+	.advantage {
+	    flex: auto;
+	    text-align: center;
+	    width: 50%;
+	    margin-bottom: 40px;
+	}
+	.advantage:nth-of-type(2n) {
+	    border-right: 0;
+	}
+	.order-header .desctop {
+	    width: 470px;
+	    text-align: center;
+	}
+	.wrap-repair .wrap-repair-block {
+	    flex: auto;
+	    margin-bottom: 20px;
+	    width: calc(50% - 10px);
+	    max-width: calc(50% - 10px);
+	}
+	.wrap-repair .wrap-repair-block:nth-of-type(2n) {
+		margin-right: 0;
+	}
+}
+@media screen and (max-width: 640px){
+	.over-wrap .title {
+	    font-size: 43px;
+	}
+	
+	.wrap-description-block{
+		-webkit-box-orient: vertical;
+	    -moz-box-orient: vertical;
+	    -webkit-flex-direction: column;
+	    -moz-flex-direction: column;
+	    -ms-flex-direction: column;
+	    flex-direction: column;	
+	}
+	.wrap-description-block > div{
+		width: 100%;
+	}
+	.wrap-description-block .title{
+		text-align: center;
+		margin: 20px 0 15px 0; 
+	}
+	.wrap-description-block.flex-order > div:first-child{
+		-webkit-box-ordinal-group: 2;
+	    -moz-box-ordinal-group: 2;
+	    -ms-flex-order: 2;
+	    -webkit-order: 2;
+	    -moz-order: 2;
+	    order: 2;
+	}
+	.wrap-description-block.flex-order > div:last-child{
+		-webkit-box-ordinal-group: 1;
+	    -moz-box-ordinal-group: 1;
+	    -ms-flex-order: 1;
+	    -webkit-order: 1;
+	    -moz-order: 1;
+	    order: 1;
+	}
+	.oh{
+		-webkit-box-orient: vertical;
+	    -moz-box-orient: vertical;
+	    -webkit-flex-direction: column;
+	    -moz-flex-direction: column;
+	    -ms-flex-direction: column;
+	    flex-direction: column;
+	}
+	.order-header .desctop{
+		width: 250px;
+	}
+	.order-header .small-text {
+	    text-align: center;
+	}
+	.order-horizontal .order-header {
+	    padding: 0;
+	    height: 200px;
+	}
+	.req {
+	    text-align: center;
+	}
+	.mobilePhotoGallery{
+		margin-top: 0;
+	}
+	.wrap-price-block{
+		width: 100%;
+		margin-right: 0 !important;
+	}
+	.wrap-price-block .title {
+	    font-size: 25px;
+	}
+	.wrap-price-block .price span{
+		font-size: 20px;
+	}
+	.wrap-repair .wrap-repair-block{
+		width: 100%;
+		max-width: 100%;
+		margin-right: 0 !important;
+	}
+}
+@media screen and (max-width: 535px){
+	.over-wrap .title {
+	    font-size: 33px;
+	}
+	.advantage {
+	    border: 0 !important;
+	    width: 100%;
+	    margin-bottom: 40px;
+	}
+	.lot-description{
+		margin-top: 0;
+	}
+}

@@ -1,0 +1,37 @@
+<div class="canvas order-horizontal">
+	<div class="order-header line horizontal-center vertical-center">
+		<div class="line vertical-center column">
+			<div class="line vertical-center oh">
+				<img alt="" src="/public/images/ico/a.png"><span class="desctop">Наши эксперты подготовили инвестиционный анализ привлекательности по данной новостройке</span>
+			</div>
+			<div class="small-text">Оставьте контакты и мы вышлем его на почту</div>
+			
+		</div>
+	</div>
+	<form class="order-body line horizontal-center vertical-center">
+		<div class="dialog_input" data-name="name">
+			<input class="requare {% if app.request.cookies.get("name") %}no_empty{% endif %}" type="text" name="name" value="{{ app.request.cookies.get("name", "") }}" placeholder="" autocomplete="off">
+			<span class="label">Имя</span>
+		</div>
+		<div class="dialog_input" data-name="email">	
+			<input  class="requare {% if app.request.cookies.get("email") %}no_empty{% endif %}" type="text" name="email" value="{{ app.request.cookies.get("email", "") }}" placeholder="" autocomplete="off">
+			<span class="label">E-mail</span>
+		</div>
+		<div class="dialog_input" data-name="phone">
+			<input  class="requare {% if app.request.cookies.get("phone") %}no_empty{% endif %}" type="text" name="phone" value="{{ app.request.cookies.get("phone", "") }}" placeholder="" autocomplete="off">
+			<span class="label">Телефон</span>
+		</div>
+		<input type="hidden" name="url" value="{{ app.request.uri }}"></input>
+		<input type="hidden" name="wish" value="Я собственник, хочу продать / снять дом на выгодных условиях"></input>
+		<input type="hidden" name="user-agent" value="{{ app.request.headers.get('User-Agent') }}"></input>
+		<input type="hidden" name="reachGoal" value="ORDER"></input>
+		<div class="btn-ellipse btn-send send"><i class="fa fa-envelope-o" aria-hidden="true"></i> Получить инвест-анализ</div>
+	</form>
+	<div class="order-footer line horizontal-center column vertical-center">
+		<div class="req"><span class="red">*</span> Все поля обязательны для заполнения</div>
+		<div class="req">Нажимая на кнопку «Получить инвест-анализ», вы даете согласие на обработку своих персональных данных</div>
+	</div>
+</div>
+<div class="order-success">
+	Спасибо! Данные успешно отправлены.
+</div>

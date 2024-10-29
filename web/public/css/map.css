@@ -1,0 +1,39 @@
+#map, #similar{
+	width: 100%;
+	height: 450px;
+	margin-bottom: 10px;
+}
+.legend{
+	padding: 15px 10px;
+	background: #f6f8f9;
+}
+.legend > div{
+	cursor: pointer;
+}
+.legend > div > div > span {
+	font-size: 30px;
+}
+
+
+/*
+
+.legend > div > div > span > span.path1{
+	background: #FFF;
+}
+.legend > div:hover > div > span > span.path1{
+	background: #2197d7;
+}
+.legend > div:hover > div > span{
+	color: #FFF;
+}*/
+
+.legend > div > span{
+	font-family: 'Arial', sans-serif;
+	border-bottom: 1px dashed #181415;
+	margin-left: 10px; 
+}
+.legend > div:hover > span{
+	font-weight: bold;
+	border: 0;
+}
+

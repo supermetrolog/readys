@@ -1,0 +1,84 @@
+index:
+    path: /
+    defaults: 
+        _controller: DefaultBundle:Default:index
+        section: index
+
+catalog:
+    path: /{deal_type}/
+    defaults:
+        _controller: DefaultBundle:Default:catalog
+        section: catalog
+        select_condition: yes
+    requirements:
+        deal_type: rent|sale|otvetstvennoe-hranenie
+
+catalogpage1:
+    path: /{deal_type}/1/
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        section: catalog
+        route: catalog
+        permanent: true # this is for 301
+    requirements:
+        deal_type: rent|sale|otvetstvennoe-hranenie
+
+catalogpage:
+    path: /{deal_type}/{pages}/
+    defaults:
+        _controller: DefaultBundle:Default:catalog
+        section: catalog
+        select_condition: yes
+    requirements:
+        pages:  \d+
+        deal_type: rent|sale|otvetstvennoe-hranenie
+
+search:
+    path: /search/
+    defaults:
+        _controller: DefaultBundle:Default:search
+        section: catalog
+
+bigsearch:
+    path: /bigsearch/
+    defaults:
+        _controller: DefaultBundle:Default:bigsearch
+        section: catalog
+
+othersearch:
+    path: /othersearch/
+    defaults:
+        _controller: DefaultBundle:Default:othersearch
+        section: new
+        filterdeal: y
+        multy-play: no
+
+ordersend:
+    path: /order/send/
+    defaults:
+        _controller: DefaultBundle:Order:send
+
+lot:
+    path: /{deal_type}/id_{id}/
+    defaults:
+        _controller: DefaultBundle:Default:lot
+        section: lot
+    requirements:
+        id: \d+
+        deal_type: rent|sale|otvetstvennoe-hranenie
+
+block:
+    path: /{deal_type}/block_{id}-{blockid}/
+    defaults:
+        _controller: DefaultBundle:Default:lot
+        section: lot
+    requirements:
+        id: \d+
+        blockid: \d+
+        deal_type: rent|sale|otvetstvennoe-hranenie
+
+sendpdf:
+    path: /sendpdf/{id}/
+    defaults:
+        _controller: DefaultBundle:Default:sendpdf
+        section: lot

@@ -1,0 +1,38 @@
+{% extends "CityBundle:Default:layout.html.twig" %}
+{% set styles = ['filter.css', 'dialog-search.css'] %}
+{% set scripts = ['catalog.js', 'skelet.js', 'map-polygon.js', 'plugins/jquery.svg.js', 'metro.js', 'filter-districts.js'] %}
+
+{% block content %}
+	<div class="wrap line">
+		<div>
+			<h1>{% if h1 is defined %} {{ h1 }} {% endif %}</h1><div class=""></div>
+			<div class="small-text count-lots">{{ utils.declension(total, ['предложение', 'предложения', 'предложений']) }}</div>
+		</div>
+		<div class="line vertical-center">
+			{#<div class="btn-ellipse subscribe">Подписаться</div>#}
+			<div class="btn-ellipse refine open">Уточнить поиск</div>
+		</div>
+	</div>
+	<div class="wrap">
+		{% include "CityBundle:Test:filter.html.twig" %}
+	</div>
+	<div class="wrap">
+		<!-- <div class="popular-filter">
+			<span class="icon-fire-popular"></span><a href="#"></a>
+		</div> -->
+	</div>
+	<div class="wrap line sort-line">
+		<div class="line">
+			<div class="btn-ellipse sort {% if app.request.get("sort", "price_up") == "price_up" or app.request.get("sort") == "price_down" %}active{% endif %} desc" data="price" data-value="up"><span>Цена</span></div>
+			<div class="btn-ellipse {% if app.request.get("sort") == "square_up" or app.request.get("sort") == "square_down" %}active{% endif %} sort" data="square" data-value="down"><span>Площадь</span></div>
+		</div>
+	</div>
+	<div class="wrap line horizontal-left elements">
+		{% include "CityBundle:Test:list.html.twig" %}
+	</div>
+	<div class="bottom_navigation line column vertical-center">
+		{% include "CityBundle:Test:pagination.html.twig" %}
+	</div>
+	{% include "CityBundle:Default:avg_price.html.twig" %}
+{% endblock %}
+

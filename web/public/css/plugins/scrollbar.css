@@ -1,0 +1,66 @@
+.scrollbar{
+	position:absolute;
+	right:5px;
+	bottom:0px;
+	width:6px;
+	height:100%;
+	border-radius:7px;
+	background: rgba(0, 0, 0, 0.05);
+	z-index:1000;
+	
+	-webkit-transition-property: width,background;
+	-moz-transition-property: width,background;
+	-o-transition-property: width,background;
+	transition-property: width,background;
+	
+	-webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+	
+	-webkit-transition-timing-function: linear;
+	-o-transition-timing-function: linear;
+	-moz-transition-timing-function: linear;
+	transition-timing-function: linear;
+}
+.scrollbar_cursor{
+	position:absolute;
+	top:0;
+	left:calc(50% - 3px);
+	height:10px;
+	width:6px;
+	border-radius:3px;
+	background-color:rgba(0, 0, 0, 0.3);
+	z-index:1000;
+	cursor:pointer;
+	/*
+	-webkit-transition: width,left 0.2s linear;
+	-moz-transition: width,left 0.2s linear;
+	-o-transition: width,left 0.2s linear;
+	transition: width,left 0.2s linear;
+	*/
+	-webkit-transition-property: width,left,border-radius,background-color;
+	-moz-transition-property: width,left,border-radius,background-color;
+	-o-transition-property: width,left,border-radius,background-color;
+	transition-property: width,left,border-radius,background-color;
+	
+	-webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+	
+	-webkit-transition-timing-function: linear;
+	-o-transition-timing-function: linear;
+	-moz-transition-timing-function: linear;
+	transition-timing-function: linear;
+}
+.scrollbar:hover{
+	width:10px;
+	background: rgba(0, 0, 0, 0.15);
+}
+.scrollbar:hover .scrollbar_cursor{
+	width:10px;
+	left:calc(50% - 5px);
+	border-radius:7px;
+	background-color:rgba(0, 0, 0, 0.5);
+}

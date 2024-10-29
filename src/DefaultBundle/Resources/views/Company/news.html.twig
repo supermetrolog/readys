@@ -1,0 +1,38 @@
+{% extends "CityBundle:Default:layout.html.twig" %}
+
+{% set styles = ['filter.css', 'news.css'] %}
+{% set scripts = ['skelet.js', 'news.js'] %}
+
+
+{% block content %}
+    <div class="wrap line">
+        <div>
+            <h1>{% if h1 is defined %} {{ h1 }} {% endif %}</h1>
+        </div>
+    </div>
+    <div class="wrap">
+        <div class="tab wrap-tab-news">
+            <div class="line flex-horizontal-center {% if app.request.get("section") == "all_news" %}a{% elseif app.request.get("section") == "news_category" and app.request.get("category") == "company" %}b{% elseif app.request.get("section") == "news_category" and app.request.get("category") == "media" %}c{% endif %}" data-general="tab-news" data-action="">
+                <div class="{% if app.request.get("section") == "all_news" %}active{% endif %}" data="a" data-type="" data-page="{% if app.request.get("section") == "all_news" %}{{ app.request.get("pages", 1) }}{% else %}1{% endif %}">Все новости <span class="small-text">{{ news_count[1] + news_count[2] }}</span></div>
+                <div class="{% if app.request.get("section") == "news_category" and app.request.get("category") == "company" %}active{% endif %}" data="b" data-type="company" data-page="{% if app.request.get("section") == "news_category" and app.request.get("category") == "company" %}{{ app.request.get("pages", 1) }}{% else %}1{% endif %}">Новости компании <span class="small-text">{{ news_count[1] }}</span></div>
+                <div class="{% if app.request.get("section") == "news_category" and app.request.get("category") == "media" %}active{% endif %}" data="c" data-type="media" data-page="{% if app.request.get("section") == "news_category" and app.request.get("category") == "media" %}{{ app.request.get("pages", 1) }}{% else %}1{% endif %}">Мы в прессе <span class="small-text">{{ news_count[2] }}</span></div>
+            </div>
+        </div>
+        <div class="news-wrap">
+            <div class="tab-news a active">
+                <div class="line horizontal-left elements">
+                    {% include "CityBundle:Company:news_list.html.twig" %}
+                </div>
+            </div>
+            <div class="tab-news b active">
+                <div class="line horizontal-left elements"></div>
+            </div>
+            <div class="tab-news c active">
+                <div class="line horizontal-left elements"></div>
+            </div>
+        </div>
+        <div class="bottom_navigation line column vertical-center">
+            {% include "CityBundle:Default:pagination.html.twig" %}
+        </div>
+    </div>
+{% endblock %}

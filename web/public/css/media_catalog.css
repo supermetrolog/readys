@@ -1,0 +1,141 @@
+@media screen and (min-width: 1280px) {
+	.element:hover .more{
+		visibility: visible;
+	}
+}
+
+@media screen and (min-width: 751px) {
+	
+}
+@media screen and (min-width: 521px) {
+	
+}
+@media screen and (max-width: 1279px) {
+	div.element:nth-of-type(4n + 1){
+		margin-left: 10px;
+	}
+	div.element:nth-of-type(3n + 1) {
+	    margin-left: 0px;
+	}
+	.element {
+    	width: calc((100% / 3) - (20px / 3));
+    	margin: 0 0 10px 10px;
+    }
+    .elements-list div.element{
+    	margin-left: 0;
+    }
+    .elements-list div.element .info .deal-lots>div:first-child{
+		margin-right: 20px;
+	}
+	.elements-list div.element .info .deal-lots .price{
+		font-size: 20px;
+	}
+	div.elements-list div.element .info .deal-lots .price span {
+	    font-size: 14px;
+	}
+	.elements-list div.element .info .deal-lots>div {
+	    flex: 1;
+	}
+}
+@media screen and (max-width: 950px){
+	div.element .info .icon-box>div{
+		width: inherit;
+	}
+	div.element .info .icon-box div.icon-text{
+		font-size: 13px;
+	}
+	div.element .info .title{
+		font-size: 18px;
+	}
+	.elements-list .element .img{
+		width: 295px;
+	}
+	.elements-list .element {
+	    height: 197px;
+	}
+	.elements-list .element .info {
+	    width: calc(100% - 295px);
+	}
+	.elements-list div.element .info .metro{
+		margin-top: 10px;
+	}
+	.elements-list div.element .info .deal-lots>div{
+		margin: 10px 0 0 0;
+	}
+	.elements-list div.element .info .deal-lots.linkers{
+		margin: 0;
+	}
+	.elements-list div.element .info .price{
+		margin-top: 10px;
+	}
+	.elements-list .element .info{
+		padding: 20px;
+	}
+}
+@media screen and (max-width: 750px){
+	div.element:nth-of-type(4n + 1){
+		margin-left: 10px;
+	}
+	div.element:nth-of-type(3n + 1) {
+	    margin-left: 10px;
+	}
+	div.element:nth-of-type(2n + 1) {
+	    margin-left: 0px;
+	}
+	.element {
+    	width: calc((100% / 2) - (10px / 2));
+    	margin: 0 0 10px 10px;
+    }
+    div.element .info .deal-lots{
+    	-webkit-box-orient: vertical;
+	    -moz-box-orient: vertical;
+	    -webkit-flex-direction: column;
+	    -moz-flex-direction: column;
+	    -ms-flex-direction: column;
+	    flex-direction: column;
+    }
+    div.element .info .deal-lots>div{
+    	margin: 10px 0 0 0;
+    }
+    div.element .info .deal-lots .price {
+	    margin-top: 0px;
+	}
+	/*
+	.element .more {
+			position: relative;
+			background: transparent;
+			bottom: auto;
+			right: auto;
+			visibility: visible;
+			margin-top: 10px;
+			width: 80px;
+		}*/
+	
+}
+@media screen and (max-width: 550px){
+	.sort-line.desctop{
+		display: none;
+	}
+	.sort-line-mobile{
+		display: block;
+	}
+}
+@media screen and (max-width: 520px){
+	div.element:nth-of-type(4n + 1){
+		margin-left: 0;
+	}
+	div.element:nth-of-type(3n + 1) {
+	    margin-left: 0;
+	}
+	div.element:nth-of-type(2n + 1) {
+	    margin-left: 0;
+	}
+	div.element .info .icon-box>div {
+		width: 50%;
+	}
+	.element {
+    	width: 100%;
+    	margin: 0 0 10px 0;
+    }
+    
+}

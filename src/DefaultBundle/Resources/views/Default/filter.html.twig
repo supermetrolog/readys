@@ -1,0 +1,333 @@
+{% set form_route = path("search") %}
+<div class="filter-header">
+    <span>Уточнить поиск</span>
+    <span class="icon-clear-search"></span>
+</div>
+<div class="select-filter">
+    {% include "DefaultBundle:IncludeBlocks:select_condition.html.twig" %}
+</div>
+<div class="filter">
+    <div class="wrap-filter-content">
+        {% if app.request.get("multy-play") is null %}
+            <div class="search_text">
+                <input class="multy-play" type="search" placeholder="ID, город, направление, округ, район, шоссе, метро, название СК, тип помещения" name="search" data-url="{{ path("bigsearch") }}" autocomplete="off">
+            </div>
+        {% endif %}
+        {% if app.request.get("deal_type", "rent") == "otvetstvennoe-hranenie" %}
+        {% else %}
+            <div class="wrap-line-filter line horizontal-center">
+                <div class="button-block multi-button line horizontal-center vertical-center" data-name="object_type[]">
+                    <div class="button line vertical-center {% if app.request.get('object_type') is null %}active{% endif %}" data-value="all"><span>Все объекты</span></div>
+                    <div class="button line vertical-center {% if 1 in app.request.get('object_type') %}active{% endif %}" data-tab="purposes_warehouse" data-value="1">
+                        <span>Склад</span>
+                        <i class="fa fa-angle-down"></i>
+                    </div>
+                    <div class="button line vertical-center {% if 2 in app.request.get('object_type') %}active{% endif %}" data-tab="purposes_industry" data-value="2">
+                        <span>Производство</span>
+                        <i class="fa fa-angle-down"></i>
+                    </div>
+                    <div class="button line vertical-center {% if 3 in app.request.get('object_type') %}active{% endif %}" data-tab="purposes_land" data-value="3">
+                        <span>Участок</span>
+                        <i class="fa fa-angle-down"></i>
+                    </div>
+                </div>
+                <div class="wrap-button-block-list line horizontal-center purposes_warehouse {% if 1 in app.request.get('object_type') %}show{% endif %}">
+                    <div class="button-block apart multi-button mrg-btn line horizontal-left vertical-center" data-name="purposes[]">
+                        {% for purposes in filters.l_purposes_warehouse.value|castToArray  %}
+                            <div class="button line vertical-center {% if purposes.en in app.request.get("purposes") %} active{% endif %}" data-value="{{ purposes.en }}"><span>{{ purposes.name }}</span></div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="wrap-button-block-list line horizontal-center purposes_industry {% if 2 in app.request.get('object_type') %}show{% endif %}">
+                    <div class="button-block apart multi-button mrg-btn line horizontal-left vertical-center" data-name="purposes[]">
+                        {% for purposes in filters.l_purposes_industry.value|castToArray  %}
+                            <div class="button line vertical-center {% if purposes.en in app.request.get("purposes") %} active{% endif %}" data-value="{{ purposes.en }}"><span>{{ purposes.name }}</span></div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="wrap-button-block-list line horizontal-center purposes_land {% if 3 in app.request.get('object_type') %}show{% endif %}">
+                    <div class="button-block apart multi-button mrg-btn line horizontal-left vertical-center" data-name="purposes[]">
+                        {% for purposes in filters.l_purposes_land.value|castToArray  %}
+                            <div class="button line vertical-center {% if purposes.en in app.request.get("purposes") %} active{% endif %}" data-value="{{ purposes.en }}"><span>{{ purposes.name }}</span></div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        <div class="wrap-line-filter line column horizontal-center vertical-center wrap-border">
+            <div class="button-block apart line column horizontal-center vertical-center select-region-wrap select-wrap">
+                <div class="button line vertical-center horizontal-center select-region select-object">
+                    <span>
+                        {% if app.request.get("region") %}
+                            {% for region in filters.l_regions.value|castToArray %}
+                                {% if region.en == app.request.get("region") %}
+                                    {{ region.name }}
+                                {% endif %}
+                            {% endfor %}
+                        {% else %}
+                            Вся Россия
+                        {% endif %}
+                    </span>
+                    <i class="fa fa-angle-down"></i>
+                </div>
+                <div class="select-region-list select-list">
+                    {% for key, region in filters.l_regions.value|castToArray %}
+                        <div class="list-item line vertical-center{% if region.en == app.request.get("region", 'vsya-rosssiya') %} active{% endif %}" data-value="{{ region.en }}" data-name="region" data-url="{{ region.en }}">
+                            <span>{{ region.name }}</span><i class="fas fa-check"></i>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="wrap-direction-block moskva-i-mo mo-moskva-snaruzhi-mkad mo-regiony-ryadom moskovskaya-oblast">
+                <div class="button-block apart multi-button mrg-btn line horizontal-left vertical-center" data-name="directions[]">
+                    {% for key, direction in filters.l_directions.value|castToArray %}
+                        <div class="button line vertical-center{% if direction.en in app.request.get('direction') %} active{% endif %}" data-value="{{ direction.en }}" data-url="district_{{ direction.en|lower }}" data-title="{{ direction.name }}">
+                            <span class="iconsvg {{ direction.en|lower }}"></span>
+                            <span class="txt">{{ direction.name }}</span>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="wrap-direction-block moskva-i-mo moskva-vnutri-mkad mo-moskva-snaruzhi-mkad mo-regiony-ryadom">
+                <div class="button-block apart multi-button mrg-btn line horizontal-left vertical-center" data-name="districts_moscow[]">
+                    {% for key, direction in filters.l_districts_moscow.value|castToArray %}
+                        <div class="button close line vertical-center{% if key in app.request.get('districts_moscow') %} active{% endif %}" data-value="{{ direction.en }}" data-url="district_{{ direction.en }}" data-title="{{ direction.name }}">
+                            <span class="iconsvg {{ direction.en }}"></span>
+                            <span class="txt">{{ direction.name }}</span>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+
+            <div class="type-search line horizontal-center">
+                {#<a class="link-dash" href="#" data-type="map"><span>Область на карте</span></a>#}
+                <a class="link-dash" href="#" data-type="towns"><i class="fa fa-star"></i><span>Населенный пункт</span></a>
+                <a class="link-dash" href="#" data-type="areas"><span>Районы</span></a>
+                <a class="link-dash" href="#" data-type="highway"><i class="fa fa-road"></i><span>Шоссе</span></a>
+                {#<a class="link-dash" href="#" data-type="metro"><span>Схема метро</span></a>#}
+            </div>
+        </div>
+        <div class="wrap-filter line a active tab-params-filter">
+            <form class="" data-action="{{ form_route }}">
+                <div class="wrap-line-filter line horizontal-center">
+                    <div class="wrap-el-filter">
+                        {% if app.request.get("deal_type", "rent") == "otvetstvennoe-hranenie" %}
+                            <div class="small-text">Единица измерения</div>
+                        {% else %}
+                            <div class="small-text">Площадь объекта</div>
+                        {% endif %}
+                        <div class="wrap-input-blocks line vertical-center">
+                            <div class="absolute-placehold"><input type="text" name="area_min" placeholder="300" value="{{ app.request.get('area_min',"") }}"><span>от</span></div>
+                            <div class="line vertical-center horizontal-left">
+                                <div class="absolute-placehold"><input type="text" name="area_max" placeholder="900 000" value="{{ app.request.get('area_max',"") }}"><span>до</span></div>
+                                <span> м<sup>2</sup></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wrap-el-filter">
+                        <div class="small-text">{{ filters.l_area_measures.name_rus }}</div>
+                        {% set areaMeasures = {
+                            'rent': [1, 2],
+                            'sale': [1],
+                            'otvetstvennoe-hranenie': [4]
+                        } %}
+                        {#{% if app.request.get("deal_type", "rent") == "otvetstvennoe-hranenie" %}#}
+                            {#<div class="button-block line horizontal-center vertical-center" data-name="measure">
+                                <div class="button active line vertical-center{% if app.request.get('measure') == 4 %} active{% endif %}" data-value="4"><span>Паллет-мест</span></div>
+                                <div class="button line vertical-center{% if app.request.get('measure') == 3 %} active{% endif %}" data-value="3"><span>м<sup>3</sup></span></div>
+                                <div class="button line vertical-center{% if app.request.get('measure') == 1 %} active{% endif %}" data-value="1"><span>м<sup>2</sup></span></div>
+                            </div>#}
+                            <div class="button-block line horizontal-center vertical-center" data-name="measure">
+                                {% for key, measure in filters.l_area_measures.value|castToArray %}
+                                    {% if key in areaMeasures[app.request.get("deal_type", "rent")] %}
+                                        <div class="button line vertical-center{% if app.request.get('measure', 4) == key %} active{% endif %}" data-value="{{ key }}">
+                                            <span>{{ measure }}</span>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        {#{% else %}
+                            <div class="button-block line horizontal-center vertical-center" data-name="measure">
+                                <div class="button line vertical-center{% if app.request.get('measure') == 1 %} active{% endif %}" data-value="1"><span>м<sup>2</sup></span></div>
+                                <div class="button column line vertical-center{% if app.request.get('measure') == 2 %} active{% endif %}" data-value="2"><span>Соток*</span><span class="very-small-text">(Только для участка)</span></div>
+                            </div>
+                        {% endif %}#}
+                    </div>
+                    <div class="wrap-el-filter">
+                        {% if app.request.get("deal_type", "rent") == "otvetstvennoe-hranenie" %}
+                            <div class="small-text">Цена хранения</div>
+                        {% elseif app.request.get("deal_type", "rent") in ["sale", "land"] %}
+                            <div class="small-text">Цена продажи</div>
+                        {% elseif app.request.get("deal_type", "rent") == "rent" %}
+                            <div class="small-text">Цена аренда</div>
+                        {% endif %}
+                        <div class="wrap-input-blocks line vertical-center">
+                            <div class="absolute-placehold"><input type="text" name="price_min" placeholder="300" value="{{ app.request.get('price_min',"") }}"><span>от</span></div>
+                            <div class="line vertical-center horizontal-left">
+                                <div class="absolute-placehold"><input type="text" name="price_max" placeholder="90 000 000" value="{{ app.request.get('price_max',"") }}"><span>до</span></div>
+                                <span class="val">&#8381;</span>
+                            </div>
+                        </div>
+                    </div>
+                    {% set priceFormat = {
+                        'rent': [1, 2, 3, 6],
+                        'sale': [4, 5],
+                        'otvetstvennoe-hranenie': [7]
+                    } %}
+                    <div class="wrap-el-filter">
+                        <div class="small-text">{{ filters.l_price_formats.name_rus }}</div>
+                        <div class="button-block line horizontal-center vertical-center" data-name="price_format">
+                            {% for key, price_format in filters.l_price_formats.value|castToArray %}
+                                {% if key in priceFormat[app.request.get("deal_type", "rent")] %}
+                                    <div class="button line vertical-center{% if app.request.get('price_format') == key %} active{% endif %}" data-value="{{ key }}">
+                                        <span>{{ price_format }}</span>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="wrap-line-filter line horizontal-center">
+                    <div class="wrap-el-filter">
+                        <div class="small-text">от МКАД</div>
+                        <div class="line vertical-center wrap-input-blocks">
+                            <div class="absolute-placehold"><input type="text" name="from_mkad_min" placeholder="5" value="{{ app.request.get('from_mkad_min') }}"><span>от</span></div>
+                            <div class="absolute-placehold"><input type="text" name="from_mkad_max" placeholder="100" value="{{ app.request.get('from_mkad_max') }}"><span>до</span></div>
+                            <span>км</span>
+                        </div>
+                    </div>
+                    <div class="wrap-el-filter">
+                        <div class="small-text">Высота потолков</div>
+                        <div class="line vertical-center wrap-input-blocks">
+                            <div class="absolute-placehold"><input type="text" name="ceiling_height_min" placeholder="5" value="{{ app.request.get('ceiling_height_min') }}"><span>от</span></div>
+                            <div class="absolute-placehold"><input type="text" name="ceiling_height_max" placeholder="100" value="{{ app.request.get('ceiling_height_max') }}"><span>до</span></div>
+                            <span>м</span>
+                        </div>
+                    </div>
+                    <div class="wrap-el-filter">
+                        <div class="small-text">Класс</div>
+                        <div class="multi-button line button-block horizontal-left wrap-el-filter" data-name="object_class[]">
+                            <div class="button{% if 1 in app.request.get('object_class') %} active{% endif %} line vertical-center" data-value="1" data-url="class_a"><span>A</span></div>
+                            <div class="button{% if 2 in app.request.get('object_class') %} active{% endif %} line vertical-center" data-value="2" data-url="class_b"><span>B</span></div>
+                            <div class="button{% if 3 in app.request.get('object_class') %} active{% endif %} line vertical-center" data-value="3" data-url="class_c"><span>C</span></div>
+                            <div class="button{% if 4 in app.request.get('object_class') %} active{% endif %} line vertical-center" data-value="4" data-url="class_d"><span>D</span></div>
+                        </div>
+                    </div>
+                    <div class="wrap-el-filter not-rent">
+                        <div class="small-text">Тип ворот</div>
+                        <div class="multi-button line button-block horizontal-left wrap-el-filter" data-name="gate_type[]">
+                            <div class="button{% if 1 in app.request.get('gate_type') %} active{% endif %} line vertical-center" data-value="1" data-url="gate_dock"><span>Докового типа</span></div>
+                            <div class="button{% if 3 in app.request.get('gate_type') %} active{% endif %} line vertical-center" data-value="3" data-url="gate_ramp"><span>Рампа с пандусом</span></div>
+                            <div class="button{% if 2 in app.request.get('gate_type') %} active{% endif %} line vertical-center" data-value="2" data-url="gate_zero"><span>Нулевой уровень</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrap-line-filter line horizontal-center">
+                    <div class="wrap-el-filter">
+                        <div class="small-text">Электричество</div>
+                        <div class="line vertical-center wrap-input-blocks">
+                            <div class="line vertical-center horizontal-left">
+                                <div class="absolute-placehold"><input type="text" name="power" placeholder="5" value="{{ app.request.get('power') }}"><span>не менее</span></div>
+                                <span>КВт</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wrap-el-filter line vertical-end">
+                        <div class="form-object-check">
+                            <span class="">Антипыль</span>
+                            <div class="slide {% if app.request.get('self_leveling') %}active{% endif %}" data-name="self_leveling"><div class="cursor"></div></div>
+                            {% if app.request.get('self_leveling') %}
+                                <input type="hidden" name="self_leveling" value="1">
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="wrap-el-filter line vertical-end">
+                        <div class="form-object-check">
+                            <span>Только 1 этаж</span>
+                            <div class="slide {% if app.request.get('ground_floor') %}active{% endif %}" data-name="ground_floor"><div class="cursor"></div></div>
+                            {% if app.request.get('ground_floor') %}
+                                <input type="hidden" name="ground_floor" value="1">
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="wrap-el-filter line vertical-end">
+                        <div class="form-object-check">
+                            <span>Стеллажи</span>
+                            <div class="slide {% if app.request.get('racking') %}active{% endif %}" data-name="racking" data-url="racking"><div class="cursor"></div></div>
+                            {% if app.request.get('racking') %}
+                                <input type="hidden" name="racking" value="1">
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="wrap-el-filter line vertical-end">
+                        <div class="form-object-check">
+                            <span>Железная дорога</span>
+                            <div class="slide {% if app.request.get('cranes') %}active{% endif %}" data-name="cranes" data-url="cranes"><div class="cursor"></div></div>
+                            {% if app.request.get('cranes') %}
+                                <input type="hidden" name="cranes" value="1">
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="wrap-el-filter line vertical-end">
+                        <div class="form-object-check">
+                            <span>Наличие крана</span>
+                            <div class="slide {% if app.request.get('cranes') %}active{% endif %}" data-name="cranes" data-url="cranes"><div class="cursor"></div></div>
+                            {% if app.request.get('cranes') %}
+                                <input type="hidden" name="cranes" value="1">
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% if app.request.get("purposes") %}
+                    {% for purpose in app.request.get("purposes") %}
+                        <input type="hidden" name="purposes[]" value="{{ purpose }}">
+                    {% endfor %}
+                {% endif %}
+                {% if app.request.get("directions") %}
+                    {% for direction in app.request.get("directions") %}
+                        <input type="hidden" name="directions[]" value="{{ direction }}">
+                    {% endfor %}
+                {% endif %}
+                {% if app.request.get("districts_moscow") %}
+                    {% for district in app.request.get("districts_moscow") %}
+                        <input type="hidden" name="districts_moscow[]" value="{{ district }}">
+                    {% endfor %}
+                {% endif %}
+                {% if app.request.get("object_class") %}
+                    {% for object_class in app.request.get("object_class") %}
+                        <input type="hidden" name="object_class[]" value="{{ object_class }}">
+                    {% endfor %}
+                {% endif %}
+                {% if app.request.get("gate_type") %}
+                    {% for object_class in app.request.get("gate_type") %}
+                        <input type="hidden" name="gate_type[]" value="{{ gate_type }}">
+                    {% endfor %}
+                {% endif %}
+                {% if app.request.get("floor_type") %}
+                    {% for floor_type in app.request.get("floor_type") %}
+                        <input type="hidden" name="floor_type[]" value="{{ floor_type }}">
+                    {% endfor %}
+                {% endif %}
+                {% if app.request.get("object_type") %}
+                    {% for object_type in app.request.get("object_type") %}
+                        <input type="hidden" name="object_type[]" value="{{ object_type }}">
+                    {% endfor %}
+                {% endif %}
+                {% if app.request.get("region") %}
+                        <input type="hidden" name="region" value="{{ app.request.get("region") }}">
+                {% endif %}
+                <input type="hidden" name="deal_type" value="{{ app.request.get("deal_type", "sale") }}">
+                <input type="hidden" name="sort" value="{{ app.request.get("sort", "price_down") }}">
+                <input type="hidden" name="region" value="{{ app.request.get("region", 'vsya-rosssiya') }}">
+                <input type="hidden" name="measure" value="{{ app.request.get("measure") }}">
+                <input type="hidden" name="price_format" value="{{ app.request.get("measure") }}">
+                <input type="hidden" name="pages" value="{{ app.request.get('pages', 1) }}">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% if app.request.get("more-button") is null %}
+    <div class="more-option" data-txt="Меньше параметров"><span>Больше параметров</span><i class="fa fa-angle-down"></i></div>
+{% endif %}

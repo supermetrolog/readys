@@ -1,0 +1,98 @@
+@media screen and (min-width: 1300px) {
+	.container-fluid.open-sidebar,#header.open-sidebar {
+	    margin-right: 0;
+		margin-left: 0;
+		width: calc(100% - 240px);
+	}	
+}
+@media screen and (max-width: 1299px) {
+	.container-fluid.open-sidebar {
+	    margin-right: 0;
+		margin-left: -240px;
+		
+	}	
+}
+.close_sidebar{
+	width:100%;
+	text-align:right;
+	height:40px;
+	padding:20px 20px 0 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+}
+.close_sidebar span{
+	color:#FFF;
+	font-size:16px;
+}
+.swipe-area {
+    position: absolute;
+    width: 50px;
+    left: 0;
+	top: 0;
+    height: 100%;
+    background: #f3f3f3;
+    z-index: 0;
+}
+#sidebar {
+	display:none;
+    background: #545454;
+    position: absolute;
+    width: 240px;
+    height: 100%;
+    right: -240px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    z-index:1000;
+}
+#sidebar ul {
+    margin: 20px 0 0 0;
+    padding: 0;
+    list-style: none;
+    position: fixed;
+}
+#sidebar ul li {
+    margin: 0;
+}
+#sidebar ul li a {
+    padding: 15px 20px;
+    font-size: 12px;
+    font-weight: 100;
+    color: white;
+    text-decoration: none;
+    text-align:right;
+    display: block;
+    -webkit-transition:  background 0.3s ease-in-out;
+    -moz-transition:  background 0.3s ease-in-out;
+    -ms-transition:  background 0.3s ease-in-out;
+    -o-transition:  background 0.3s ease-in-out;
+    transition:  background 0.3s ease-in-out;
+}
+#sidebar ul li:hover a {
+    background: #d50015;
+}
+#sidebar-toggle {
+    background: #8a8a8a;
+    background: -webkit-linear-gradient(top, bottom, #939393, #717171) #8a8a8a;
+    background: -moz-linear-gradient(top, #939393, #717171) #8a8a8a;
+    background: -o-linear-gradient(top, #939393, #717171) #8a8a8a;
+    background: -ms-linear-gradient(top, #939393, #717171) #8a8a8a;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#939393), to(#717171)) #8a8a8a;
+	display: inline-block;
+	position: relative;
+    padding: 10px 0 14px 0;
+	float: right;
+    border-left: 1px solid #ffffff;
+    border-right: 1px solid #ffffff;
+}
+#sidebar-toggle .bar{
+    display: block;
+    width: 22px;
+    margin: 5px 15px;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 1px;   
+}
+#sidebar-toggle .bar:last-child{
+     margin-bottom: 0;   
+}

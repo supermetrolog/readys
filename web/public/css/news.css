@@ -1,0 +1,88 @@
+.wrap-tab-news{
+    width: 100%;
+    margin: 20px 0;
+    border-bottom: 1px solid #dfdfdf;
+}
+.overlay{
+    background: #FFF;
+    border-radius: 3px;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+    width: 100%;
+}
+.overlay .header{
+    padding: 15px 10px;
+}
+.wrap-img{
+    position: relative;
+    width: 100%;
+
+}
+.font-medium{
+    font-weight: 500;
+}
+.wrap-img img{
+    width: 100%;
+    display: block;
+}
+.type-news{
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+.date-news{
+    margin-bottom: 10px;
+}
+.title-news{
+    font-family: "RalewayExtraBold";
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.news-content{
+    font-size: 16px;
+    width: 100%;
+    max-width: 650px;
+    padding: 30px 0;
+    border-bottom: 1px solid #dfdfdf;
+}
+.bottom-news{
+    width: 100%;
+    max-width: 650px;
+    padding: 15px 0px;
+}
+.bottom-news .theme{
+    font-size: 14px;
+    color: #999999;
+    text-decoration: underline;
+}
+.anons-news{
+    font-size: 14px;
+    color: #666666;
+}
+.profit>.title {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 60px auto 25px auto;
+    text-align: center;
+}
+.overlay.subscribe{
+    margin-bottom: 30px;
+}
+@media screen and (max-width: 1200px) {
+    .overlay .image {
+        background-position: 25% center;
+    }
+}
+@media screen and (max-width: 550px) {
+    .tab-anchor:after,.tab:after{
+        background: none;
+    }
+    .tab-anchor:before, .tab:before{
+        left: 9px;
+        background: none;
+    }
+}
+@media screen and (max-width: 520px){
+    .lot-mobile-hidden {
+        display: none;
+    }
+}

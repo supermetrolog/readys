@@ -1,0 +1,45 @@
+{% for lot in lots %}
+	<div class="element line column">
+		<div class="img">
+			<a href="{{ path("lot",{id: lot.lot_num}) }}?deal={{ app.request.get('deal','sale') }}" target="_blank">
+				<img class="lot-photo" data-size="400" src="{{ path("photo", {wide: "photo", type: "lot", lot: lot.lot_num, size: "400", photo: lot.photo?lot.photo:0}) }}" alt="">
+			</a>
+			{#<a class="img_info" href="{{ path("lot",{id: lot.lot_num}) }}?deal={{ app.request.get('deal','sale') }}" target="_blank">
+			</a>#}
+			{#<div class="favorite">
+				<div class="{% if lot.lot_num|is_fav(app.request.cookies.get("flat_"~app.request.get('deal'))) %}inFav{% else %}fav{% endif %}" data="{{ lot.lot_num }}" data_type="flat" data_deal="{{ app.request.get('deal') }}">
+					{% if lot.lot_num|is_fav(app.request.cookies.get("flat_"~app.request.get('deal'))) %}
+						{% include "CityBundle:Default:infav.html.twig" %}
+					{% else %}
+						{% include "CityBundle:Default:fav.html.twig" %}
+					{% endif %}
+				</div>
+			</div>#}
+		</div>
+		<a class="info line column" href="{{ path("lot",{id: lot.lot_num}) }}?deal={{ app.request.get('deal','sale') }}"  target="_blank">
+			<div>
+				<div class="lot_num">Лот {{ lot.lot_num }}</div>
+				{% if lot.complexName %}<div class="title">{{ lot.complexName }}</div>{% endif %}
+				{% if lot.metro %}
+					{% set min = (lot.dist/1000/5 * 60)|round %}
+					<div class="metro" style="color:{{ lot.line_color }}">{{ lot.metro }} <span class="small-text">({% if min == 0 %}1{% else %}{{ min }}{% endif %} мин. пешком)</span> </div>
+				{% endif %}
+				{% if lot.addr %}<div class="small-text">{{ lot.addr}}</div>{% endif %}
+				<div class="line icon-box">
+					{% if lot.squareAll %}<div class="square line horizontal-left vertical-center"><div class="icon-text">{{ lot.squareAll|number_format(0, '.', ' ') }} м<sup>2</sup></div></div>{% endif %}
+					{% if lot.rooms %}<div class="rooms line horizontal-left vertical-center"><div class="icon-text">{{ lot.rooms }}-комнатная</div></div>{% endif %}
+					{% if lot.repairId == 3 %}<div class="turnkey line horizontal-left vertical-center"><div class="icon-text">{{ lot.repair }}</div></div>{% endif %}
+					{% if lot.repairId == 4 %}<div class="finish line horizontal-left vertical-center"><div class="icon-text">{{ lot.repair }}</div></div>{% endif %}
+					{% if lot.parking == 1 %}<div class="parking line horizontal-left vertical-center"><div class="icon-text">Паркинг</div></div>{% endif %}
+				</div>
+			</div>
+			<div class="price">
+				{% if app.request.get('deal', "sale") == "sale" %}
+					{{ app.request.cookies.get('currency', 'rub')|get_price(lot.priceSale)|number_format(0, '.', ' ') }} <span>{{ app.request.cookies.get('currency', 'rub')|get_currency_symbol()|raw }}</span>
+				{% else %}
+					{{ app.request.cookies.get('currency', 'rub')|get_price(lot.priceRent)|number_format(0, '.', ' ') }} <span>{{ app.request.cookies.get('currency', 'rub')|get_currency_symbol()|raw }}/мес.</span>
+				{% endif %}
+			</div>
+		</a>
+	</div>
+{% endfor %}

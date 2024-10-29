@@ -1,0 +1,117 @@
+@media screen and (max-width: 1560px) {
+	.popular-filter > div:first-child{
+		width: 100%;
+	    text-align: center;
+	    padding-bottom: 15px;
+	    border-bottom: 1px solid #dfdfdf;
+	}
+	
+	.popular-filter .plink {
+		margin-left: 0px;
+		margin-right: 15px;
+		padding-top: 15px;
+	}
+}
+
+@media screen and (max-width: 1500px) {
+    /*slide*/
+    form .form-object-check:not(:last-child) {
+        margin-right: 5px;
+    }
+
+    form .form-object-check {
+        padding: 12px 0px 12px 5px;
+    }
+    .wrap-filter form input[name="power"]{
+        width: 125px;
+    }
+    .wrap-el-filter:not(:last-child) {
+        margin-right: 20px;
+    }
+}
+@media screen and (min-width: 1370px) and (max-width: 660px) {
+    .wrap-filter form input[name="area_min"],
+    .wrap-filter form input[name="from_mkad_min"],
+    .wrap-filter form input[name="ceiling_height_min"]{
+        width: 70px;
+        border-right: 0;
+    }
+    .wrap-filter form input[name="area_max"],
+    .wrap-filter form input[name="from_mkad_max"],
+    .wrap-filter form input[name="ceiling_height_max"]{
+        width: 80px;
+    }
+    .wrap-filter form input[name="price_min"]{
+        width: 110px;
+    }
+    .wrap-filter form input[name="price_max"]{
+        width: 125px;
+    }
+    .button-block-select{
+        width: 305px;
+    }
+}
+@media screen and (max-width: 1315px) {
+    .wrap-filter.open {
+        max-height: 336px;
+    }
+}
+@media screen and (max-width: 1119px) {
+    .wrap-filter.open {
+        max-height: 497px;
+    }
+}
+@media screen and (max-width: 740px) {
+	.wrap-filter form span {
+	    margin: 0 5px;
+	}
+    .wrap-filter.open {
+        max-height: 656px;
+    }
+}
+@media screen and (max-width: 660px) {
+
+	.mobile-refine{
+		display: -webkit-box;
+	    display: -moz-box;
+	    display: -webkit-flexbox;
+	    display: -ms-flexbox;
+	    display: -webkit-flex;
+	    display: flex;
+		width: 227px;
+	    
+	}
+	
+}
+@media screen and (max-width: 505px) {
+	
+	.popular-filter{
+		padding-bottom: 0px;
+	}
+	.popular-filter > div:first-child{
+		text-align: left;
+		border-bottom: 0px;
+		cursor: pointer;
+		padding-bottom: 0px;
+	}
+	.popular-filter .plink{
+		width: 100%;
+		margin: 0;
+	}
+	.popular-filter i.fa-angle-down, .popular-filter i.fa-angle-up{
+		float: right;
+		display: block;
+	}
+	.popular-filter .searches{
+		max-height: 0px;	
+		padding-bottom: 15px;
+	}
+	
+	.popular-filter.open > div:first-child{
+		border-bottom: inherit;
+	}
+	.popular-filter.open .searches{
+		max-height: 2000px;
+	}
+}
+

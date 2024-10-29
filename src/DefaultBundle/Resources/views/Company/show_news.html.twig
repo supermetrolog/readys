@@ -1,0 +1,105 @@
+{% extends "CityBundle:Default:layout.html.twig" %}
+
+{% set styles = ['filter.css', 'social-share.css', 'block_subscribe.css', 'news.css'] %}
+{% set scripts = ['news.js'] %}
+{% set meta = {
+    "og:title": title,
+    "og:url": app.request.getUri,
+    "og:image":  item.photo is defined? item.photo ~ "650/": "",
+    "og:description": h1,
+    "og:type": "article"
+    }
+%}
+
+
+{% block content %}
+    <div class="wrap line">
+        <div>
+            <h1>{% if h1 is defined %} {{ h1 }} {% endif %}</h1>
+            <div class="small-text">{{ item.date_published|date("d.m.Y") }}</div>
+        </div>
+    </div>
+    <div class="wrap">
+        <div class="overlay">
+            <div class="wrap">
+                <div class="header line">
+                    <div class="font-medium">{{ item.type_name }}</div>
+                    <div class="line share-buttons">
+                        <div class="share-soc">
+                            <a href="#" class="social-toggle"><span class="fa fa-share-alt"></span><span class="lot-mobile-hidden share-span-text">Поделиться</span></a>
+                            <div class="social-networks">
+                                <ul>
+                                    <li class="social-twitter">
+                                        <a target="_blank" href="http://twitter.com/share?url={{ app.request.getUri }}&text={{ title }}"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                    </li>
+                                    <li class="social-facebook">
+                                        <a target="_blank" href="http://www.facebook.com/sharer.php?u={{ app.request.getUri }}"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                    </li>
+                                    <li class="social-vk">
+                                        <a target="_blank" href="http://vk.com/share.php?url={{ app.request.getUri }}&title={{ title }}&description={{ h1 }}&image={% if item.photo is defined %}{{ item.photo }}1600/{% endif %}"><i class="fa fa-vk" aria-hidden="true"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        {#<div><a class="print-button" href="{{ path("print", {id: lot.lot_num, deal: app.request.get("deal", "sale")}) }}" target="_blank"><span class="fa fa-print"></span><span class="lot-mobile-hidden">Печать</span></a></div>#}
+                        {#<div>
+                            <a class="print-button start-dialog" href="{{ path("print", {id: lot.lot_num, deal: app.request.get("deal", "sale")}) }}" target="_blank"
+                               data-wish="Пользователь отправил презентацию на почту"
+                               data-title="Отправить презентацию на почту"
+                               data-reachgoal="SEND_PDF"
+                               data-field="name,phone,email,comments"
+                               data-requare="name,email"
+                               data-route="{{ path("sendpdf", {"deal": app.request.get("deal", "sale"), "id":lot.lot_num}) }}">
+                                <span class="fa fa-envelope-o"></span><span class="lot-mobile-hidden">Отправить на почту</span>
+                            </a>
+                        </div>#}
+                        {# 				<div><span class="icon-like-active"></span>В избранное</div>#}
+                    </div>
+                </div>
+            </div>
+            {% if item.photo is defined %}
+                <div class="wrap-img">
+                    <img class="lot-photo" data-size="1600" src="{{ item.photo }}1600/">
+                </div>
+            {% endif %}
+            <div class="wrap line horizontal-center column vertical-center">
+                <div class="news-content">
+                    {{ item.text|raw }}
+                </div>
+                <div class="bottom-news line">
+                    {% if item.type_id == 1 %}
+                        {% set category = "company" %}
+                    {% else %}
+                        {% set category = "media" %}
+                    {% endif %}
+                    <a class="theme" href="{{ path("news_category", {"category": category}) }}">{{ item.type_name }}</a>
+                    <div class="line share-buttons">
+                        <div class="share-soc">
+                            <a href="#" class="social-toggle"><span class="fa fa-share-alt"></span><span class="lot-mobile-hidden share-span-text">Поделиться</span></a>
+                            <div class="social-networks">
+                                <ul>
+                                    <li class="social-twitter">
+                                        <a target="_blank" href="http://twitter.com/share?url={{ app.request.getUri }}&text={{ title }}"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                    </li>
+                                    <li class="social-facebook">
+                                        <a target="_blank" href="http://www.facebook.com/sharer.php?u={{ app.request.getUri }}"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                    </li>
+                                    <li class="social-vk">
+                                        <a target="_blank" href="http://vk.com/share.php?url={{ app.request.getUri }}&title={{ title }}&description={{ h1 }}&image={% if item.photo is defined %}{{ item.photo }}1600/{% endif %}"><i class="fa fa-vk" aria-hidden="true"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="profit">
+        <div class="title">Читайте также</div>
+        <div class="wrap line horizontal-left elements">
+            {% include "CityBundle:Company:news_list.html.twig" %}
+        </div>
+    </div>
+    {% include "CityBundle:IncludeBlocks:block_subscribe.html.twig" %}
+{% endblock %}

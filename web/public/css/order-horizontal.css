@@ -1,0 +1,104 @@
+.order-header{
+	padding: 15px 0;
+	width: 100%;	
+}
+.order-header > div > img{
+	margin-right: 15px;
+}
+.order-header > div > span{
+	color: #000000;
+	font-size: 18px;
+	font-weight: bold;
+}
+.order-header > div > span > span{
+	color: #777777;
+	font-weight: 300;
+}
+.order-body{
+	background: rgba(238, 238, 238, 0.5);
+	width: 100%;
+	padding: 20px 0;
+}
+.order-body .dialog_input{
+	margin: 0 10px 0 0 ;	
+}
+
+.order-horizontal .btn-send{
+	background: #ea4e56;
+    color: #FFF;
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-block;
+    -webkit-transition: background 0.5s ease;
+    -moz-transition: background 0.5s ease;
+    -o-transition: background 0.5s ease;
+    transition: background 0.5s ease;
+    padding: 15px 30px;
+    opacity: 0.5;
+}
+.order-horizontal .btn-send[data-access="true"]{
+	opacity: 1;
+}
+.order-footer{
+	padding: 20px 0;
+}
+.order-horizontal .order-header > div > span.mobile{
+		display: none;
+
+}
+@media screen and (max-width: 840px) {
+	.order-body .dialog_input {
+	    width: 150px;
+	}
+	.order-horizontal .dialog_input input{
+		font-size: 12px;
+	}
+	.order-horizontal .btn-send{
+		padding: 15px 15px;
+		font-size: 14px;
+	}
+}
+@media screen and (max-width: 680px) {
+	.order-horizontal .order-header {
+	    padding: 0px;
+	    height: 160px;
+	}
+	.order-horizontal .order-header > div{
+		-webkit-box-orient: vertical;
+	    -moz-box-orient: vertical;
+	    -webkit-flex-direction: column;
+	    -moz-flex-direction: column;
+	    -ms-flex-direction: column;
+	    flex-direction: column;
+	}
+	.order-horizontal .order-header > div > img {
+    	margin-right: 0;
+    	margin-bottom: 10px;
+	}
+	.order-horizontal .order-header > div > span.mobile{
+		display: block;
+		text-align: center;
+	}
+	.order-horizontal .order-header > div > span.desctop{
+		display: none;
+	}
+	.order-horizontal .order-body{
+		-webkit-box-orient: vertical;
+	    -moz-box-orient: vertical;
+	    -webkit-flex-direction: column;
+	    -moz-flex-direction: column;
+	    -ms-flex-direction: column;
+	    flex-direction: column;
+	    -webkit-box-align: center;
+	    -ms-flex-align: center;
+	    -webkit-align-items: center;
+	    -moz-align-items: center;
+	    align-items: center;
+	}
+	.order-horizontal .order-body .dialog_input{
+		width: 260px;
+		margin-bottom: 10px;
+	}
+	
+	
+}

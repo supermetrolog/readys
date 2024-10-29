@@ -1,0 +1,41 @@
+{% extends "CityBundle:Default:layout.html.twig" %}
+
+{% set styles = ['filter.css', 'dialog-search.css'] %}
+{% set scripts = ['catalog.js', 'skelet.js', 'map-polygon.js', 'metro.js', 'filter-districts.js'] %}
+
+{% block content %}
+	{% import "DefaultBundle:Default:declension.html.twig" as utils %}
+	<div class="wrap line">
+		<div>
+			<h1>{% if h1 is defined %} {{ h1 }} {% endif %}</h1><div class=""></div>
+			<div class="small-text">В продаже {{ utils.declension(total.sale, ['предложение', 'предложения', 'предложений']) }}; В аренду {{ utils.declension(total.rent, ['предложение', 'предложения', 'предложений']) }}</div>
+			{% set total = total[app.request.get("deal_type", "sale")] %}
+		</div>
+		<div class="line vertical-center">
+			{#<div class="btn-ellipse subscribe">Подписаться</div>#}
+			<div class="btn-ellipse refine open">Уточнить поиск</div>
+		</div>
+	</div>
+	<div class="wrap">
+		{% include "CityBundle:Default:filter.html.twig" %}
+	</div>
+	<div class="wrap">
+		<!-- <div class="popular-filter">
+			<span class="icon-fire-popular"></span><a href="#"></a>
+		</div> -->
+	</div>
+	<div class="wrap line sort-line">
+		<div class="line">
+			<div class="btn-ellipse sort" data="price" data-value="down">Цена</div>
+			<div class="btn-ellipse not-active sort" data="square" data-value="down">Площадь</div>
+		</div>
+	</div>
+	<div class="wrap line horizontal-left elements">
+		{% include "CityBundle:Default:list.html.twig" %}
+	</div>
+	<div class="bottom_navigation line column vertical-center">
+		{% include "CityBundle:Default:pagination.html.twig" %}
+	</div>
+	{% include "CityBundle:Default:avg_price.html.twig" %}
+{% endblock %}
+

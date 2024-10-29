@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link href="/public/css/pdf/lot.css" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,300,700,500&subset=latin,cyrillic-ext">
+	</head>
+	<body>
+		<div class="print">
+			<header>
+				<a href="/" class="logo">
+					<div class="complex_logo">
+						<div>
+							{$_complex.name}
+						</div>
+						<div>
+							Жилой комплекс
+						</div>
+					</div>
+				</a>
+				<div class="lot_id">
+					Лот <span>{$data.lot.maternity_id}</span>
+				</div>
+				<div class="cls"></div>
+			</header>
+			<div class="info_top flex">
+				<div class="flex1">Дата: <span>{$smarty.now|date_format:'%d.%m.%Y'}</span></div>
+				<div class="flex1">Тел.: <span>{$_complex.phone}</span></div>
+				<div class="flex1">Сайт: <a href="http://{$_complex.domain}">http://{$_complex.domain}</a></div>
+			</div>
+			<div class="photos">
+				{if $data.lot.repair_text == "Без ремонта" || $data.lotPhotos|count < 3}
+					<img src="http://unionbase.ru/images/zaglushka/zaglushka_{1|rand:7}.jpg" alt="">
+				{else}
+					{foreach from=$data.lotPhotos item=p}
+						<img src="http://img.unionbase.ru/maternity/1/{$p.hash}/" alt="">
+					{/foreach}
+				{/if}
+				<div class="cls"></div>
+			</div>
+			{if $data.lot.photos|count > 3}
+				<div class="actions">
+					<a href="">Больше фото на сайте</a>
+				</div>
+			{/if}
+			<div class="title">
+				{if isset($_complex.name) && $_complex.name!=''}ЖК "{$_complex.name}"{else}{$data.lot.address_text}{/if}
+				<br>
+				Квартира {$data.lot.square_all} кв.м., {$data.lot.repair_text|lower}, {$data.lot.rooms} {$data.lot.rooms|declension:'комната; комнаты; комнат'}, {$data.lot.floor} этаж
+				<br>
+				{if $data.lot.square_living}Жилая площадь: {$data.lot.square_living} кв.м.,{/if}
+				{if $data.lot.square_kitchen}кухня: {$data.lot.square_kitchen} кв.м.,{/if}
+				{if $data.lot.square_rooms}площадь комнат: {$data.lot.square_rooms} кв.м.,{/if}
+				{if $data.lot.bathrooms + $data.lot.bathrooms_separated > 0}санузлов: {$data.lot.bathrooms + $data.lot.bathrooms_separated}{/if}
+			</div>
+			<div class="price flex">
+				{if $data.deal == 'sale'}
+					<div>Продажа</div>
+					<div>{$data.lot.price_sale|number_format:0:'.':' '} <span class="ruble"></span></div>
+					<div>$ {$data.lot.price_sale_usd|number_format:0:'.':' '}</div>
+					<div>&euro; {$data.lot.price_sale_eur|number_format:0:'.':' '}</div>
+				{else}
+					<div>Аренда (Месяц)</div>
+					<div>{$data.lot.price_rent|number_format:0:'.':' '} <span class="ruble"></span></div>
+					<div>$ {$data.lot.price_rent_usd|number_format:0:'.':' '}</div>
+					<div>&euro; {$data.lot.price_rent_eur|number_format:0:'.':' '}</div>
+				{/if}
+			</div>
+			<div class="description">
+				Лот {$data.lot.maternity_id}. {if $data.deal == 'sale'}{$data.lot.description_sale}{else}{$data.lot.description_rent}{/if}
+			</div>
+			<div class="photos_other">
+				{foreach from=$data.lotPhotosOther item=p}
+					<img src="http://img.unionbase.ru/maternity/1/{$p.hash}/" alt="">
+				{/foreach}
+			</div>
+		</div>
+	</body>
+</html>

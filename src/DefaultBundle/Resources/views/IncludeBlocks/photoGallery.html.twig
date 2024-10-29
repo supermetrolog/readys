@@ -1,0 +1,124 @@
+{# <div class="photo_wrap">#}
+{# 	<div class="big">#}
+{#  			<img alt="" src="http://img.unionbase.ru/lots/1/{{ photos[0].hash }}/">#}
+{# 	</div>#}
+{# 	<div class="prew line horizontal-left vertical-center">#}
+{# 		{% for photo in photos %}#}
+{# 			{% if loop.index > 1 and loop.index < 7%}#}
+{# 				<img alt="" src="http://img.unionbase.ru/lots/1/{{ photo.hash }}/">#}
+{# 			{% endif %}#}
+{# 		{% endfor %}#}
+{# 	</div>#}
+{# </div>#}
+<div class="photo_wrap">
+	<div>
+		<div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+			{% for photo in lot.photos %}
+				<figure data="" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="general-photo {% if loop.index == 1 %}active{% endif %}">
+					<a href="{{ photo }}" itemprop="contentUrl" data-size="1024x682">
+						<img src="{{ photo }}" itemprop="thumbnail" alt="{{ h1 }}" class="{% if loop.index == 1 %}lot-photo{% else %}lot-photo-gallery{% endif %}" data-size="1024" title="{{ h1 }}" />
+					</a>
+			    </figure>
+			{% endfor %}
+		</div>
+		<div class="lupa">
+			<i class="fa fa-search" aria-hidden="true"></i>
+		</div>
+	</div>
+	<div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+	    <div class="prew line horizontal-left vertical-center">
+			{% for photo in lot.photos %}
+				{% if loop.index < 7 and loop.index > 1 %}
+					<figure data="" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="">
+						<a href="{{ photo }}" itemprop="contentUrl" data-size="1024x682">
+		    				<img src="{{ photo }}" class="lot-photo" data-size="200" alt="{{ h1 }}" title="{{ h1 }}"/>
+		    			</a>
+		    			{% if loop.index == 6 and lot.photos|length > 6 %}
+							<div class="more-photos line horizontal-center vertical-center"><span>+ {{ lot.photos|length - 5 }}</span><span class="after-angle"></span></div>
+						{% else %}
+							<div class="lupa">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</div>
+						{% endif %}
+		    		</figure>
+		    	{% endif %}
+				{% if loop.index > 6 %}
+					<figure data="" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="add-photos">
+						<a href="{{ photo }}" itemprop="contentUrl" data-size="1024x682">
+		    				<img src="{{ photo }}" class="lot-photo-gallery-prew" data-size="200" alt="{{ h1 }}" title="{{ h1 }}"/>
+		    			</a>
+		    			<div class="lupa">
+							<i class="fa fa-search" aria-hidden="true"></i>
+						</div>
+		    		</figure>
+				{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+	<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp pswp--svg" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element, as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+        <!-- don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+          </div>
+
+        </div>
+
+	</div>
+</div>

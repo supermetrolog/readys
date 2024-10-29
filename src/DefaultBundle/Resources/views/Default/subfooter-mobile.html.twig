@@ -1,0 +1,63 @@
+{% if footer_tpl is not defined %}
+	{% set footer_tpl = "subfooter-tabs-incomplete" %}
+{% endif %}
+
+<div class="direct-tabs-mobile">
+	<div class="tab-mobile" data="1">
+		<span>Продажа квартир</span>
+		<i class="fa fa-angle-down"></i>
+	</div>
+	<div class="sub-footer-blocks-mobile" data="1">
+		<div class="sub-footer-block-mobile">
+			{% include "CityBundle:"~ footer_tpl ~":metro-mobile.html.twig" with {'deal': 'sale', 'type': 'lot'} only %}
+		</div>
+		<div class="sub-footer-block-mobile">
+			{% include "CityBundle:"~ footer_tpl ~":area-mobile.html.twig" with {'deal': 'sale', 'type': 'lot'} only %}
+		</div>
+		<div class="sub-footer-block-mobile">
+			{% include "CityBundle:subfooter-tabs:links-mobile.html.twig" with {"deal": "sale", "type": "lot"} only %}
+		</div>
+	</div>
+	<div class="tab-mobile" data="2">
+		<span>Аренда квартир</span>
+		<i class="fa fa-angle-down"></i>
+	</div>
+	<div class="sub-footer-blocks-mobile" data="2">
+		<div class="sub-footer-block-mobile">
+			{% include "CityBundle:"~ footer_tpl ~":metro-mobile.html.twig" with {"deal": "rent", "type": "lot"} only %}
+		</div>
+		<div class="sub-footer-block-mobile">
+			{% include "CityBundle:"~ footer_tpl ~":area-mobile.html.twig" with {"deal": "rent", "type": "lot"} only %}
+		</div>
+		<div class="sub-footer-block-mobile">
+			{% include "CityBundle:subfooter-tabs:links-mobile.html.twig" with {"deal": "rent", "type": "lot"} only %}
+		</div>
+	</div>
+	<div class="tab-mobile" data="3">
+		<span>Жилые комплексы</span>
+		<i class="fa fa-angle-down"></i>
+	</div>
+	<div class="sub-footer-blocks-mobile" data="3">
+		<div class="sub-footer-block-mobile">
+			{% include "CityBundle:"~ footer_tpl ~":metro-mobile.html.twig" with {"deal": "sale", "type": "complex"} only %}
+		</div>
+		<div class="sub-footer-block-mobile">
+			{% include "CityBundle:"~ footer_tpl ~":area-mobile.html.twig" with {"deal": "sale", "type": "complex"} only %}
+		</div>
+		{#<div class="sub-footer-block-mobile">
+			{% include "CityBundle:subfooter-tabs:links.html.twig" with {"deal": "sale", "type": "complex"} only %}
+		</div>#}
+	</div>
+	<div class="tab-mobile " data="4"><span>Новостройки</span><i class="fa fa-angle-down"></i></div>
+	<div class="sub-footer-blocks-mobile" data="4">
+		<div class="sub-footer-block-mobile">
+			{% include "CityBundle:"~ footer_tpl ~":metro-mobile.html.twig" with {"deal": "sale", "type": "new_building"} only %}
+		</div>
+		<div class="sub-footer-block-mobile">
+			{% include "CityBundle:"~ footer_tpl ~":area-mobile.html.twig" with {"deal": "sale", "type": "new_building"} only %}
+		</div>
+		{#<div class="sub-footer-block-mobile">
+			{% include "CityBundle:subfooter-tabs:links.html.twig" with {'deal': 'sale', 'type': 'new_building'} only %}
+		</div>#}
+	</div>
+</div>

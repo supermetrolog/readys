@@ -1,0 +1,21 @@
+<div class="areas-search">
+	{% set areas = "sale"|getAreas("lot") %}
+	{% if areas|length > 0 %}
+		<div class="result line horizontal-left">
+			{% for area in areas %}
+				<div class="areas">
+					<div class="el">
+						<a href="#" class="district link-dash line horizontal-left" data-link="{{ area[0].districtLink }}" data-id="{{ area[0].districtId }}">
+							<span>{{ area[0].district }}</span>
+						</a>
+					</div>
+					{% for i in area %}
+						<div class="el">
+							<a href="#" class="red-link area" data-area-id="{{ i.areaId }}" data-district-id="{{ i.districtId }}" data-area-name="{{ i.area }}">{{ i.area}}<span class="icon-clear-search"></span></a>
+						</div>
+					{% endfor %}
+				</div>										
+			{% endfor %}	
+		</div>
+	{% endif %}
+</div>

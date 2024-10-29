@@ -1,0 +1,4 @@
+var skelet = "";
+for(var i = 0; i < 32; i++){
+	skelet += '<div class="element skelet"><div class="img"><a href="#"><div class="imgplug"></div></a></div><div class="info" target="_blank"><div class="title"><div class="plug"></div></div><div class="metro"><div class="plug"></div></div><div class="line horizontal-left deal-lots"><div><div class="line vertical-center horizontal-left"><span class="icon-sale"></span><span class="label">В продаже</span><a href="" class="small-text"><div class="plug"></div></a></div><div class="price"><div class="plug"></div></div></div><div><div class="line vertical-center horizontal-left"><span class="icon-rent"></span><span class="label">В аренде</span><a href="" class="small-text"><div class="plug"></div></a></div><div class="price"><div class="plug"></div></div></div></div></div><div class="clear"></div></div>';
+}

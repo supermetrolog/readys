@@ -1,0 +1,26 @@
+<script type="text/javascript">
+	var max_price = {
+	                 'sale':{
+		                 	'rub':{{ "rub"|get_price(price.sale_max) }},
+			                'usd':{{ "usd"|get_price(price.sale_max) }},
+			                'eur':{{ "eur"|get_price(price.sale_max) }}
+			         },
+	                 'rent':{
+		                	'rub':{{ "rub"|get_price(price.rent_max) }},
+		                 	'usd':{{ "usd"|get_price(price.rent_max) }},
+		                 	'eur':{{ "eur"|get_price(price.rent_max) }}
+		             }
+	};
+	var min_price = {
+	                 'sale':{
+		                 	'rub':{{ "rub"|get_price(price.sale_min) }},
+			                'usd':{{ "usd"|get_price(price.sale_min) }},
+			                'eur':{{ "eur"|get_price(price.sale_min) }}
+	                 },
+	                 'rent':{
+		                 	'rub':{{ "rub"|get_price(price.rent_min) }},
+		                 	'usd':{{ "usd"|get_price(price.rent_min) }},
+		                 	'eur':{{ "eur"|get_price(price.rent_min) }}
+	                 }
+	};
+</script>

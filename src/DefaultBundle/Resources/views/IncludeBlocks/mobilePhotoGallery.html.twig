@@ -1,0 +1,24 @@
+<ul id="lightSlider">
+	{% for photo in lot.photos %}
+		<li>
+			<div class="item" data-src="{{ photo }}">
+    			<img class="lot-photo" data-size="520" src="{{ photo }}"  title="{{ h1 }}"  alt="{{ h1 }}"/>
+  			</div>
+		</li>	
+	{% endfor %}
+</ul>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+    	$("#lightSlider").lightSlider({
+        	item: 1.1,
+        	controls: false,
+        	pager: false
+        }); 
+    	var $lg = $('#lightSlider');
+    	$lg.lightGallery({
+        	selector: '.item'
+        }); 
+    	
+    });
+</script>

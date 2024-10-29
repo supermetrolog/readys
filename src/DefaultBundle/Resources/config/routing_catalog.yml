@@ -1,0 +1,177 @@
+catalog_type:
+    path: /{object_type}_{deal_type}/
+    defaults:
+        _controller: DefaultBundle:Default:catalog
+        section: catalog
+        select_condition: yes
+    requirements:
+        object_type: sklad|industry|car_service|sewing_industry|food_industry|refrigerated_warehouse|freezer_warehouse|free_building|alcohol_warehouse|pharma_warehouse|open_areas
+        deal: rent|sale|otvetstvennoe-hranenie
+
+catalog_typepage1:
+    path: /{object_type}_{deal_type}/1/
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        section: catalog
+        route: catalog_type
+        permanent: true # this is for 301
+    requirements:
+        object_type: sklad|industry|car_service|sewing_industry|food_industry|refrigerated_warehouse|freezer_warehouse|free_building|alcohol_warehouse|pharma_warehouse|open_areas
+        deal: rent|sale|otvetstvennoe-hranenie
+
+catalog_typepage:
+    path: /{object_type}_{deal_type}/{pages}/
+    defaults:
+        _controller: DefaultBundle:Default:catalog
+        section: catalog
+        select_condition: yes
+    requirements:
+        pages:  \d+
+        object_type: sklad|industry|car_service|sewing_industry|food_industry|refrigerated_warehouse|freezer_warehouse|free_building|alcohol_warehouse|pharma_warehouse|open_areas
+        deal: rent|sale|otvetstvennoe-hranenie
+
+catalog_type_region:
+    path: /{object_type}_{deal_type}/{reg}/
+    defaults:
+        _controller: DefaultBundle:Default:catalog
+        section: catalog
+        select_condition: yes
+    requirements:
+        object_type: sklad|industry|car_service|sewing_industry|food_industry|refrigerated_warehouse|freezer_warehouse|free_building|alcohol_warehouse|pharma_warehouse|open_areas
+        reg: moscow|moscow_region
+        deal: rent|sale|otvetstvennoe-hranenie
+
+catalog_type_regionpage1:
+    path: /{object_type}_{deal_type}/{reg}/1/
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        section: catalog
+        route: catalog_type_region
+        permanent: true # this is for 301
+    requirements:
+        object_type: sklad|industry|car_service|sewing_industry|food_industry|refrigerated_warehouse|freezer_warehouse|free_building|alcohol_warehouse|pharma_warehouse|open_areas
+        reg: moscow|moscow_region
+        deal: rent|sale|otvetstvennoe-hranenie
+
+catalog_type_regionpage:
+    path: /{object_type}_{deal_type}/{reg}/{pages}/
+    defaults:
+        _controller: DefaultBundle:Default:catalog
+        section: catalog
+        select_condition: yes
+    requirements:
+        pages:  \d+
+        object_type: sklad|industry|car_service|sewing_industry|food_industry|refrigerated_warehouse|freezer_warehouse|free_building|alcohol_warehouse|pharma_warehouse|open_areas
+        reg: moscow|moscow_region
+        deal: rent|sale|otvetstvennoe-hranenie
+
+catalog_type_polygon:
+    path: /{object_type}_{deal_type}/{polygon_type}_{polygon}/
+    defaults:
+        _controller: DefaultBundle:Default:catalog
+        section: catalog
+        select_condition: yes
+    requirements:
+        object_type: sklad|industry|car_service|sewing_industry|food_industry|refrigerated_warehouse|freezer_warehouse|free_building|alcohol_warehouse|pharma_warehouse|open_areas
+        polygon_type: metro|highway|city|district|direction|area
+        deal: rent|sale|otvetstvennoe-hranenie
+
+catalog_type_polygonpage1:
+    path: /{object_type}_{deal_type}/{polygon_type}_{polygon}/1/
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        section: catalog
+        route: catalog_type_polygon
+        permanent: true # this is for 301
+    requirements:
+        object_type: sklad|industry|car_service|sewing_industry|food_industry|refrigerated_warehouse|freezer_warehouse|free_building|alcohol_warehouse|pharma_warehouse|open_areas
+        polygon_type: metro|highway|city|district|direction|area
+        deal: rent|sale|otvetstvennoe-hranenie
+
+catalog_type_polygonpage:
+    path: /{object_type}_{deal_type}/{polygon_type}_{polygon}/{pages}/
+    defaults:
+        _controller: DefaultBundle:Default:catalog
+        section: catalog
+        select_condition: yes
+    requirements:
+        pages:  \d+
+        object_type: sklad|industry|car_service|sewing_industry|food_industry|refrigerated_warehouse|freezer_warehouse|free_building|alcohol_warehouse|pharma_warehouse|open_areas
+        polygon_type: metro|highway|city|district|direction|area
+        deal: rent|sale|otvetstvennoe-hranenie
+
+catalog_type_polygon_tech:
+    path: /{object_type}_{deal_type}/{polygon_type}_{polygon}/{tech}/
+    defaults:
+        _controller: DefaultBundle:Default:catalog
+        section: catalog
+        select_condition: yes
+    requirements:
+        object_type: sklad|industry|car_service|sewing_industry|food_industry|refrigerated_warehouse|freezer_warehouse|free_building|alcohol_warehouse|pharma_warehouse|open_areas
+        polygon_type: metro|highway|city|district|direction|area
+        tech: class_a|class_b|class_c|class_d|gate_dock|gate_ramp|gate_zero|warehouse_unheated|warehouse_heated|crane|racks|railway
+        deal: rent|sale|otvetstvennoe-hranenie
+
+catalog_type_polygon_techpage1:
+    path: /{object_type}_{deal_type}/{polygon_type}_{polygon}/{tech}/1/
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        section: catalog
+        route: catalog_type_polygon_tech
+        permanent: true # this is for 301
+    requirements:
+        object_type: sklad|industry|car_service|sewing_industry|food_industry|refrigerated_warehouse|freezer_warehouse|free_building|alcohol_warehouse|pharma_warehouse|open_areas
+        polygon_type: metro|highway|city|district|direction|area
+        tech: class_a|class_b|class_c|class_d|gate_dock|gate_ramp|gate_zero|warehouse_unheated|warehouse_heated|crane|racks|railway
+        deal: rent|sale|otvetstvennoe-hranenie
+
+catalog_type_polygon_techpage:
+    path: /{object_type}_{deal_type}/{polygon_type}_{polygon}/{tech}/{pages}/
+    defaults:
+        _controller: DefaultBundle:Default:catalog
+        section: catalog
+        select_condition: yes
+    requirements:
+        pages:  \d+
+        object_type: sklad|industry|car_service|sewing_industry|food_industry|refrigerated_warehouse|freezer_warehouse|free_building|alcohol_warehouse|pharma_warehouse|open_areas
+        polygon_type: metro|highway|city|district|direction|area
+        tech: class_a|class_b|class_c|class_d|gate_dock|gate_ramp|gate_zero|warehouse_unheated|warehouse_heated|crane|racks|railway
+        deal: rent|sale|otvetstvennoe-hranenie
+
+catalog_type_region_tech:
+    path: /{object_type}_{deal_type}/{reg}/{tech}/
+    defaults:
+        _controller: DefaultBundle:Default:catalog
+        section: catalog
+        select_condition: yes
+    requirements:
+        object_type: sklad|industry|car_service|sewing_industry|food_industry|refrigerated_warehouse|freezer_warehouse|free_building|alcohol_warehouse|pharma_warehouse|open_areas
+        reg: moscow|moscow_region
+        tech: class_a|class_b|class_c|class_d|gate_dock|gate_ramp|gate_zero|warehouse_unheated|warehouse_heated|crane|racks|railway
+        deal: rent|sale|otvetstvennoe-hranenie
+
+catalog_type_region_techpage1:
+    path: /{object_type}_{deal_type}/{reg}/{tech}/1/
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        section: catalog
+        route: catalog_type_region_tech
+        permanent: true # this is for 301
+    requirements:
+        object_type: sklad|industry|car_service|sewing_industry|food_industry|refrigerated_warehouse|freezer_warehouse|free_building|alcohol_warehouse|pharma_warehouse|open_areas
+        reg: moscow|moscow_region
+        tech: class_a|class_b|class_c|class_d|gate_dock|gate_ramp|gate_zero|warehouse_unheated|warehouse_heated|crane|racks|railway
+        deal: rent|sale|otvetstvennoe-hranenie
+
+catalog_type_region_techpage:
+    path: /{object_type}_{deal_type}/{reg}/{tech}/{pages}/
+    defaults:
+        _controller: DefaultBundle:Default:catalog
+        section: catalog
+        select_condition: yes
+    requirements:
+        pages:  \d+
+        object_type: sklad|industry|car_service|sewing_industry|food_industry|refrigerated_warehouse|freezer_warehouse|free_building|alcohol_warehouse|pharma_warehouse|open_areas
+        reg: moscow|moscow_region
+        tech: class_a|class_b|class_c|class_d|gate_dock|gate_ramp|gate_zero|warehouse_unheated|warehouse_heated|crane|racks|railway
+        deal: rent|sale|otvetstvennoe-hranenie

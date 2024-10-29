@@ -1,0 +1,89 @@
+<form>
+	<div class="line column">
+        <div class="wrap-line-filter line">
+            <div class="wrap-el-filter button-block desctop-mainfiler line horizontal-left" data-name="type-deal">
+                <div class="button line vertical-center horizontal-center {% if app.request.get("type-deal", "rent") == "rent" %}active{% endif %}" data-link="rent" data-value="rent"><span>Аренда</span></div>
+                <div class="button line vertical-center horizontal-center {% if app.request.get("type-deal", "rent") == "sale" %}active{% endif %}" data-link="sale" data-value="sale"><span>Продажа</span></div>
+                <div class="button line vertical-center horizontal-center {% if app.request.get("type-deal", "rent") == "otvetstvennoe-hranenie" %}active{% endif %}" data-value="otvetstvennoe-hranenie" data-link="otvetstvennoe-hranenie"><span>Ответ. хранение</span></div>
+            </div>
+            <div class="wrap-el-filter wrap-input-block for-rent for-sale line horizontal-left show">
+                <div class="input-wrap">
+                    <input class="" type="text" name="area_min"  value="" placeholder="500 м2">
+                    <span>от</span>
+                </div>
+                <div class="input-wrap">
+                    <input class="" type="text" name="area_max"  value="" placeholder="1000 м2">
+                    <span>до</span>
+                </div>
+            </div>
+            <div class="button-block apart for-otvetstvennoe-hranenie not-active select-safe-types-wrap select-wrap">
+                <div class="button line vertical-center horizontal-center select-safe-types select-object">
+                    <span>Выберите тип хранения</span>
+                    <i class="fa fa-angle-down"></i>
+                </div>
+                <div class="select-safe-types-list select-list">
+                    {% for key, safe in filters.l_safe_types.value|castToArray %}
+                        <div class="list-item line vertical-center" data-value="{{ safe.en }}" data-name="safe_types" data-url="{{ safe.en }}">
+                            <span>{{ safe.name }}</span><i class="fas fa-check"></i>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+		<div class="line button-block horizontal-left wrap-el-filter mobile-mainfiler {% if is_mobile() and is_ios() %}iphone-select-wrap{% endif %}">
+			<select name="type-deal" class="{% if is_mobile() and is_ios() %}iphone-select{% endif %}">
+                <option value="rent">Аренда <span class="small-text"></span></option>
+                <option value="sale">Продажа <span class="small-text"></span></option>
+				<option value="building_new">Ответственное хранение <span class="small-text"></span></option>
+			</select>
+		</div>
+		<div class="line wrap-line-filter">
+            <div class="for-rent button-block wrap-el-filter line horizontal-center vertical-center" data-name="price_format">
+                <div class="button active line vertical-center active" data-value="1"><span>м<sup>2</sup> / год</span></div>
+                <div class="button line vertical-center" data-value="2"><span>м<sup>2</sup> / мес</span></div>
+                <div class="button line vertical-center" data-value="3"><span>В месяц</span></div>
+            </div>
+            <div class="for-sale not-active button-block wrap-el-filter line horizontal-center vertical-center" data-name="price_format">
+                <div class="button line vertical-center" data-value="5"><span>За все</span></div>
+                <div class="button line vertical-center active" data-value="4"><span>За 1 м<sup>2</sup></span></div>
+                <div class="button line column vertical-center horizontal-center" data-value="6"><span>За 1 сотку*</span><span class="small-text">(Только для участка)</span></div>
+            </div>
+            <div class="for-otvetstvennoe-hranenie not-active button-block wrap-el-filter line horizontal-center vertical-center" data-name="price_format">
+                <div class="button active line vertical-center active" data-value="7"><span>За 1 п.м.</span></div>
+                <div class="button line vertical-center" data-value="8"><span>м<sup>3</sup></span></div>
+                <div class="button line vertical-center" data-value="9"><span>м<sup>2</sup></span></div>
+            </div>
+			<div class="line horizontal-left wrap-input-block">
+				<div class="input-wrap">
+					<input type="text" name="price_min" placeholder="1000 &#8381;" value="">
+					<span>от</span>
+				</div>
+				<div class="input-wrap">
+					<input type="text" name="price_max" placeholder="20 000 &#8381;" value="">
+					<span>до</span>
+				</div>
+			</div>
+            <!-- <div>
+				<div class="sliderCont">
+					<div id="slider" class=""></div>
+				</div>
+			</div> -->
+		</div>
+        <div class="line wrap-line-filter">
+            <div class="search_text">
+                <input class="multy-play" type="search" placeholder="Номер лота" name="search" autocomplete="off" data-url="{{ path("bigsearch") }}">
+            </div>
+            <div class="search line vertical-center horizontal-center">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="">
+            <div class="fixed-select-condition">
+                <div class="wrap-select-condition line horizontal-left vertical-center"></div>
+            </div>
+        </div>
+	</div>
+	<input type="hidden" name="price_format" value="{{ app.request.get("price_format", "1") }}">
+    <input type="hidden" name="type-deal" value="{{ app.request.get("type-deal", "rent") }}">
+    <input type="hidden" name="safe_types" value="{{ app.request.get("safe_types") }}">
+</form>

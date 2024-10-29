@@ -1,0 +1,121 @@
+{% import "DefaultBundle:Default:declension.html.twig" as utils %}
+<div class="wrap line mainblocks">
+	<a class="quarter box" href="">
+		<div class="line vertical-end">
+			{% include "DefaultBundle:svg:block-icons/new.svg.twig" %}
+			<div class="">
+				<div class="title rd sml">Новые</div>
+				<div class="simple_gray">объекты на сайте</div>
+			</div>
+		</div> 
+	</a>
+
+    <a class="quarter box" href="{{ path('catalog', {'deal_type': 'sale'}) }}?object_type[]=1">
+		<div class="line vertical-end">
+			{% include "DefaultBundle:svg:block-icons/sdelka.svg.twig" %}
+			<div>
+				<div class="simple_gray">Успейте</div>
+				<div class="title bl sml">купить склад</div>
+			</div>
+		</div>
+	</a>
+    <a class="half box" href="{{ path('catalog', {'deal_type': 'sale'}) }}?object_class[]=1">
+        <div class="line vertical-end">
+            <img alt="" src="/public/images/mainpage/{% if is_mobile()  %}mobile/{% endif %}sklad_class_a.jpg" class="block-hamovniki">
+            <div class="lily first">
+                <div class="title wh simple_gray txt-sh mb0 up">Склады</div>
+                <div class="title wh txt-sh up">класса A</div>
+            </div>
+            <div class="eclipse-gradient"></div>
+        </div>
+    </a>
+</div>
+<div class="wrap line mainblocks">
+    <a class="half box" href="{{ path('catalog', {'deal_type': 'rent'}) }}?object_type[]=1">
+        <div class="line vertical-end">
+            <img alt="" src="/public/images/mainpage/{% if is_mobile()  %}mobile/{% endif %}block-duplex.jpg" class="block-duplex">
+            <div class="lily second">
+                <div class="title wh simple_gray txt-sh">Аренда помещений</div>
+                <div class="title wh txt-sh">под склад</div>
+                <div class="hover-lily xs bl">{{ utils.declension(123, ['предложение', 'предложения', 'предложений']) }}</div>
+            </div>
+            <div class="eclipse-gradient"></div>
+        </div>
+    </a>
+    <a class="quarter box invert" href="{{ path('catalog', {'deal_type': 'sale'}) }}?object_class[]=2">
+        <div class="line vertical-end">
+            {% include "DefaultBundle:svg:block-icons/sklad-b.svg.twig" %}
+            <div>
+                <div class="simple_gray">Склады</div>
+                <div class="title rd sml">класса B</div>
+            </div>
+        </div>
+    </a>
+    <a class="quarter box" href="{{ path('catalog', {'deal_type': 'rent'}) }}?object_type[]=3">
+        <div class="line vertical-end">
+            {% include "DefaultBundle:svg:block-icons/soil.svg.twig" %}
+            <div class="lily">
+                <div class="title bl sml" style="margin-bottom: 15px;">Земельные<br>участки</div>
+                <div class="hover-lily xs bl">{{ utils.declension(123, ['предложение', 'предложения', 'предложений']) }}</div>
+            </div>
+        </div>
+    </a>
+</div>
+<div class="wrap line mainblocks">
+    <a class="half box" href="{{ path('catalog', {'deal_type': 'otvetstvennoe-hranenie'}) }}">
+        <div class="line vertical-end">
+            {% include "DefaultBundle:svg:block-icons/otvet-khran.svg.twig" %}
+            <div class="second">
+                <div class="title simple_gray">Переходи на</div>
+                <div class="title rd ">ответственное хранение</div>
+            </div>
+        </div>
+    </a>
+    <a class="half box" href="">
+        <div class="line vertical-end building_sklad">
+            <img alt="" src="/public/images/mainpage/{% if is_mobile()  %}mobile/{% endif %}building_sklad.jpg" class="block-hamovniki">
+            <div class="lily">
+                <div class="title wh simple_gray txt-sh mb0 up">Выгодное</div>
+                <div class="title wh txt-sh up">строительство склада</div>
+                <div class="title wh simple_gray txt-sh mb0 up">по требованию заказчика</div>
+            </div>
+            <div class="eclipse-gradient"></div>
+        </div>
+    </a>
+</div>
+<div class="wrap line mainblocks">
+    <a class="half box" href="{{ path('catalog', {'deal_type': 'rent'}) }}?object_type[]=2">
+        <div class="line vertical-end">
+            <img alt="" src="/public/images/mainpage/{% if is_mobile()  %}mobile/{% endif %}rent_industry.jpg" class="block-duplex">
+            <div class="lily second">
+                <div class="title wh simple_gray txt-sh">Аренда помещений</div>
+                <div class="title wh txt-sh">под производство</div>
+                <div class="hover-lily xs bl">{{ utils.declension(123, ['предложение', 'предложения', 'предложений']) }}</div>
+            </div>
+            <div class="eclipse-gradient"></div>
+        </div>
+    </a>
+    <a class="quarter box invert" href="{{ path('catalog', {'deal_type': 'rent'}) }}">
+        <div class="line vertical-end">
+            {% include "DefaultBundle:svg:block-icons/autorampa.svg.twig" %}
+            <div>
+                <div class="simple_gray">Склады</div>
+                <div class="title bl sml">с авторампой</div>
+            </div>
+        </div>
+    </a>
+    <div class="quarter box iconsvg-hide" href="">
+        <div class="line column vertical-between bg-red building_sklad">
+            <div class="lily">
+                <a class="hover-lily catalog-link" href="{{ path('catalog', {'deal_type': 'rent'}) }}"><span>Аренда</span> <span></span></a>
+                <a class="hover-lily catalog-link" href="{{ path('catalog', {'deal_type': 'sale'}) }}"><span>Продажа</span> <span></span></a>
+            </div>
+            <a class="lily" href="">
+                <div class="title wh sml txt-sh">Каталог</div>
+                <div class="title wh simple txt-sh">недвижимости</div>
+                <div class="hover-lily xs">{{ utils.declension(123, ['предложение', 'предложения', 'предложений']) }}</div>
+            </a>
+        </div>
+    </div>
+</div>
+

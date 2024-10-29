@@ -1,0 +1,32 @@
+<div class="areas-search highway moskva-i-mo mo-moskva-snaruzhi-mkad mo-regiony-ryadom moskovskaya-oblast">
+    {% set highways = filters.l_highways.value|castToArray|sort %}
+    <div class="result">
+        {% for key, highway in highways %}
+            <div class="areas">
+                {% if substr is not defined or substr != highway.name|slice(0,1) %}
+                    {% set substr = highway.name|slice(0, 1) %}
+                    <div class="index">{{ substr|upper }}</div>
+                {% endif %}
+                <div class="el">
+                    <a href="#" class="red-link highway{% if highway.en|lower in app.request.get("highway") %} active{% endif %}" data-highway-id="{{ highway.en|lower }}" data-highway-name="{{ highway.name }}" data-url="highway_{{ highway.en|lower }}">{{ highway.name }}<span class="icon-clear-search"></span></a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="areas-search highway moskva-i-mo moskva-vnutri-mkad mo-moskva-snaruzhi-mkad mo-regiony-ryadom">
+    {% set highways = filters.l_highways_moscow.value|castToArray|sort %}
+    <div class="result">
+        {% for key, highway in highways %}
+            <div class="areas">
+                {% if substr is not defined or substr != highway.name|slice(0,1) %}
+                    {% set substr = highway.name|slice(0, 1) %}
+                    <div class="index">{{ substr|upper }}</div>
+                {% endif %}
+                <div class="el">
+                    <a href="#" class="red-link highway{% if highway.en|lower in app.request.get("highway") %} active{% endif %}" data-highway-id="{{ highway.en|lower }}" data-highway-name="{{ highway.name }}" data-url="highway_{{ highway.en|lower }}">{{ highway.name }}<span class="icon-clear-search"></span></a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

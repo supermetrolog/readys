@@ -1,0 +1,31 @@
+{% set scripts = ['order.js'] %}
+{% set styles = ['error.css', 'filter.css'] %}
+{% extends "DefaultBundle:Default:layout.html.twig" %}
+
+{% block content %}
+    <div class="wrap">
+        <div>
+            <h1>{% if h1 is defined %} {{ h1 }} {% endif %}</h1>
+        </div>
+    </div>
+    <div class="overlay-wrap line horizontal-center">
+        <div class="center-content line column vertical-center">
+            <div class="radar"><img src="{{ asset('public/svg/radar-search.svg') }}"></div>
+            <h2>Ёk-makarёk, страница не найдена...</h2>
+            <div class="title">
+                К сожалению, страница сайта, которую вы запрашиваете, не найдена в нашей базе данных. Возможно, вы неправильно ввели URL-адрес страницы или попали
+                на битую ссылку.
+            </div>
+            <div class="btn-ellipse ripple alert">Оповестить нас</div>
+            <div class="title">
+                Воспользуйтесь <a href='{{ path("catalog", {"deal":"rent"}) }}'>поиском</a>, вернитесь <a href="#" onclick="history.back()">назад</a>
+                или перейдите на <a href="{{ path("index") }}">главную страницу</a>.
+            </div>
+        </div>
+    </div>
+    <div class="wrap">
+        <div class="line horizontal-center">
+            {% include "DefaultBundle:Default:order.html.twig" %}
+        </div>
+    </div>
+{% endblock %}

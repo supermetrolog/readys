@@ -1,0 +1,34 @@
+{% set areas = deal|getAllAreas(type) %}
+{% if areas|length > 0 %}
+	<div class="title">{% if type == "lot" %}Квартиры в округах{% elseif type == "complex" %}ЖК в округах{% else %}Новостройки в округах{% endif %}</div>
+	<div class="result line horizontal-left" data="2">
+		{% for area in areas %}
+			<div class="area">
+				{% if type == "lot" %}
+					{% set path = path("flats_district",{"deal": deal, "districtLink": area[0].districtLink}) %}
+				{% elseif type == "complex" %}
+					{% set path = path("complex_district",{"districtLink": area[0].districtLink}) %}
+				{% elseif  type == "new_building" %}
+					{% set path = path("new-buildings_district",{"districtLink": area[0].districtLink}) %}
+				{% endif %}
+				<div class="el"><a href="{{ path }}" class="red-link district link">{{ area[0].district }}</a></div>
+				{% for i in area %}
+					{% if type == "lot" %}
+						{% set path = path("flats_area",{"deal": deal, "areaLink": i.areaLink}) %}
+					{% elseif type == "complex" %}
+						{% set path = path("complex_area",{"areaLink": i.areaLink}) %}
+					{% elseif  type == "new_building" %}
+						{% set path = path("new-buildings_area",{"areaLink": i.areaLink}) %}
+					{% endif %}
+					<div class="el"><a href="{{ path }}" class="red-link">{{ i.area}}</a></div>
+				{% endfor %}
+			</div>										
+		{% endfor %}	
+	</div>
+	<div class="action" style="left: calc(50% - 115.391px);" data="Скрыть">
+		<span>
+			<span>Показать все районы</span> <i class="fa fa-angle-down"></i>
+		</span>
+	</div>
+	
+{% endif %}

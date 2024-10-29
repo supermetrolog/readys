@@ -1,0 +1,8 @@
+{% import "DefaultBundle:Default:declension.html.twig" as utils %}
+{% if pagination is defined %}
+	{% if total > pagination.getSize() and pagination.getCurrent() != pagination.getLast() and (app.request.get("section") == "catalog" or app.request.get("section") == "jk_location") %}
+		{% set rest = (total - (app.request.get('pages', 1) * pagination.getSize())) %}
+		<div class="btn-ellipse show-more"><span>Еще {% if pagination.getSize() <= rest %}{{ utils.declension(pagination.getSize(), ['лот', 'лота', 'лотов']) }}{% else %}{{ rest }}{% endif %} из {{ rest }}</span></div>
+	{% endif %}
+	{% include "SimplePaginationBundle::pagination.bootstrap.html.twig" %}
+{% endif %}

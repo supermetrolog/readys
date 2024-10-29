@@ -1,0 +1,8 @@
+RewriteEngine on
+RewriteBase /
+
+# Rewrites all URLS without web in them
+RewriteCond %{REQUEST_URI} !^/web/
+
+# Rewrite all those to insert /folder
+RewriteRule ^(.*)$ /web/$1 [L]

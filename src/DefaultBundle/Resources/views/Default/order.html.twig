@@ -1,0 +1,51 @@
+<div class="order">
+	<div class="title">Заявка</div>
+	<div class="wrap-filter">
+		<form action="">
+			<div class="line horizontal-center">
+				<div class="form-object-check">
+					<span>Снять</span>
+					<div class="slide " data-name="rent"><div class="cursor"></div></div>
+				</div>
+				<div class="form-object-check">
+					<span>Сдать</span>
+					<div class="slide " data-name="lease"><div class="cursor"></div></div>
+				</div>
+				<div class="form-object-check">
+					<span>Купить</span>
+					<div class="slide " data-name="buy"><div class="cursor"></div></div>
+				</div>
+				<div class="form-object-check">
+					<span>Продать</span>
+					<div class="slide " data-name="sale"><div class="cursor"></div></div>
+				</div>
+			</div>
+			<div class="dialog_input" data-name="name">
+				<input class="requare {% if app.request.cookies.get("name") %}no_empty{% endif %}" type="text" name="name" value="{{ app.request.cookies.get("name", "") }}" placeholder="" autocomplete="off">
+				<span class="label">Имя</span>
+			</div>
+			<div class="line">
+				<div class="dialog_input" data-name="phone">
+					<input  class="requare {% if app.request.cookies.get("phone") %}no_empty{% endif %}" type="text" name="phone" value="{{ app.request.cookies.get("phone", "") }}" placeholder="" autocomplete="off">
+					<span class="label">Телефон</span>
+				</div>
+				<div class="dialog_input" data-name="email">	
+					<input  class="requare {% if app.request.cookies.get("email") %}no_empty{% endif %}" type="text" name="email" value="{{ app.request.cookies.get("email", "") }}" placeholder="" autocomplete="off">
+					<span class="label">E-mail</span>
+				</div>	
+			</div>
+			<input type="hidden" name="url" value="{{ app.request.uri }}"></input>
+			<input type="hidden" name="wish" value=""></input>
+			<input type="hidden" name="user-agent" value="{{ app.request.headers.get('User-Agent') }}"></input>
+			<input type="hidden" name="reachGoal" value="ORDER"></input>
+		</form>
+		<div class="line horizontal-center column vertical-center">
+			<div class="btn-purple send">Отправить заявку</div>
+			<div class="req"><span class="red">*</span> Поля обязательны для заполнения</div>
+		</div>
+	</div>
+</div>
+
+<div class="order-success">
+	Спасибо! Данные успешно отправлены.
+</div>

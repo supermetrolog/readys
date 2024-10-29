@@ -1,0 +1,31 @@
+{% set j = 1 %}
+{% for item in news %}
+    {% if app.request.get("id") != item.id and j < 5 %}
+        <div class="element line column">
+            {% if item.is_general == 0 %}
+                <noindex>
+            {% endif %}
+            {% if item.photo is defined %}
+                <div class="img">
+                    <a href="{{ path("show_news", {id: item.id}) }}" target="_blank">
+                        <img class="lot-photo" data-size="368" src="{{ item.photo }}368/">
+                    </a>
+                </div>
+            {% endif %}
+            <a class="info line column" href="{{ path("show_news", {id: item.id}) }}"  target="_blank">
+                <div>
+                    <div class="type-news">{{ item.type_name}}</div>
+                    <div class="date-news small-text">{{ item.date_published|date("d.m.Y") }}</div>
+                    <div class="title-news">{{ item.headline }}</div>
+                    <div class="anons-news">{{ item.announcement|striptags|raw }}</div>
+                </div>
+            </a>
+            {% if item.is_general == 0 %}
+                </noindex>
+            {% endif %}
+        </div>
+        {% if app.request.get("_route") == "show_news" %}
+            {% set j = j + 1 %}
+        {% endif %}
+    {% endif %}
+{% endfor %}

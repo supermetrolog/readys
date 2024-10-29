@@ -1,0 +1,133 @@
+@media screen and (max-width: 660px) {
+    .filter-header{
+        display: block;
+    }
+    .wrap-desctop-filter{
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1050;
+        background: rgba(0, 0, 0, 0);
+        visibility: hidden;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        backface-visibility: hidden;
+        overflow: scroll;
+    }
+    .desctop-filter{
+        position: relative;
+        top: 0px;
+        left: 0;
+        right: 0;
+        background: #f6f6f6;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    .wrap-desctop-filter.md-show{
+        visibility: visible;
+        box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+        background: rgba(0, 0, 0, 0.8)
+    }
+    .md-show .desctop-filter {
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+    .more-option{
+        display: none;
+    }
+    .filter .wrap-filter{
+        max-height: 100%;
+    }
+    .wrap-filter form{
+        padding: 20px 10px 10px 10px;
+    }
+    .wrap-filter form .filter-align-left{
+        -webkit-box-pack: start;
+        -moz-box-pack: start;
+        -webkit-flex-pack: start;
+        -ms-flex-pack: start;
+        -moz-justify-content: flex-start;
+        -webkit-justify-content: flex-start;
+        justify-content: flex-start;
+
+        -webkit-box-orient: vertical;
+        -moz-box-orient: vertical;
+        -webkit-flex-direction: column;
+        -moz-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+    .wrap-filter form .filter-align-left.vertical-end {
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        -webkit-align-items: flex-start;
+        -moz-align-items: flex-start;
+        align-items: flex-start;
+    }
+
+    .button-block-select{
+        width: auto;
+        max-width: 355px;
+    }
+    .wrap-filter .wrap-el-filter {
+        height: auto;
+        margin-bottom: 10px;
+    }
+    .wrap-input-blocks{
+        display: block;
+    }
+    .wrap-input-blocks .absolute-placehold{
+        margin-bottom: 5px;
+    }
+    .wrap-filter form input[name="price_min"]{
+        border-right: 1px solid #bfbfbf;
+    }
+    .button-block .button{
+        font-size: 13px;
+    }
+    .button-block[data-name="gate_type[]"] .button {
+        border-radius: 0;
+        border: 1px solid #bfbfbf;
+    }
+    .direction-buttons .button{
+        margin-bottom: 10px;
+    }
+    .wrap-filter .wrap-el-filter{
+        margin-right: 0;
+        width: 100%;
+    }
+
+    .button-block:not(.select-region-wrap) .button{
+        width: 100%;
+        margin: 0 0 5px 0;
+        border: 1px solid #bfbfbf;
+    }
+    .mrg-btn > .button:not(:last-child){
+        margin: 0 0 5px 0;
+    }
+    .mrg-btn > .button:last-child{
+        border-left: 1px solid #bfbfbf;
+    }
+    .type-search .link-dash {
+        width: 100%;
+        margin: 0 0 10px 0 !important;
+        padding: 0;
+    }
+    .wrap-filter form input[name="area_min"], .wrap-filter form input[name="from_mkad_min"], .wrap-filter form input[name="ceiling_height_min"]{
+        border-right: 1px solid #bfbfbf;
+    }
+    .form-object-check{
+        width: 100%;
+    }
+}

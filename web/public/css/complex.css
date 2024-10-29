@@ -1,0 +1,192 @@
+.block-content{
+	width: 100%;
+}
+.tab-complex{
+	border-bottom: 1px solid rgba(0,0,0,0.15);	
+}
+.tab-complex-title{
+	width: 100%;
+}
+.half .tab-complex-title{
+	padding: 0 10%;
+}
+.tab-complex-title > div:first-child{
+	margin-top: 65px;
+	color:#000000;
+	font-size: 16px;
+}
+.tab-complex-title > div.jk-name{
+	font-size: 60px;
+    color: #181415;
+    font-family: "RalewayExtraBold";
+	line-height: 46px;
+	margin-top: 25px;
+}
+.tab-complex-title > div.tagline{
+	font-size: 24px;
+    color: #999999;
+    font-weight: 500;
+    margin-top: 15px;
+}
+.tab-complex-title > div.metro-n{
+	margin-top: 25px;
+}
+.tab-complex-title  .metro-st > div{
+	margin-right: 30px;
+	margin-bottom: 15px;
+}
+.tab-complex-title .metro-st i.icon-metro_mos{
+	margin-right: 5px;
+}
+.tab-complex-title .metro-st a{
+	margin-right: 5px;
+}
+.tab-complex-title > div.address{
+	font-size: 16px;
+    color: #000;
+    margin-top: 10px;
+}
+.tab-complex-title > div.start-dialog{
+	margin-top: 40px;
+}
+.tab-complex-title > div.address .fa{
+	color: #999999;
+	margin-right: 5px;
+}
+
+.half{
+	width: calc(50% - 5px);
+}
+
+/*gallery*/
+#lightgallery{
+	margin-top: 40px;
+	width: 100%;
+}
+.mobilePhotoGallery{
+	display: none;
+	margin-top: 40px;
+	box-sizing: border-box;
+	width: 100%;
+}
+.half #lightgallery{
+	margin-top: 10px;
+}
+#lightgallery img{
+	display: block;
+	width: 100%;
+	cursor: pointer;
+}
+#lightgallery div.c-photo-visible, #lightgallery div.c-photo-main{
+	width: calc(50% - 5px);
+}
+#lightgallery div.c-photo-visible > div{
+	position: relative;
+    margin: 0 0px 10px 0px;
+    width: calc(50% - 5px);
+}
+#lightgallery div.c-photo-hidden, #lightgallery div.c-photo-wrap{
+	width: 100%;
+}
+#lightgallery div.c-photo-hidden .add-photos{
+	display: none;
+}
+#lightgallery div.c-photo-hidden > div{
+	width: calc(25% - (30px / 4));
+    margin: 0 10px 10px 0;
+}
+#lightgallery div.c-photo-hidden > div:nth-of-type(4n){
+	margin: 0 0 10px 0;
+}
+
+#lightgallery div.c-photo-wrap > div{
+	width: calc(25% - (30px / 4));
+}
+#lightgallery div.c-photo-wrap.three > div{
+	width: calc((100% / 3) - (20px / 3));
+}
+#lightgallery div.c-photo-wrap.two > div{
+	width: calc((100% / 2) - (10px / 2));
+}
+#lightgallery div.c-photo-wrap.one > div{
+	width: 100%;
+	max-width: 1024px;
+}
+.more-photos{
+	position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    background: rgba(0, 0, 0, 0.4);
+    color: #FFF;
+    cursor: pointer;
+    font-size: 36px;
+    -webkit-transition: all 800ms ease-in-out;
+    -moz-transition: all 800ms ease-in-out;
+    -o-transition: all 800ms ease-in-out;
+    transition: all 800ms ease-in-out;
+}
+.filter-box{
+	margin-top: 50px;
+	width: 100%;
+}
+.title{
+	color: #181415;
+	font-size: 24px;
+	font-weight: 500;
+	text-align: center;
+	margin-bottom: 18px;
+	width: 100%;
+}
+
+.filter{
+	padding: 0;
+	box-shadow: none;
+	overflow: visible;
+	margin-top: 20px;
+}
+.filter .wrap-filter{
+	max-height: 100%
+}
+.wrap-filter form{
+	padding-bottom: 0;
+}
+
+.button-block[data-name="deal"]{
+	margin-right: 0;
+}
+.button-block[data-name="deal"] .button{
+	padding: 7px 0px;
+	width: 125px;
+	text-align: center;
+}
+.info-block{
+	padding-top: 40px;
+}
+.tab-maps + div{
+	width: 100%;
+}
+.info-block .see-apartment{
+		margin-bottom: 40px;
+}
+.canvas{
+	margin-top: 20px;
+}
+#panorama{
+	width: 100%;
+	height: 450px;
+}
+#ajax-loader {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    z-index: 10000;
+    display: block;
+    margin: 0;
+    left: calc(50% - 25px);
+    top: calc(50% - 25px);
+}
+.mobile-filter-btn{
+	display: none;
+}

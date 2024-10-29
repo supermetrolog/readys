@@ -1,0 +1,105 @@
+<div class="wrap header-mobile">
+	<div class="head line vertical-center column">
+		<div>
+			<a href="{% if app.request.get('section') != "index" %}{{ path("index") }}{% else %}#{% endif %}"><img class="site-logo" src="/public/images/ico/logo-plr.svg" alt="Penny Lane Realty" /></a>
+		</div>
+		<div>
+			<a href="{% if app.request.get('section') != "index" %}{{ path("index") }}{% else %}#{% endif %}" class="depname">ИНДУСТРИАЛЬНАЯ НЕДВИЖИМОСТЬ</a>
+		</div>
+		
+		<div class="nav-mobile">
+			<div class="line nav-mobile-sub">
+				{#<a class="line vertical-center horizontal-center ripple">
+					<div class="login"><i class="fa fa-key" aria-hidden="true"></i></div>
+				</a>#}
+				<a class="line vertical-center horizontal-center ripple">
+					<div class="favorite"><i class="fa fa-heart" aria-hidden="true"></i> <span class="countFavorites">0</span></div>
+				</a>
+				<a class="line vertical-center horizontal-center mobile-phone ripple" href="#">
+					<div class="phone-iconblock">
+						<i class="fa fa-phone"></i>
+						<i class="fa fa-angle-down fa-angle"></i>
+					</div>
+				</a>
+				<a class="line vertical-center horizontal-center sandwich" > 
+					<div>
+						<span class="si-icon si-icon-hamburger-cross" data-icon-name="hamburgerCross"></span>
+						<script type="text/javascript">
+
+						</script>
+					</div>
+				</a>
+			</div>
+			<div id="topmenu" class="topmenu header-mobile">
+				<div class="line column">
+					<div class="submenu">
+						<a class="map_ico" href="#"><i class="fa fa-map-marker" aria-hidden="true"></i> <span class="menu-txt"> Москва </span> <i class="fa fa-angle-down"></i></a>
+						<div class="sub">
+							<a href="spbrent.realtor.ru/ru/country">Санкт-Петербург</a>
+						</div>
+					</div>
+                    <div class="submenu">
+                        <a href="#" class="">Другая недвижимость <i class="fa fa-angle-down"></i></a>
+                        <div class="sub">
+                            <a target="_blank" href="//country.realtor.ru/">Загородная недвижимость</a>
+                            <a target="_blank" href="//office.realtor.ru/">Офисная недвижимость</a>
+                            <a target="_blank" href="//retail.realtor.ru/">Торговая недвижимость</a>
+                            <a target="_blank" href="//industry.realtor.ru/">Индустриальная недвижимость</a>
+                            <a target="_blank" href="//consult.realtor.ru/">Консалтинг и аналитика</a>
+                        </div>
+                    </div>
+                    <div class="submenu">
+                        <a href="#" class="">О департаменте <i class="fa fa-angle-down"></i></a>
+                        <div class="sub">
+                            <a href="">О нас</a>
+                            {#<a href='#' class="start-dialog"
+                                data-wish="Пользователь отправил заявку из меню сайта"
+                                data-title="Заявка"
+                                data-reachgoal="ORDER"
+                                data-field="name,phone,email,deal_type,comments"
+                                data-requare="name,phone,deal_type">Заявка</a>#}
+                            <a href="">Контакты</a>
+                        </div>
+                    </div>
+					<div class="lmenu">
+						<a href="" class="increasedl">Продажа</a>
+					</div>
+					<div class="lmenu">
+						<a href="">Аренда</a>
+					</div>
+					<div class="lmenu">
+						<a href="">Ответ. хранение</a>
+					</div>
+					<div class="lmenu">
+						<a href="" >Открытое хранение</a>
+					</div>
+					<div class="lmenu">
+						<a href="">Земельные участки</a>
+					</div>
+					<div class="lmenu">
+						<a href="">Строительство</a>
+					</div>
+					<div class="lmenu">
+						<a href="">На карте</a>
+					</div>
+					<div class="lmenu">
+						<a href="">Собственнику</a>
+					</div>
+				</div>
+			</div>
+			<div class="wrap-phone-block">
+				<div class="phone">
+					<a href="tel:+7 (495) {{ constant('PHONE')|replace({".":" "}) }}"><span class="call_phone_new1"><span class="ph">+7 495 <span class="red2"><b>{{ constant('PHONE') }}</b></span></span></span></a>
+					<div class="feedback">
+						<span class="start-dialog"
+							data-wish="Пользователь Заказал Звонок"
+							data-title="Заказать звонок"
+							data-reachgoal="CALLBACK"
+							data-field="name,phone,comments"
+							data-requare="name,phone"><span>перезвоните мне</span><i class="fa fa-angle-down fa-angle"></i></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

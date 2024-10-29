@@ -1,0 +1,24 @@
+<div class="overlay subscribe">
+    <div class="line column vertical-center over-wrap horizontal-center">
+        <div class="title1">E-mail рассылка</div>
+        <div class="title2">Будь в курсе первым</div>
+        <div class="title3">Раз в неделю мы будем присылать вам письмо с самыми<br>интересными статьями, без спама и рекламы</div>
+        <form data-action="{{ path("subscribe") }}" class="line">
+            <div>
+                <input type="text" name="email" placeholder="Ваша электронная почта">
+            </div>
+            <div class="search line vertical-center horizontal-center">
+                <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                подписаться
+            </div>
+            <input type="hidden" name="url" value="{{ app.request.uri }}"></input>
+            <input type="hidden" name="wish" value="Пользователь оставил заявку на подписку Будь в курсе первым"></input>
+            <input type="hidden" name="user-agent" value="{{ app.request.headers.get('User-Agent') }}"></input>
+            <input type="hidden" name="reachGoal" value="SUBSCRIBE"></input>
+        </form>
+        <div class="order-success">Теперь мы сможем отправлять Вам самые важные новости!</div>
+        {# 			<div class="title4">Подписываясь на рассылку, вы принимаете условия пользовательского соглашения</div>#}
+    </div>
+    <div class="eclipse"></div>
+    <div class="image" style="background-image: url(/public/images/mainpage/{% if is_mobile()  %}mobile/{% endif %}ban1.jpg)"></div>
+</div>

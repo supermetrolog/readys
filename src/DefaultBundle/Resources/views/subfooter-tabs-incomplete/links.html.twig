@@ -1,0 +1,79 @@
+<div class="title">Параметры квартир</div>
+<div class="result line" data="3">
+	{#<div>
+		<div class="min-title">Популярные локации</div>
+		<div class="el"><a href="" class="red-link">На Патриарших</a></div>
+		<div class="el"><a href="" class="red-link">На Чистых Прудах</a></div>
+		<div class="el"><a href="" class="red-link">В Хамовниках</a></div>
+		<div class="el"><a href="" class="red-link">Золотой треугольник</a></div>
+		<div class="el"><a href="" class="red-link">Москва Сити</a></div>
+		<div class="el"><a href="" class="red-link">Золотая миля</a></div>
+		<div class="el"><a href="" class="red-link">На Тверской</a></div>
+		<div class="el"><a href="" class="red-link">В Крылатском</a></div>
+		<div class="el"><a href="" class="red-link">На Кутузовском</a></div>
+		<div class="el"><a href="" class="red-link">На Мичиринском</a></div>
+		<div class="el"><a href="" class="red-link">На Мосфильмовской</a></div>
+		<div class="el"><a href="" class="red-link">На Минской</a></div>
+		<div class="el"><a href="" class="red-link">Шаболовка</a></div>
+	</div>#}
+	<div>
+		<div class="min-title">Редкие форматы</div>
+		<div class="el"><a href="{{ path("flats_type", {"flats_type": "penthouses"}) }}" class="red-link">Пентхаусы</a></div>
+		<div class="el"><a href="{{ path("flats_type", {"flats_type": "townhouses"}) }}" class="red-link">Таунхаусы</a></div>
+		<div class="el"><a href="{{ path("flats_type", {"flats_type": "duplex"}) }}" class="red-link">Двухуровневые</a></div>
+		<div class="el"><a href="{{ path("flats_type", {"flats_type": "lofts"}) }}" class="red-link">Лофты</a></div>
+		<div class="el"><a href="{{ path("flats_type", {"flats_type": "palace"}) }}" class="red-link">Особняки</a></div>
+		<div class="el"><a href="{{ path("flats_type", {"flats_type": "apartments_with_a_view"}) }}" class="red-link">Видовые квартиры</a></div>
+		<div class="el"><a href="{{ path("flats_type", {"flats_type": "apartments"}) }}" class="red-link">Апартаменты</a></div>
+	</div>
+	<div>
+		{% if deal == "sale" %}
+			<div class="min-title">По бюджетам, млн {% if app.request.cookies.get('currency') is null or app.request.cookies.get('currency')=='rub' %}&#8381;{% elseif app.request.cookies.get('currency')=='usd'%}${% elseif app.request.cookies.get('currency')=='eur' %}€{% endif %}</div>
+			<div class="el"><a href="{{ path("catalog", {"deal": deal}) }}?price_max=20000000" class="red-link">до 20</a></div>
+			<div class="el"><a href="{{ path("catalog", {"deal": deal}) }}?price_min=20000000&price_max=30000000&currency=rub" class="red-link">от 20 до 30</a></div>
+			<div class="el"><a href="{{ path("catalog", {"deal": deal}) }}?price_min=30000000&price_max=40000000&currency=rub" class="red-link">от 30 до 40</a></div>
+			<div class="el"><a href="{{ path("catalog", {"deal": deal}) }}?price_min=40000000&price_max=60000000&currency=rub" class="red-link">от 40 до 60</a></div>
+			<div class="el"><a href="{{ path("catalog", {"deal": deal}) }}?price_min=60000000&price_max=80000000&currency=rub" class="red-link">от 60 до 80</a></div>
+			<div class="el"><a href="{{ path("catalog", {"deal": deal}) }}?price_min=80000000&price_max=120000000&currency=rub" class="red-link">от 80 до 120</a></div>
+			<div class="el"><a href="{{ path("catalog", {"deal": deal}) }}?price_min=120000000&price_max=200000000&currency=rub" class="red-link">от 120 до 200</a></div>
+			<div class="el"><a href="{{ path("catalog", {"deal": deal}) }}?price_min=200000000&currency=rub" class="red-link">от 200</a></div>
+		{% else %}
+			<div class="min-title">По бюджетам, тыс {% if app.request.cookies.get('currency') is null or app.request.cookies.get('currency')=='rub' %}&#8381;{% elseif app.request.cookies.get('currency')=='usd'%}${% elseif app.request.cookies.get('currency')=='eur' %}€{% endif %}</div>
+			<div class="el"><a href="{{ path("catalog", {"deal": deal}) }}?price_max=60000&currency=rub" class="red-link">до 60</a></div>
+			<div class="el"><a href="{{ path("catalog", {"deal": deal}) }}?price_min=60000&price_max=80000&currency=rub" class="red-link">от 20 до 30</a></div>
+			<div class="el"><a href="{{ path("catalog", {"deal": deal}) }}?price_min=80000&price_max=100000&currency=rub" class="red-link">от 80 до 100</a></div>
+			<div class="el"><a href="{{ path("catalog", {"deal": deal}) }}?price_min=100000&price_max=150000&currency=rub" class="red-link">от 100 до 150</a></div>
+			<div class="el"><a href="{{ path("catalog", {"deal": deal}) }}?price_min=150000&price_max=250000&currency=rub" class="red-link">от 150 до 250</a></div>
+			<div class="el"><a href="{{ path("catalog", {"deal": deal}) }}?price_min=250000&price_max=400000&currency=rub" class="red-link">от 250 до 400</a></div>
+			<div class="el"><a href="{{ path("catalog", {"deal": deal}) }}?price_min=400000&price_max=600000&currency=rub" class="red-link">от 400 до 600</a></div>
+			<div class="el"><a href="{{ path("catalog", {"deal": deal}) }}?price_min=600000&currency=rub" class="red-link">от 600</a></div>
+		{% endif %}
+	</div>
+	<div>
+		<div class="min-title">По метражам, м<sup>2</sup></div>
+		<div class="el"><a href="{{ path("catalog", {"deal": deal}) }}?area_max=40" class="red-link">до 40</a></div>
+		<div class="el"><a href="{{ path("catalog", {"deal": deal}) }}?area_min=40&area_max=60" class="red-link">от 40 до 60</a></div>
+		<div class="el"><a href="{{ path("catalog", {"deal": deal}) }}?area_min=60&area_max=80" class="red-link">от 60 до 80</a></div>
+		<div class="el"><a href="{{ path("catalog", {"deal": deal}) }}?area_min=80&area_max=100" class="red-link">от 80 до 100</a></div>
+		<div class="el"><a href="{{ path("catalog", {"deal": deal}) }}?area_min=100&area_max=120" class="red-link">от 100 до 120</a></div>
+		<div class="el"><a href="{{ path("catalog", {"deal": deal}) }}?area_min=120&area_max=150" class="red-link">от 120 до 150</a></div>
+		<div class="el"><a href="{{ path("catalog", {"deal": deal}) }}?area_min=150&area_max=200" class="red-link">от 150 до 200</a></div>
+		<div class="el"><a href="{{ path("catalog", {"deal": deal}) }}?area_min=200&area_max=300" class="red-link">от 200 до 300</a></div>
+		<div class="el"><a href="{{ path("catalog", {"deal": deal}) }}?area_min=300" class="red-link">от 300</a></div>
+	</div>
+	<div>
+		<div class="min-title">По комнатам</div>
+		<div class="el"><a href="{{ path("flats_type", {"flats_type": "studio"}) }}" class="red-link">Студии</a></div>
+		<div class="el"><a href="{{ path("flats_type", {"flats_type": "odnokomnatnye"}) }}" class="red-link">1-комнатные</a></div>
+		<div class="el"><a href="{{ path("flats_type", {"flats_type": "dvuhkomnatnye"}) }}" class="red-link">2-комнатные</a></div>
+		<div class="el"><a href="{{ path("flats_type", {"flats_type": "trehkomnatnye"}) }}" class="red-link">3-комнатные</a></div>
+		<div class="el"><a href="{{ path("flats_type", {"flats_type": "chetyrehkomnatnye"}) }}" class="red-link">4-комнатные</a></div>
+		<div class="el"><a href="{{ path("flats_type", {"flats_type": "pyatikomnatnye"}) }}" class="red-link">5-комнатные</a></div>
+		<div class="el"><a href="{{ path("flats_type", {"flats_type": "shestikomnatnye"}) }}" class="red-link">6+ комнат</a></div>
+	</div>
+</div>
+<div class="action" style="left: calc(50% - 82.2188px);" data="Скрыть">
+	<span>
+		<span>Развернуть</span> <i class="fa fa-angle-down"></i>
+	</span>
+</div>

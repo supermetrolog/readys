@@ -1,0 +1,4 @@
+{% macro staticRoute(deal) %}
+	{% set param = app.request.get("_route_params")|merge({'deal': deal}) %}
+	{{ path("deal_" ~ app.request.get("_route"), param|unsetParam()) }}
+{% endmacro %}

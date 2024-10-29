@@ -1,0 +1,90 @@
+{% extends "CityBundle:Default:layout.html.twig" %}
+
+{% set styles = ['filter.css', 'contacts.css'] %}
+{% set scripts = ['contacts.js', 'order.js'] %}
+
+{% block content %}
+
+<div class="wrap line">
+	<div>
+		<h1>{% if h1 is defined %} {{ h1 }} {% endif %}</h1>
+	</div>
+</div>
+<div class="wrap">
+	<div class="overlay">
+		<div class="tab">
+			<div class="line flex-horizontal-center a" data-general="tab-params-filter">
+				<div class="active" data="a" data-lat="55.74949" data-lng="37.60539300000005" data-address="Москва, Знаменка д. 13, стр. 3">Центральный офис</div>
+				<div class="" data="b" data-lat="55.757969" data-lng="37.582211" data-address="Москва, Новинский бульвар, д. 31">Офис на Новинском</div>
+			</div>
+		</div>
+		<div>
+			<div class="wrap-map a active">
+				<div id="map"></div>
+				<div class="address">Москва, Знаменка д. 13, стр. 3</div>
+			</div>
+		</div>
+		<div class="line parking horizontal-center">
+			<div><i class="fa fa-product-hunt"></i> Если вы хотите воспользоваться нашей гостевой парковкой просьба заранее связаться с менеджером для оформления пропуска</div>
+		</div>
+		<div class="line contact">
+			<div>
+				<i class="fa fa-clock-o" aria-hidden="true"></i>
+				<div class="cont_title">Время работы</div>
+				<div class="cont_desc">
+					<div class="subtitle">Будни</div>
+					<div>с 9:00 до 20:00</div>
+					<br>
+					<div class="redtitle">Выходные и праздники</div>
+					<div>с 10:00 до 19:00</div>
+				</div>
+			</div>
+			<div>
+				<i class="fa fa-envelope-o" aria-hidden="true"></i>
+				<div class="cont_title">Контакты</div>
+				<div class="cont_desc">
+					<div class="subtitle">Колл-центр:</div>
+					<div class="phone"><a href="tel:+7 495 150-09-57" itemprop="telephone"> +7 495 {{ constant("PHONE") }}</a></div>
+					<div class="email"><a href="malto:kvartira@realtor.ru" itemprop="email">kvartira@realtor.ru</a></div>
+				</div>
+				<br />
+				<div class="cont_desc line">
+					<div style="margin-right: 20px;">
+						<div class="subtitle">Для прессы:</div>
+						<div class="email"><a href="malto:pr@realtor.ru" itemprop="email">pr@realtor.ru</a></div>
+					</div>
+					<div>
+						<div class="subtitle">Соискателям:</div>
+						<div class="email"><a href="malto:hr@realtor.ru" itemprop="email">hr@realtor.ru</a></div>
+					</div>
+				</div>
+			</div>
+			<div class="sharec">
+				<i class="fa fa-share-alt" aria-hidden="true"></i>
+				<div class="cont_title">Следите и смотрите за нами</div>
+				<div>
+					Новости на Facebook, новые видео и фото<br>в YouTube и Instagram
+				</div>
+				<div class="social line horizontal-left">
+		 			<a target="_blank" class="social f" href="https://www.facebook.com/country.realtor.ru/" rel="nofollow" title="Penny Lane Realty Facebook">
+		            	<img alt="" src="/public/images/facebook-round-corners.svg">
+					</a>
+					<a target="_blank" class="social u" href="http://www.youtube.com/channel/UCPOtKAZpK3MOAhjkHnqQ6pw" rel="nofollow" title="Penny Lane Realty Youtube">
+						<img alt="" src="/public/images/youtube-round-corners.svg">
+					</a>
+					<a target="_blank" class="social i" href="https://www.instagram.com/penny_lane_realty_life/" rel="nofollow" title="Penny Lane Realty Instagram">
+						<img alt="" src="/public/images/instagram-round-corners.svg">
+					</a>
+		 		</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="wrap">
+	<div class="line horizontal-center">
+		{% include "CityBundle:Default:order.html.twig" %}
+	</div>
+</div>
+
+
+{% endblock %}

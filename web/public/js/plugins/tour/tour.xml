@@ -1,0 +1,273 @@
+<krpano version="1.18" title="Virtual Tour" onstart="startup();">
+
+	<include url="skin/vtourskin.xml" />
+
+	<!-- set skin settings: bingmaps? gyro? thumbnails? tooltips? -->
+	<skin_settings maps="false"
+	               maps_type="bing"
+	               maps_bing_api_key=""
+	               maps_zoombuttons="false"
+	               gyro="true"
+	               title="true"
+	               thumbs="true"
+	               thumbs_width="120" thumbs_height="80" thumbs_padding="10" thumbs_crop="0|40|240|160"
+	               thumbs_opened="false"
+	               thumbs_text="false"
+	               thumbs_dragging="true"
+	               thumbs_onhoverscrolling="false"
+	               thumbs_scrollbuttons="false"
+	               thumbs_scrollindicator="false"
+	               thumbs_loop="false"
+	               tooltips_thumbs="false"
+	               tooltips_hotspots="false"
+	               tooltips_mapspots="false"
+	               loadscene_flags="MERGE"
+	               loadscene_blend="BLEND(0.5)"
+	               controlbar_offset="20"
+	               />
+
+	<!-- set optional skin logo url -->
+	<layer name="skin_logo" url="" scale="0.25" opened_onclick="openurl('...',_blank);" />
+
+
+	<action name="startup">
+		if(startscene === null, copy(startscene,scene[0].name));
+		loadscene(get(startscene), null, MERGE);
+	</action>
+
+	
+	<scene name="scene_1" title="1" onstart="" thumburl="panos/1.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="-20.020" vlookat="0.068" fovtype="MFOV" fov="110.021" maxpixelzoom="2.0" fovmin="70" fovmax="140" vlookatmin="-20"  vlookatmax="20"  limitview="lookat" />
+
+		<preview url="panos/1.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/1.tiles/pano_%s.jpg" />
+			<mobile>
+				<cube url="panos/1.tiles/mobile_%s.jpg" />
+			</mobile>
+		</image>
+
+		<!-- place your scene hotspots here -->
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-89.657" atv="3.176" linkedscene="scene_2" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-54.501" atv="3.800" linkedscene="scene_3" />
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="119.047" atv="7.684" linkedscene="scene_9" />
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="377.719" atv="-1.624" linkedscene="scene_6" />
+
+	</scene>
+
+	<scene name="scene_10" title="10" onstart="" thumburl="panos/10.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="-129.011" vlookat="-0.741" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" vlookatmin="-20"  vlookatmax="20"  limitview="lookat" />
+
+		<preview url="panos/10.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/10.tiles/pano_%s.jpg" />
+			<mobile>
+				<cube url="panos/10.tiles/mobile_%s.jpg" />
+			</mobile>
+		</image>
+
+		<!-- place your scene hotspots here -->
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-36.742" atv="1.628" linkedscene="scene_12" />
+
+	</scene>
+
+	<scene name="scene_11" title="11" onstart="" thumburl="panos/11.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="-135.620" vlookat="0.668" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" vlookatmin="-20"  vlookatmax="20"  limitview="lookat" />
+
+		<preview url="panos/11.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/11.tiles/pano_%s.jpg" />
+			<mobile>
+				<cube url="panos/11.tiles/mobile_%s.jpg" />
+			</mobile>
+		</image>
+
+		<!-- place your scene hotspots here -->
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-135.620" atv="0.668" linkedscene="scene_12" />
+
+	</scene>
+
+	<scene name="scene_12" title="12" onstart="" thumburl="panos/12.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="202.845" vlookat="0.514" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" vlookatmin="-20"  vlookatmax="20"  limitview="lookat" />
+
+		<preview url="panos/12.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/12.tiles/pano_%s.jpg" />
+			<mobile>
+				<cube url="panos/12.tiles/mobile_%s.jpg" />
+			</mobile>
+		</image>
+
+		<!-- place your scene hotspots here -->
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="179.734" atv="-4.138" linkedscene="scene_9" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-119.784" atv="10.841" linkedscene="scene_6" />
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="310.043" atv="0.635" linkedscene="scene_11" />
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="86.901" atv="2.085" linkedscene="scene_10" />
+
+	</scene>
+
+	<scene name="scene_2" title="2" onstart="" thumburl="panos/2.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="409.013" vlookat="-0.697" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" vlookatmin="-20"  vlookatmax="20"  limitview="lookat" />
+
+		<preview url="panos/2.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/2.tiles/pano_%s.jpg" />
+			<mobile>
+				<cube url="panos/2.tiles/mobile_%s.jpg" />
+			</mobile>
+		</image>
+
+		<!-- place your scene hotspots here -->
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="36.061" atv="-1.803" linkedscene="scene_1" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-19.565" atv="-0.126" linkedscene="scene_3" />
+
+	</scene>
+
+	<scene name="scene_3" title="3" onstart="" thumburl="panos/3.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="754.792" vlookat="0.226" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" vlookatmin="-20"  vlookatmax="20"  limitview="lookat" />
+
+		<preview url="panos/3.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/3.tiles/pano_%s.jpg" />
+			<mobile>
+				<cube url="panos/3.tiles/mobile_%s.jpg" />
+			</mobile>
+		</image>
+
+		<!-- place your scene hotspots here -->
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-146.399" atv="-3.563" linkedscene="scene_1" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="153.984" atv="-3.857" linkedscene="scene_6" />
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="28.237" atv="-5.158" linkedscene="scene_4" />
+
+	</scene>
+
+	<scene name="scene_4" title="4" onstart="" thumburl="panos/4.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="211.148" vlookat="-0.306" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" vlookatmin="-20"  vlookatmax="20"  limitview="lookat" />
+
+		<preview url="panos/4.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/4.tiles/pano_%s.jpg" />
+			<mobile>
+				<cube url="panos/4.tiles/mobile_%s.jpg" />
+			</mobile>
+		</image>
+
+		<!-- place your scene hotspots here -->
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="163.482" atv="-1.022" linkedscene="scene_3" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="136.697" atv="-4.111" linkedscene="scene_5" />
+
+	</scene>
+
+	<scene name="scene_5" title="5" onstart="" thumburl="panos/5.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="206.592" vlookat="-0.162" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" vlookatmin="-20"  vlookatmax="20"  limitview="lookat" />
+
+		<preview url="panos/5.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/5.tiles/pano_%s.jpg" />
+			<mobile>
+				<cube url="panos/5.tiles/mobile_%s.jpg" />
+			</mobile>
+		</image>
+
+		<!-- place your scene hotspots here -->
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-0.221" atv="0.843" linkedscene="scene_4" />
+
+	</scene>
+
+	<scene name="scene_6" title="6" onstart="" thumburl="panos/6.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="-154.421" vlookat="-0.161" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" vlookatmin="-20"  vlookatmax="20"  limitview="lookat" />
+
+		<preview url="panos/6.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/6.tiles/pano_%s.jpg" />
+			<mobile>
+				<cube url="panos/6.tiles/mobile_%s.jpg" />
+			</mobile>
+		</image>
+
+		<!-- place your scene hotspots here -->
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="30.413" atv="-0.561" linkedscene="scene_1" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="75.625" atv="-0.585" linkedscene="scene_7" />
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-159.885" atv="2.093" linkedscene="scene_8" />
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="-102.419" atv="-4.361" linkedscene="scene_12" />
+
+	</scene>
+
+	<scene name="scene_7" title="7" onstart="" thumburl="panos/7.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="209.180" vlookat="0.634" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" vlookatmin="-20"  vlookatmax="20"  limitview="lookat" />
+
+		<preview url="panos/7.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/7.tiles/pano_%s.jpg" />
+			<mobile>
+				<cube url="panos/7.tiles/mobile_%s.jpg" />
+			</mobile>
+		</image>
+
+		<!-- place your scene hotspots here -->
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-163.134" atv="-2.915" linkedscene="scene_6" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-57.026" atv="-0.690" linkedscene="scene_3" />
+
+	</scene>
+
+	<scene name="scene_8" title="8" onstart="" thumburl="panos/8.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="-305.430" vlookat="-0.429" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" vlookatmin="-20"  vlookatmax="20"  limitview="lookat" />
+
+		<preview url="panos/8.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/8.tiles/pano_%s.jpg" />
+			<mobile>
+				<cube url="panos/8.tiles/mobile_%s.jpg" />
+			</mobile>
+		</image>
+
+		<!-- place your scene hotspots here -->
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="25.440" atv="3.073" linkedscene="scene_9" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="139.848" atv="-0.622" linkedscene="scene_6" />
+
+	</scene>
+
+	<scene name="scene_9" title="9" onstart="" thumburl="panos/9.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="-155.785" vlookat="1.776" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" vlookatmin="-20"  vlookatmax="20"  limitview="lookat" />
+
+		<preview url="panos/9.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/9.tiles/pano_%s.jpg" />
+			<mobile>
+				<cube url="panos/9.tiles/mobile_%s.jpg" />
+			</mobile>
+		</image>
+
+		<!-- place your scene hotspots here -->
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-155.785" atv="1.776" linkedscene="scene_8" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="26.011" atv="-0.081" linkedscene="scene_1" />
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-177.697" atv="-37.251" linkedscene="scene_12" />
+
+	</scene>
+
+
+</krpano>

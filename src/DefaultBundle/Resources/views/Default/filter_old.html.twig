@@ -1,0 +1,321 @@
+{% set form_route = path("search") %}
+<div class="select-filter">
+	<div class="wrap-select-condition line horizontal-left vertical-center">
+        {#{% if app.request.get("city") %}
+            {% for v in app.request.get("city") %}
+                <div data-name="city" data-value="{{ v }}" class="line vertical-center">
+                    <span class="first-span icon-city"></span>{{ v|getVillageName() }}<span class="icon-clear-search"></span>
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% if app.request.get("highway") %}
+            {% for v in app.request.get("highway") %}
+                <div data-name="highway" data-value="{{ v }}" class="line vertical-center">
+                    <span class="first-span icon-highway"></span>{{ v|getHighwayName() }}<span class="icon-clear-search"></span>
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% if app.request.get("metro") %}
+			{% for v in app.request.get("metro") %}
+				<div data-name="metro" data-value="{{ v }}" class="line vertical-center">
+					<span class="first-span icon-metro"></span>{{ v|getMetroName() }}<span class="icon-clear-search"></span>
+				</div>
+			{% endfor %}
+		{% endif %}#}
+        {#{% if app.request.get("metroLink") %}
+			<div data-name="metro" data-value="{{ app.request.get("metroLink")|getMetroIdOfLink() }}" class="line vertical-center">
+				<span class="first-span icon-metro"></span>{{ app.request.get("metroLink")|getMetroNameOfLink() }}<span class="icon-clear-search"></span>
+			</div>
+		{% endif %}
+
+		{% if app.request.get("district") %}
+			{% for v in app.request.get("district") %}
+				<div data-name="district" data-value="{{ v }}" class="line vertical-center">
+					<span class="first-span icon-district"></span>{{ v|getDistrictName() }}<span class="icon-clear-search"></span>
+				</div>
+			{% endfor %}
+		{% endif %}
+		{% if app.request.get("districtLink") %}
+			<div data-name="district" data-value="{{ app.request.get("districtLink")|getDistrictIdOfLink() }}" class="line vertical-center">
+				<span class="first-span icon-district"></span>{{ app.request.get("districtLink")|getDistrictNameOfLink() }}<span class="icon-clear-search"></span>
+			</div>
+		{% endif %}
+		{% if app.request.get("area") %}
+			{% for v in app.request.get("area") %}
+				<div data-name="area" data-value="{{ v }}" class="line vertical-center" >
+					<span class="first-span icon-area"></span>{{ v|getAreaName() }}<span class="icon-clear-search"></span>
+				</div>
+			{% endfor %}
+		{% endif %}
+		{% if app.request.get("areaLink") %}
+			<div data-name="area" data-value="{{ app.request.get("areaLink")|getAreaIdOfLink() }}" class="line vertical-center">
+				<span class="first-span icon-district"></span>{{ app.request.get("areaLink")|getAreaNameOfLink() }}<span class="icon-clear-search"></span>
+			</div>
+		{% endif %}
+		{% if app.request.get("polygon") %}
+			<div data-name="polygon" data-value="" class="line vertical-center">
+				<span class="first-span icon-poligon"></span>Очерченные границы<span class="icon-clear-search"></span>
+			</div>
+		{% endif %}
+		{% if app.request.get("circle") %}
+			<div data-name="circle" data-value="" class="line vertical-center">
+				<span class="first-span icon-circle"></span>Поиск в радиусе<span class="icon-clear-search"></span>
+			</div>
+		{% endif %}#}
+	</div>
+</div>
+<div class="filter">
+	<div class="wrap-filter-content">
+    	{% if app.request.get("select_condition") %}
+			<div class="type-search select-region-wrap">
+				<a class="link-dash select-region" href="#" data-type="location">
+                    <i class="fas fa-map-marker-alt"></i> <span>{% if 1 in app.request.get("region", [1,2]) %}Москва{% endif %}{% if app.request.get("region", [1,2])|length > 1 %} и {% endif %}{% if 2 in app.request.get("region", [1,2]) %}Московская область{% endif %}</span> <i class="fa fa-angle-down"></i>
+                </a>
+                <div class="select-region-list">
+                    {% set regions = ""|getRegions() %}
+                    {% for region in regions %}
+                        <div class="list-item line vertical-center{% if region.getId() in app.request.get("region", [1,2]) %} active{% endif %}" data-value="{{ region.getId() }}" data-name="region[]" data-url="{% if region.getId() == 1 %}moscow{% elseif region.getId() == 2 %}moscow_region{% endif %}"><span>{{ region.getTitle() }}</span><i class="fas fa-check"></i></div>
+                    {% endfor %}
+                </div>
+			</div>
+    		{#<div class="type-search">
+    			<a class="link-dash" href="#" data-type="map"><span>Область на карте</span></a>
+    			<a class="link-dash" href="#" data-type="metro"><span>Схема метро</span></a>
+    			<a class="link-dash" href="#" data-type="areas"><span>Районы</span></a>
+    		</div>#}
+    	{% endif %}
+    	{% if app.request.get("multy-play") is null %}
+    		<div class="search_text">
+    			<input class="multy-play" type="search" placeholder="ID, город, направление, округ, район, шоссе, метро, название СК, тип помещения" name="search" data-url="{{ path("bigsearch") }}">
+    		</div>
+    	{% endif %}
+    	<div class="direction-buttons button-line line horizontal-center">
+            <div id="district_cao" {% if app.request.get("region", [1,2])|length == 1 and 1 in app.request.get("region", [1,2]) %}{% else %}style="display: none"{% endif %} class="button line vertical-center{% if 1 in app.request.get('direction') %} active{% endif %}" data-value="1" data-name="direction" data-url1="district_cao" data-url2="" data-title1="ЦАО" data-title2=""><span class="iconsvg north"></span><span class="txt">{% if app.request.get("region", [1,2])|length == 1 and 1 in app.request.get("region", [1,2]) %}ЦАО{% endif %}</span></div>
+            <div class="button line vertical-center{% if 2 in app.request.get('direction') %} active{% endif %}" data-value="2" data-name="direction" data-url1="district_sao" data-url2="direction_north" data-title1="САО" data-title2="Север"><span class="iconsvg north"></span><span class="txt">{% if app.request.get("region", [1,2])|length == 1 and 1 in app.request.get("region", [1,2]) %}САО{% else %}Север{% endif %}</span></div>
+            <div class="button line vertical-center{% if 6 in app.request.get('direction') %} active{% endif %}" data-value="6" data-name="direction" data-url1="district_svao" data-url2="direction_north-east" data-title1="СВАО" data-title2="Северо-Восток"><span class="iconsvg north-east"></span><span class="txt">{% if app.request.get("region", [1,2])|length == 1 and 1 in app.request.get("region", [1,2]) %}СВАО{% else %}Северо-Восток{% endif %}</span></div>
+			<div class="button line vertical-center{% if 3 in app.request.get('direction') %} active{% endif %}" data-value="3" data-name="direction" data-url1="district_vao" data-url2="direction_east" data-title1="ВАО" data-title2="Восток"><span class="iconsvg east"></span><span class="txt">{% if app.request.get("region", [1,2])|length == 1 and 1 in app.request.get("region", [1,2]) %}ВАО{% else %}Восток{% endif %}</span></div>
+			<div class="button line vertical-center{% if 7 in app.request.get('direction') %} active{% endif %}" data-value="7" data-name="direction" data-url1="district_uvao" data-url2="direction_south-east" data-title1="ЮВАО" data-title2="Юго-Восток"><span class="iconsvg south-east"></span><span class="txt">{% if app.request.get("region", [1,2])|length == 1 and 1 in app.request.get("region", [1,2]) %}ЮВАО{% else %}Юго-Восток{% endif %}</span></div>
+			<div class="button line vertical-center{% if 4 in app.request.get('direction') %} active{% endif %}" data-value="4" data-name="direction" data-url1="district_uao" data-url2="direction_south" data-title1="ЮАО" data-title2="Юг"><span class="iconsvg south"></span><span class="txt">{% if app.request.get("region", [1,2])|length == 1 and 1 in app.request.get("region", [1,2]) %}ЮАО{% else %}Юг{% endif %}</span></div>
+			<div class="button line vertical-center{% if 9 in app.request.get('direction') %} active{% endif %}" data-value="9" data-name="direction" data-url1="district_uzao" data-url2="direction_south-west" data-title1="ЮЗАО" data-title2="Юго-Запад"><span class="iconsvg south-west"></span><span class="txt">{% if app.request.get("region", [1,2])|length == 1 and 1 in app.request.get("region", [1,2]) %}ЮЗАО{% else %}Юго-Запад{% endif %}</span></div>
+			<div class="button line vertical-center{% if 5 in app.request.get('direction') %} active{% endif %}" data-value="5" data-name="direction" data-url1="district_zao" data-url2="direction_west" data-title1="ЗАО" data-title2="Запад"><span class="iconsvg west"></span><span class="txt">{% if app.request.get("region", [1,2])|length == 1 and 1 in app.request.get("region", [1,2]) %}ЗАО{% else %}Запад{% endif %}</span></div>
+			<div class="button line vertical-center{% if 8 in app.request.get('direction') %} active{% endif %}" data-value="8" data-name="direction" data-url1="district_szao" data-url2="direction_north-west" data-title1="СЗАО" data-title2="Северо-Запад"><span class="iconsvg north-west"></span><span class="txt">{% if app.request.get("region", [1,2])|length == 1 and 1 in app.request.get("region", [1,2]) %}СЗАО{% else %}Северо-Запад{% endif %}</span></div>
+    	</div>
+        <div class="type-search line horizontal-center">
+            <a class="link-dash" href="#" data-type="map"><span>Область на карте</span></a>
+            <a class="link-dash" href="#" data-type="city"><i class="fa fa-star"></i><span>Населенный пункт</span></a>
+            <a class="link-dash" href="#" data-type="areas"><span>Районы</span></a>
+            <a class="link-dash" href="#" data-type="highway"><i class="fa fa-road"></i><span>Шоссе</span></a>
+            <a class="link-dash" href="#" data-type="metro"><span>Схема метро</span></a>
+        </div>
+        <div>
+            <div class="wrap-filter line a active tab-params-filter">
+                <form class="" data-action="{{ form_route }}">
+                    <div class="line horizontal-center filter-align-left">
+                        <div class="type-industry-custom-select wrap-el-filter">
+                            <div class="small-text">Назначение помещения</div>
+                            <div class="button-block-select line vertical-center {% if app.request.get("object_type") %}select{% endif %}">
+                                <span>{{ ""|getObjectText() }}</span>
+                                <i class="fa fa-angle-down"></i>
+                            </div>
+                            <div class="type-industry-list">
+                                <div class="list-item line vertical-center{% if 1 in app.request.get("objectType2") or app.request.get("object_type") == "sklad" %} active{% endif %}" data-value="1" data-name="objectType2[]" data-url="sklad_{{ app.request.get("deal", "rent") }}"><span>Сухой склад</span><i class="fas fa-check"></i></div>
+                                <div class="list-item line vertical-center{% if 2 in app.request.get("purposeWarehouse") or app.request.get("object_type") == "pharma_warehouse" %} %} active{% endif %}" data-value="2" data-name="purposeWarehouse[]" data-url="pharma_warehouse_{{ app.request.get("deal", "rent") }}"><span>Фарм. склад</span><i class="fas fa-check"></i></div>
+                                <div class="list-item line vertical-center{% if 1 in app.request.get("purposeWarehouse") or app.request.get("object_type") == "alcohol_warehouse" %} %} active{% endif %}" data-value="1" data-name="purposeWarehouse[]" data-url="alcohol_warehouse_{{ app.request.get("deal", "rent") }}"><span>Алкогольный склад</span><i class="fas fa-check"></i></div>
+                                <div class="list-item line vertical-center{% if 3 in app.request.get("objectType2") or app.request.get("object_type") == "freezer_warehouse" %} %} active{% endif %}" data-value="3" data-name="objectType2[]" data-url="freezer_warehouse_{{ app.request.get("deal", "rent") }}"><span>Склад морозильник (до -25С)</span><i class="fas fa-check"></i></div>
+                                <div class="list-item line vertical-center{% if 8 in app.request.get("objectType2") or app.request.get("object_type") == "refrigerated_warehouse" %} %} active{% endif %}" data-value="8" data-name="objectType2[]" data-url="refrigerated_warehouse_{{ app.request.get("deal", "rent") }}"><span>Склад холодильник (0/+5С)</span><i class="fas fa-check"></i></div>
+                                <div class="list-item line vertical-center{% if 3 in app.request.get("purposeWarehouse") or app.request.get("object_type") == "sklad" %} %} active{% endif %}" data-value="3" data-name="purposeWarehouse[]" data-url="sklad_{{ app.request.get("deal", "rent") }}"><span>Овощехранилище</span><i class="fas fa-check"></i></div>
+                                <div class="list-item line vertical-center{% if 9 in app.request.get("objectType2") or app.request.get("object_type") == "free_building" %} %} active{% endif %}" data-value="9" data-name="objectType2[]" data-url="free_building_{{ app.request.get("deal", "rent") }}"><span>ПСН</span><i class="fas fa-check"></i></div>
+                                <div class="list-item line vertical-center{% if 2 in app.request.get("objectType2") or app.request.get("object_type") == "industry" %} %} active{% endif %}" data-value="2" data-name="objectType2[]" data-url="industry_{{ app.request.get("deal", "rent") }}"><span>Производство</span><i class="fas fa-check"></i></div>
+                                <div class="list-item line vertical-center{% if 5 in app.request.get("objectType2") or app.request.get("object_type") == "food_industry" %} %} active{% endif %}" data-value="5" data-name="objectType2[]" data-url="food_industry_{{ app.request.get("deal", "rent") }}"><span>Пищевое</span><i class="fas fa-check"></i></div>
+                                <div class="list-item line vertical-center{% if 4 in app.request.get("objectType2") or app.request.get("object_type") == "sewing_industry" %} %} active{% endif %}" data-value="4" data-name="objectType2[]" data-url="sewing_industry_{{ app.request.get("deal", "rent") }}"><span>Швейное</span><i class="fas fa-check"></i></div>
+                                <div class="list-item line vertical-center{% if 6 in app.request.get("objectType2") or app.request.get("object_type") == "car_service" %} %} active{% endif %}" data-value="6" data-name="objectType2[]" data-url="car_service_{{ app.request.get("deal", "rent") }}"><span>Автосервис</span><i class="fas fa-check"></i></div>
+                            </div>
+                        </div>
+                        <div class="wrap-el-filter">
+                            <div class="small-text">Площадь квартиры</div>
+                            <div class="line vertical-center wrap-input-blocks">
+                                <div class="absolute-placehold"><input type="text" name="area_min" placeholder="300" value="{{ app.request.get('area_min',"") }}"><span>от</span></div>
+                                <div class="line vertical-center horizontal-left">
+                                    <div class="absolute-placehold"><input type="text" name="area_max" placeholder="900 000" value="{{ app.request.get('area_max',"") }}"><span>до</span></div>
+                                    <span> м<sup>2</sup></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wrap-el-filter">
+                            {% if app.request.get("deal") != "sale" %}
+                                <div class="small-text">Цена аренды</div>
+                            {% else %}
+                                <div class="small-text">Цена продажи</div>
+                            {% endif %}
+                            <div class="line vertical-center wrap-input-blocks">
+                                <div class="absolute-placehold"><input type="text" name="price_min" placeholder="300"><span>от</span></div>
+                                <div class="line vertical-center horizontal-left">
+                                    <div class="absolute-placehold"><input type="text" name="price_max" placeholder="90 000 000"><span>до</span></div>
+                                    <span class="val">&#8381;</span>
+                                </div>
+                            </div>
+                        </div>
+                        {% if app.request.get("deal") != "sale" %}
+                            <div class="wrap-el-filter not-rent">
+                                <div class="small-text">Формат цены</div>
+                                <div class="line button-block horizontal-left" data-name="type_price">
+                                    <div class="button {% if app.request.get('repairId', 2) == 2 %}active{% endif %}" data-value="2">в месяц</div>
+                                    <div class="button {% if app.request.get('repairId') == 1 %}active{% endif %}" data-value="1">м<sup>2</sup>/год</div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="line horizontal-center filter-align-left">
+                        <div class="wrap-el-filter">
+                            <div class="small-text">от МКАД</div>
+                            <div class="line vertical-center wrap-input-blocks">
+                                <div class="absolute-placehold"><input type="text" name="from_mkad_min" placeholder="5" value="{{ app.request.get('from_mkad_min') }}"><span>от</span></div>
+                                <div class="line vertical-center horizontal-left">
+                                    <div class="absolute-placehold"><input type="text" name="from_mkad_max" placeholder="100" value="{{ app.request.get('from_mkad_max') }}"><span>до</span></div>
+                                    <span>км</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wrap-el-filter">
+                            <div class="small-text">Высота потолков</div>
+                            <div class="line vertical-center wrap-input-blocks">
+                                <div class="absolute-placehold"><input type="text" name="ceiling_height_min" placeholder="5" value="{{ app.request.get('ceiling_height_min') }}"><span>от</span></div>
+                                <div class="line vertical-center horizontal-left">
+                                    <div class="absolute-placehold"><input type="text" name="ceiling_height_max" placeholder="100" value="{{ app.request.get('ceiling_height_max') }}"><span>до</span></div>
+                                    <span>м</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wrap-el-filter not-rent">
+                            <div class="small-text">Класс</div>
+                            <div class="multi-button line button-block horizontal-left wrap-el-filter" data-name="object_class[]">
+                                <div class="button{% if 1 in app.request.get('object_class') %} active{% endif %}" data-value="1" data-url="class_a">A</div>
+                                <div class="button{% if 2 in app.request.get('object_class') %} active{% endif %}" data-value="2" data-url="class_b">B</div>
+                                <div class="button{% if 3 in app.request.get('object_class') %} active{% endif %}" data-value="3" data-url="class_c">C</div>
+                                <div class="button{% if 4 in app.request.get('object_class') %} active{% endif %}" data-value="4" data-url="class_d">D</div>
+                            </div>
+                        </div>
+                        <div class="wrap-el-filter not-rent">
+                            <div class="small-text">Тип ворот</div>
+                            <div class="multi-button line button-block horizontal-left wrap-el-filter" data-name="gate_type[]">
+                                <div class="button{% if 1 in app.request.get('gate_type') %} active{% endif %}" data-value="1" data-url="gate_dock">Докового типа</div>
+                                <div class="button{% if 3 in app.request.get('gate_type') %} active{% endif %}" data-value="3" data-url="gate_ramp">Рампа с пандусом</div>
+                                <div class="button{% if 2 in app.request.get('gate_type') %} active{% endif %}" data-value="2" data-url="gate_zero">Нулевой уровень</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="line horizontal-center vertical-end filter-align-left">
+                        <div class="wrap-el-filter">
+                            <div class="small-text">Тип пола</div>
+                            <div class="multi-button line button-block horizontal-left wrap-el-filter" data-name="floor_type[]">
+                                <div class="button {% if 1 in app.request.get('floor_type') %}active{% endif %}" data-value="1,2,5">Ровный</div>
+                                <div class="button {% if 3 in app.request.get('floor_type') %}active{% endif %}" data-value="3">Антипыль</div>
+                            </div>
+                        </div>
+                        <div class="wrap-el-filter">
+                            <div class="small-text">Отопление</div>
+                            <div class="line button-block horizontal-left wrap-el-filter" data-name="heated[]">
+                                <div class="button {% if 1 in app.request.get('heated') %}active{% endif %}" data-value="1" data-url="warehouse_heated">Теплый</div>
+                                <div class="button {% if -1 in app.request.get('heated') %}active{% endif %}" data-value="-1" data-url="warehouse_unheated">Холодный</div>
+                            </div>
+                        </div>
+                        <div class="wrap-el-filter">
+                            <div class="small-text">Электричество</div>
+                            <div class="line vertical-center wrap-input-blocks">
+                                <div class="line vertical-center horizontal-left">
+                                    <div class="absolute-placehold"><input type="text" name="power" placeholder="5" value="{{ app.request.get('power') }}"><span>не менее</span></div>
+                                    <span>КВт</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="line horizontal-center vertical-end filter-align-left">
+                            <div class="form-object-check">
+                                <span>Только 1 этаж</span>
+                                <div class="slide {% if app.request.get('floor_only') %}active{% endif %}" data-name="floor_only"><div class="cursor"></div></div>
+                                {% if app.request.get('floor_only') %}
+                                    <input type="hidden" name="floor_only" value="1">
+                                {% endif %}
+                            </div>
+                            <div class="form-object-check">
+                                <span>Наличие крана</span>
+                                <div class="slide {% if app.request.get('telphers') %}active{% endif %}" data-name="telphers" data-url="crane"><div class="cursor"></div></div>
+                                {% if app.request.get('telphers') %}
+                                    <input type="hidden" name="telphers" value="1">
+                                {% endif %}
+                            </div>
+                            <div class="form-object-check">
+                                <span>Железная дорога</span>
+                                <div class="slide {% if app.request.get('railway') %}active{% endif %}" data-name="railway" data-url="railway"><div class="cursor"></div></div>
+                                {% if app.request.get('railway') %}
+                                    <input type="hidden" name="railway" value="1">
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="deal" value='{{ app.request.get("deal", "rent") }}'>
+                    <input type="hidden" name="type_price" value='{{ app.request.get("type_price", 2) }}'>
+                    <input type="hidden" name="sort" value="{{ app.request.get("sort", "price_down") }}">
+                    <input type="hidden" name="overlay" value="{{ app.request.get("overlay","") }}">
+                    <input type="hidden" name="coords" value="{{ app.request.get("coords","") }}">
+                    <input type="hidden" name="radius" value="{{ app.request.get("radius") }}">
+                    <input type="hidden" name="center" value="{{ app.request.get("center") }}">
+                    <input type="hidden" name="zoom" value="{{ app.request.get("zoom") }}">
+                    {% if app.request.get("region", [1,2]) %}
+                        {% for v in app.request.get("region", [1,2]) %}
+                            <input type="hidden" name="region[]" value="{{ v }}">
+                        {% endfor %}
+                    {% endif %}
+                    {% if app.request.get("object_class") %}
+                        {% for v in app.request.get("object_class") %}
+                            <input type="hidden" name="object_class[]" value="{{ v }}">
+                        {% endfor %}
+                    {% endif %}
+                    {% if app.request.get("objectType2") %}
+                        {% for v in app.request.get("objectType2") %}
+                            <input type="hidden" name="objectType2[]" value="{{ v }}">
+                        {% endfor %}
+                    {% endif %}
+                    {% if app.request.get("purposeWarehouse") %}
+                        {% for v in app.request.get("purposeWarehouse") %}
+                            <input type="hidden" name="purposeWarehouse[]" value="{{ v }}">
+                        {% endfor %}
+                    {% endif %}
+                    {% if app.request.get("gate_type") %}
+                        {% for v in app.request.get("gate_type") %}
+                            <input type="hidden" name="gate_type[]" value="{{ v }}">
+                        {% endfor %}
+                    {% endif %}
+                    {% if app.request.get("floor_type") %}
+                        {% for v in app.request.get("floor_type") %}
+                            <input type="hidden" name="floor_type[]" value="{{ v }}">
+                        {% endfor %}
+                    {% endif %}
+                    {% if app.request.get("heated") %}
+                        {% for v in app.request.get("heated") %}
+                            <input type="hidden" name="heated[]" value="{{ v }}">
+                        {% endfor %}
+                    {% endif %}
+                    {% if app.request.get("city") %}
+                        {% for v in app.request.get("city") %}
+                            <input type="hidden" name="city[]" value="{{ v }}">
+                        {% endfor %}
+                    {% endif %}
+                    {% if app.request.get("highway") %}
+                        {% for v in app.request.get("highway") %}
+                            <input type="hidden" name="highway[]" value="{{ v }}">
+                        {% endfor %}
+                    {% endif %}
+                    {% if app.request.get("metro") %}
+                        {% for v in app.request.get("metro") %}
+                            <input type="hidden" name="metro[]" value="{{ v }}">
+                        {% endfor %}
+                    {% endif %}
+                </form>
+            </div>
+            <div class="more-option" data-txt="Меньше параметров"><span>Больше параметров</span></div>
+        </div>
+    	<div class="line horizontal-center">
+    		<div class="show-lots btn-purple">Показать <span>{{ utils.declension(total, ['предложение', 'предложения', 'предложений']) }}</span></div>
+    	</div>
+    </div>
+</div>

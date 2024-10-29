@@ -1,0 +1,28 @@
+@media screen and (min-width: 769px) {
+	.action>span:hover:after {
+		transform: scale(1, 1);
+	}
+}
+@media screen and (max-width: 1000px) {
+	.direct_tabs a{
+		width: 175px;
+		font-size: 16px;
+	}
+	.sub-footer-block .result>div {
+	    width: 33%;
+	}
+}
+@media screen and (max-width: 750px) {
+	.direct_tabs a{
+		width: 165px;
+		font-size: 16px;
+	}
+}
+@media screen and (max-width: 730px) {
+	#subfooter{
+		display: none;
+	}
+	#subfooter-mobile{
+		display: block;
+	}
+}
