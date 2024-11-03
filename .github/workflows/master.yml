@@ -18,8 +18,8 @@ jobs:
           host: 62.113.107.218
           username: ${{ secrets.ssh_server_username }}
           password: ${{ secrets.ssh_server_password }}
-          script: |
-            cat <<'EOF' | bash -s
-            $(<deploy.sh)
-            EOF
+          script: >-
+            echo "start..." &&
+            ls -la
+           
 
