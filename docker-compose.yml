@@ -10,7 +10,6 @@ services:
       dockerfile: Dockerfile
       args:
         DOCKER_PHP_VERSION: '7.4'
-        DOCKER_PHP_ENABLE_XDEBUG: ${DOCKER_PHP_ENABLE_XDEBUG}
         DOCKER_PHP_XDEBUG_VERSION: ${DOCKER_PHP_XDEBUG_VERSION}
         TZ: ${WORKSPACE_TIMEZONE}
     working_dir: /var/www/readys

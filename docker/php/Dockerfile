@@ -2,15 +2,6 @@ ARG DOCKER_PHP_VERSION
 
 FROM php:${DOCKER_PHP_VERSION}-fpm-alpine
 
-ARG DOCKER_PHP_ENABLE_XDEBUG='off'
-ARG TZ='UTC'
-
-# https://wiki.alpinelinux.org/wiki/Setting_the_timezone
-RUN echo "${TZ}" && apk --update add tzdata && \
-    cp /usr/share/zoneinfo/$TZ /etc/localtime && \
-    echo $TZ > /etc/timezone && \
-    apk del tzdata
-
 RUN apk add --update --no-cache icu-libs \
     libintl \
     build-base \
@@ -91,15 +82,15 @@ RUN php -m && \
 
 # Enable Xdebug
 ARG DOCKER_PHP_XDEBUG_VERSION
-RUN if [ "${DOCKER_PHP_ENABLE_XDEBUG}" == "on" ]; then \
-    yes | pecl install xdebug-${DOCKER_PHP_XDEBUG_VERSION} && \
-    echo "zend_extension=$(find /usr/local/lib/php/extensions/ -name xdebug.so)" > /usr/local/etc/php/conf.d/xdebug.ini && \
-    echo "xdebug.remote_enable=on" >> /usr/local/etc/php/conf.d/xdebug.ini && \
-    echo "xdebug.remote_autostart=off" >> /usr/local/etc/php/conf.d/xdebug.ini && \
-    php -m; \
-    else \
-    echo "Skip xdebug support"; \
-    fi
+RUN pecl install xdebug-${DOCKER_PHP_XDEBUG_VERSION} && \
+    docker-php-ext-enable xdebug
+
+# Конфигурируем Xdebug
+RUN echo "xdebug.mode=develop,debug" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && \
+    echo "xdebug.client_host=host.docker.internal" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && \
+    echo "xdebug.start_with_request=yes" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && \
+    echo "xdebug.remote_log=/var/log/xdebug.log" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && \
+    echo "xdebug.discover_client_host" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 # Clean
 RUN rm -rf /var/cache/apk/* && docker-php-source delete
