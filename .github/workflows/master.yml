@@ -38,4 +38,4 @@ jobs:
             chown user:www-data -R ./
 
             echo "🚀 Change mod..."
-            chmod 664 -R ./
+            chmod 776 -R ./
