@@ -1,0 +1,25 @@
+on:
+  push:
+    branches:
+      - master
+
+name: 🚀 Deploy on push
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v2
+
+      - name: 🚀 Start deploy over ssh connection
+        uses: appleboy/ssh-action@master
+        with:
+          host: 62.113.107.218
+          username: ${{ secrets.ssh_server_username }}
+          password: ${{ secrets.ssh_server_password }}
+          script: |
+            cat <<'EOF' | bash -s
+            $(<deploy.sh)
+            EOF
+
