@@ -18,24 +18,26 @@ jobs:
       - name: 🚀 Start deploy over ssh connection
         uses: appleboy/ssh-action@master
         with:
-          host: 62.113.107.218
+          host: ${{ secrets.ssh_server_host }}
           username: ${{ secrets.ssh_server_username }}
           password: ${{ secrets.ssh_server_password }}
           script: |
-            echo "🚀 Change workdir..."
+            set -euox pipefail
+            
+            : 🚀 Change workdir...
             cd ${{env.PROJECT_PATH}}
             
-            echo "🚀 Pull or clone repository..."
+            : 🚀 Pull or clone repository...
             git pull || git clone ${{env.REPO_URL}} .
             
-            echo "🚀 Install dependencies..."
+            : 🚀 Install dependencies...
             composer install
             
-            echo "🚀 Clear app cache..."
+            : 🚀 Clear app cache...
             php app/console cache:clear --env=prod
 
-            echo "🚀 Change owner..."
+            : 🚀 Change owner...
             chown user:www-data -R ./
 
-            echo "🚀 Change mod..."
+            : 🚀 Change mod...
             chmod 774 -R ./

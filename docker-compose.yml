@@ -24,7 +24,7 @@ services:
   nginx:
     image: nginx:stable-alpine
     ports:
-      - "9090:80"
+      - "${NGINX_PORT}:80"
     volumes:
       - .:/var/www/readys
       - ./docker/nginx/conf.d:/etc/nginx/conf.d
