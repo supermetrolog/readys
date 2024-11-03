@@ -5,7 +5,7 @@ on:
 
 name: 🚀 Deploy on push
 env:
-  PROJECT_PATH: /home/user/web/industry.realtor.test.ru/public_html
+  PROJECT_PATH: /home/user/web/industry.realtor.ru/public_html
   REPO_URL: git@github.com:supermetrolog/readys.git
 jobs:
   web-deploy:
@@ -35,7 +35,7 @@ jobs:
             php app/console cache:clear --env=prod
 
             echo "🚀 Change owner..."
-            chown user:www-data -R ./*
+            chown user:www-data -R ./
 
             echo "🚀 Change mod..."
-            chmod 655 -R ./*
+            chmod 655 -R ./
