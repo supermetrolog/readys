@@ -30,6 +30,9 @@ jobs:
             
             echo "Install dependencies..."
             composer install
+            
+            echo "Clear app cache..."
+            php app/console cache:clear --env=prod
 
             echo "Change owner..."
             chown user:www-data -R ./*
