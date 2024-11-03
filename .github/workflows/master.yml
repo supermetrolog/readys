@@ -22,20 +22,20 @@ jobs:
           username: ${{ secrets.ssh_server_username }}
           password: ${{ secrets.ssh_server_password }}
           script: |
-            echo "Change workdir..."
+            echo "🚀 Change workdir..."
             cd ${{env.PROJECT_PATH}}
             
-            echo "Pull or clone repository..."
+            echo "🚀 Pull or clone repository..."
             git pull || git clone ${{env.REPO_URL}} .
             
-            echo "Install dependencies..."
+            echo "🚀 Install dependencies..."
             composer install
             
-            echo "Clear app cache..."
+            echo "🚀 Clear app cache..."
             php app/console cache:clear --env=prod
 
-            echo "Change owner..."
+            echo "🚀 Change owner..."
             chown user:www-data -R ./*
 
-            echo "Change mod..."
+            echo "🚀 Change mod..."
             chmod 655 -R ./*
