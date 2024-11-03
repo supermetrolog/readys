@@ -1,7 +1,11 @@
 .layout .footer{
-	background: url("/public/images/footer_bg.png") repeat;
+	background-color: #242424;
+	background-image: url("/public/images/footer_bg.png");
+	background-repeat: repeat repeat;
+	background-blend-mode: overlay;
 	padding: 30px 0;
 	font-family: 'Open Sans', sans-serif;
+	margin-top: 20px;
 }
 .layout .footer .wrap .child a{
 	color: #999999;

@@ -7,13 +7,13 @@ $(document).ready(function(){
 	marker1 = new google.maps.Marker({
 	    position: new google.maps.LatLng(lat, lng),
 	    map: map,
-	    title:"Penny Lane Realty",
+	    title:"RAYS ARMA",
 	    icon: mImage
 	});
 	marker2 = new google.maps.Marker({
 		position: new google.maps.LatLng("55.757969", "37.582211"),
 		map: map,
-		title:"Penny Lane Realty",
+		title:"RAYS ARMA",
 		icon: mImage
 	});
 	
