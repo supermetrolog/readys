@@ -20,6 +20,6 @@ jobs:
           password: ${{ secrets.ssh_server_password }}
           script: >-
             echo "start..." &&
-            ls -la
+            ls -la $GITHUB_ACTION_PATH
            
 
