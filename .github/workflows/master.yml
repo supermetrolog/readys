@@ -4,6 +4,9 @@ on:
       - master
 
 name: 🚀 Deploy on push
+env:
+  PROJECT_PATH: /home/user/web/industry.realtor.test.ru/public_html
+  REPO_URL: git@github.com:supermetrolog/readys.git
 jobs:
   web-deploy:
     name: 🎉 Deploy
@@ -18,8 +21,18 @@ jobs:
           host: 62.113.107.218
           username: ${{ secrets.ssh_server_username }}
           password: ${{ secrets.ssh_server_password }}
-          script: >-
-            echo "start..." &&
-            ls -la $GITHUB_ACTION_PATH
-           
+          script: |
+            echo "Change workdir..."
+            cd ${{env.PROJECT_PATH}}
+            
+            echo "Pull or clone repository..."
+            git pull || git clone ${{env.REPO_URL}} .
+            
+            echo "Install dependencies..."
+            composer install
 
+            echo "Change owner..."
+            chown user:www-data -R ./*
+
+            echo "Change mod..."
+            chmod 775 -R ./*
