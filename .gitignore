@@ -12,3 +12,13 @@
 # Symfony2 configuration files
 app/config/parameters.ini
 app/config/parameters.yml
+
+# *********
+
+.idea
+.env
+
+/docker/mysql/dump
+/docker/mysql/data
+/docker/nginx/logs
+

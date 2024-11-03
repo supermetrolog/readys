@@ -1,0 +1,35 @@
+version: '2'
+
+networks:
+  backend:
+
+services:
+  php:
+    build:
+      context: ./docker/php
+      dockerfile: Dockerfile
+      args:
+        DOCKER_PHP_VERSION: '7.4'
+        DOCKER_PHP_ENABLE_XDEBUG: ${DOCKER_PHP_ENABLE_XDEBUG}
+        DOCKER_PHP_XDEBUG_VERSION: ${DOCKER_PHP_XDEBUG_VERSION}
+        TZ: ${WORKSPACE_TIMEZONE}
+    working_dir: /var/www/readys
+    volumes:
+      - .:/var/www/readys
+      - ./docker/php/conf/php.ini:/usr/local/etc/php/php.ini
+    ports:
+      - "${PHP_PORT}:9000"
+    networks:
+      - backend
+  nginx:
+    image: nginx:stable-alpine
+    ports:
+      - "9090:80"
+    volumes:
+      - .:/var/www/readys
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d
+      - ./docker/nginx/logs:/var/log/nginx/
+    depends_on:
+      - php
+    networks:
+      backend:
