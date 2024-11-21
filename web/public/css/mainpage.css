@@ -26,10 +26,12 @@ body{
 	z-index: 1;
 	border-radius: 3px 3px 0 0;
 }
-.over-wrap{
+.over-wrap {
 	position: relative;
     z-index: 10;
     height: 100%;
+	flex-wrap: nowrap;
+	padding: 20px;
 }
 .over-wrap .title{
 	font-size: 40px;
