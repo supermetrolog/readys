@@ -4,41 +4,7 @@
 			<a href="{% if app.request.get('section') != "index" %}{{ path("index") }}{% else %}#{% endif %}"><img class="site-logo" src="/public/images/ico/readys-logo.svg" alt="Penny Lane Realty" /></a>
 			<a href="{% if app.request.get('section') != "index" %}{{ path("index") }}{% else %}#{% endif %}" class="depname">ИНДУСТРИАЛЬНАЯ<br>НЕДВИЖИМОСТЬ</a>
 		</div>
-		<div class="dpmenu">
-			<ul class="nav">
-				<li class="submenu">
-					<a class="map_ico" href="#"><i class="fa fa-map-marker" aria-hidden="true"></i><span class="menu-txt">Москва</span><i class="fa fa-angle-down"></i></a>
-					<ul class="sub" style="display: none;">
-						<li><a target="_blank" href="http://spbrent.realtor.ru/ru/country">Санкт-Петербург</a></li>
-					</ul>
-				</li>
-				<li class="submenu">
-					<a href="#"><span class="menu-txt">Другая недвижимость</span><i class="fa fa-angle-down"></i></a>
-					<ul class="sub" style="display: none;">
-						<li><a target="_blank" href="http://country.realtor.ru/">Загородная недвижимость</a></li>
-						<li><a target="_blank" href="http://office.realtor.ru/">Офисная недвижимость</a></li>
-						<li><a target="_blank" href="http://retail.realtor.ru/">Торговая недвижимость</a></li>
-						<li><a target="_blank" href="http://industry.realtor.ru/">Индустриальная недвижимость</a></li>
-						<li><a target="_blank" href="http://consult.realtor.ru/">Консалтинг и аналитика</a></li>
-					</ul>
-				</li>
-				<li class="submenu">
-					<a href="#"><span class="menu-txt">Компания</span><i class="fa fa-angle-down"></i></a>
-					<ul class="sub" style="display: none;">
-						<li><a target="_blank" href="http://realtor.ru/">Сайт Агентства</a></li>
-						<li><a target="_blank" href="http://realtor.ru/company/">О Компании</a></li>
-						<li><a target="_blank" href="http://realtor.ru/clients/">Наши клиенты</a></li>
-						<li><a target="_blank" href="http://realtor.ru/contact/">Контакты</a></li>
-					</ul>
-				</li>
-				<li>
-					<a class="login" href="#"><i class="fa fa-key" aria-hidden="true"></i> <span class="menu-txt">Войти</span></a>
-				</li>
-				<li>
-					<a class="favorite" href="#"><i class="fa fa-heart" aria-hidden="true"></i> <span class="menu-txt">Избранное</span> <span class="countFavorites">0</span></a>
-				</li>
-			</ul>
-		</div>
+		<div class="dpmenu"></div>
 		{% if "now"|getTimeJob() %}
 			<div class="call disable">
 				<i class="fa fa-phone"></i><span class="call_phone_new1"><span class="ph">+7 495 <span class="red2"><b>{{ constant('PHONE') }}</b></span></span></span>
@@ -95,22 +61,6 @@
 			<div class="lmenu">
 				<a href="">Собственнику</a>
 			</div>#}
-		</div>
-		<div class="lmenu right dropdown first-part">
-			<div class="br-l"></div>
-			<a class="increasedl" href="#">О департаменте<i class="fa fa-angle-down"></i></a>
-			<div class="active-dropdown">
-				<div class="insdrpdwn">
-					<a href="">О нас</a>
-					<a href='#' class="start-dialog"
-						data-wish="Пользователь отправил заявку из меню сайта"
-						data-title="Заявка"
-						data-reachgoal="ORDER"
-						data-field="name,phone,email,deal,comments"
-						data-requare="name,phone,deal">Заявка</a>
-					<a href="">Контакты</a>
-				</div>
-			</div>
 		</div>
 		<div class="lmenu right sandwich-desctop dropdown">
 			<a class="" href="#">
