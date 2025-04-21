@@ -1,114 +1,122 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-		{% if description is defined %}
-			<meta name="Description" content="{{ description }}" />
-		{% endif %}
-		<meta name="theme-color" content="#a70017">
-		{% if meta is defined %}
-			{% for k,v in meta %}
-				<meta property="{{ k }}" content="{{ v }}"/>
-			{% endfor %}
-		{% endif %}
-		<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
-		{% set stylesArr = [
-					'plugins/AnimatedSVGIcons/component.css',
-					'plugins/ripple.css',
-					'fonts.css',
-					'fontawesome-all.css',
-					'jquery-ui.min.css',
-					'main.css',
-					'media_main.css',
-					'header.css',
-					'media_header.css',
-					'footer.css',
-					'media_footer.css',
-					'filter.css',
-					'media_filter.css',
-					'mobile_filter.css',
-					'tab.css',
-					'catalog.css',
-					'media_catalog.css',
-					'dialog.css',
-					'media_dialog.css',
-					'subfooter.css',
-					'media_subfooter.css',
-                    'iconsvg.css',
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    {% if description is defined %}
+        <meta name="Description" content="{{ description }}"/>
+    {% endif %}
+    <meta name="theme-color" content="#a70017">
+    {% if meta is defined %}
+        {% for k,v in meta %}
+            <meta property="{{ k }}" content="{{ v }}"/>
+        {% endfor %}
+    {% endif %}
+    <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    {% set stylesArr = [
+        'plugins/AnimatedSVGIcons/component.css',
+        'plugins/ripple.css',
+        'fonts.css',
+        'fontawesome-all.css',
+        'jquery-ui.min.css',
+        'main.css',
+        'media_main.css',
+        'header.css',
+        'media_header.css',
+        'footer.css',
+        'media_footer.css',
+        'filter.css',
+        'media_filter.css',
+        'mobile_filter.css',
+        'tab.css',
+        'catalog.css',
+        'media_catalog.css',
+        'dialog.css',
+        'media_dialog.css',
+        'subfooter.css',
+        'media_subfooter.css',
+        'iconsvg.css',
 
-		] %}
-		{% if styles is defined %}
-			{% set styles = stylesArr|merge(styles) %}
-		{% else %}
-			{% set styles = stylesArr %}
-		{% endif %}
-		{% for style in styles %}
-			<link rel="stylesheet" type="text/css" href="/public/css/{{ style }}"/>
-		{% endfor %}
-		{% set scriptsArr = ['jquery-3.1.0.min.js',
-								'jquery-ui.min.js',
-								'plugins/jquery.touchSwipe.min.js',
-								'plugins/jquery.ui.totop.js',
-								'plugins/jquery.easing.1.3.js',
-								'plugins/jquery.cookie.js',
-								'plugins/jquery.formstyler.js',
-								'plugins/phonemask.js',
-								'plugins/jquery.mask.js',
-								'plugins/inputmask.js',
-								'plugins/AnimatedSVGIcons/snap.svg-min.js',
-								'plugins/AnimatedSVGIcons/svgicons-config.js',
-								'plugins/AnimatedSVGIcons/svgicons.js',
-								'plugins/jquery.ui.touch-punch.min.js',
-								'plugins/ripple.js',
-								'device.min.js',
-								'dialog.js',
-								'main.js',
-								'function.js',
-								'catalog.js',
-								'filter.js',
-								'type-industry-custom-select.js',
-								'subfooter.js'] %}
-		{% if scripts is defined %}
-			{% set scripts = scriptsArr|merge(scripts) %}
-		{% else %}
-			{% set scripts = scriptsArr %}
-		{% endif %}
-		{% for script in scripts %}
-			<script type="text/javascript" src="/public/js/{{ script }}" charset="utf-8"></script>
-		{% endfor %}
-		{#<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCtQ5lgpmTbtlqyjs4RZkswtxBziqvhbyQ&amp;language=ru&libraries=drawing"></script>#}
-		<script src="https://api-maps.yandex.ru/2.1/?apikey=cdc5a0b2-5310-4fba-93a9-434be45408f9&lang=ru_RU" type="text/javascript"></script>
-		{#<script type="text/javascript" src="/public/js/plugins/richmarker.js"></script>#}
-		{% if title is defined %}
-				<title>{{ title|raw }}</title>
-		{% endif %}
+    ] %}
+    {% if styles is defined %}
+        {% set styles = stylesArr|merge(styles) %}
+    {% else %}
+        {% set styles = stylesArr %}
+    {% endif %}
+    {% for style in styles %}
+        <link rel="stylesheet" type="text/css" href="/public/css/{{ style }}"/>
+    {% endfor %}
+    {% if font is defined %}
+        <link rel="stylesheet" type="text/css" href="/public/fonts/{{ font }}"/>
+    {% endif %}
+    {% set scriptsArr = ['jquery-3.1.0.min.js',
+        'jquery-ui.min.js',
+        'plugins/jquery.touchSwipe.min.js',
+        'plugins/jquery.ui.totop.js',
+        'plugins/jquery.easing.1.3.js',
+        'plugins/jquery.cookie.js',
+        'plugins/jquery.formstyler.js',
+        'plugins/phonemask.js',
+        'plugins/jquery.mask.js',
+        'plugins/inputmask.js',
+        'plugins/AnimatedSVGIcons/snap.svg-min.js',
+        'plugins/AnimatedSVGIcons/svgicons-config.js',
+        'plugins/AnimatedSVGIcons/svgicons.js',
+        'plugins/jquery.ui.touch-punch.min.js',
+        'plugins/ripple.js',
+        'device.min.js',
+        'dialog.js',
+        'main.js',
+        'function.js',
+        'catalog.js',
+        'filter.js',
+        'type-industry-custom-select.js',
+        'subfooter.js'] %}
+    {% if scripts is defined %}
+        {% set scripts = scriptsArr|merge(scripts) %}
+    {% else %}
+        {% set scripts = scriptsArr %}
+    {% endif %}
+    {% for script in scripts %}
+        <script type="text/javascript" src="/public/js/{{ script }}" charset="utf-8"></script>
+    {% endfor %}
+    {# <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCtQ5lgpmTbtlqyjs4RZkswtxBziqvhbyQ&amp;language=ru&libraries=drawing"></script> #}
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=cdc5a0b2-5310-4fba-93a9-434be45408f9&lang=ru_RU"
+            type="text/javascript"></script>
+    {# <script type="text/javascript" src="/public/js/plugins/richmarker.js"></script> #}
+    {% if title is defined %}
+        <title>{{ title|raw }}</title>
+    {% endif %}
 
-	</head>
-	<body>
-        <script src="http://cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
-		{% import "DefaultBundle:Default:declension.html.twig" as utils %}
-        {% include "DefaultBundle:Default:header.html.twig" %}
-		{% include "DefaultBundle:Default:header-mobile.html.twig" %}
-		<div class="layout">
-			<div class="wrap">
-				<div id="navdata" itemscope itemtype="http://schema.org/BreadcrumbList">{{ wo_render_breadcrumbs() }}</div>
-			</div>
-			{% block content %}{% endblock %}
-			{#<div id="subfooter" data-url={{ path("sub_footer") }}>
+</head>
+{% if pageClass is defined %}
+<body class="{{ pageClass }}">
+{% else %}
+<body>
+{% endif %}
+<script src="http://cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
+{% import "DefaultBundle:Default:declension.html.twig" as utils %}
+{% include "DefaultBundle:Default:header.html.twig" %}
+{% include "DefaultBundle:Default:header-mobile.html.twig" %}
+<div class="layout">
+    <div class="wrap">
+        <div id="navdata" itemscope itemtype="http://schema.org/BreadcrumbList">{{ wo_render_breadcrumbs() }}</div>
+    </div>
+    {% block content %}{% endblock %}
+    {# <div id="subfooter" data-url={{ path("sub_footer") }}>
 				{% include "DefaultBundle:Default:subfooter.html.twig" %}
-			</div>#}
-			{#<div id="subfooter-mobile">
+			</div> #}
+    {# <div id="subfooter-mobile">
 				{% include "DefaultBundle:Default:subfooter-mobile.html.twig" %}
-			</div>#}
-			{% include "DefaultBundle:Default:footer.html.twig" %}
-		</div>
-		<script type="text/javascript">
-			var section = "{{ app.request.get("section") }}";
-			var action = "{{ app.request.get('_route')}}";
-			var base_url = "{{ path("index") }}";
-		</script>
-		{#<script type="text/javascript" src="/public/js/plugins/favAnimation.js"></script>#}
-		{% include "DefaultBundle:IncludeBlocks:dialog.html.twig" %}
-	</body>
+			</div> #}
+    {% include "DefaultBundle:Default:footer.html.twig" %}
+</div>
+<script type="text/javascript">
+	var section = "{{ app.request.get("section") }}";
+	var action = "{{ app.request.get('_route') }}";
+	var base_url = "{{ path("index") }}";
+</script>
+{# <script type="text/javascript" src="/public/js/plugins/favAnimation.js"></script> #}
+{% include "DefaultBundle:IncludeBlocks:dialog.html.twig" %}
+</body>
 </html>

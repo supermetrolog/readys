@@ -1,0 +1,121 @@
+.lytkarino-exclusive {
+	overflow-x: hidden;
+}
+
+.lytkarino-exclusive #location, .lytkarino-exclusive #planning, .lytkarino-exclusive #features {
+	scroll-margin-top: 100px;
+}
+
+/* hero */
+
+.lytkarino-exclusive-hero {
+	background: url('/public/images/exclusive/lytkarino-hero.webp') no-repeat center center;
+	background-size: cover;
+	height: 100vh;
+	position: relative;
+}
+
+.lytkarino-exclusive-hero__header {
+	display: flex;
+	align-items: center;
+	position: relative;
+	z-index: 2;
+	padding: 2rem 2rem 1rem;
+	gap: 2rem;
+}
+
+.lytkarino-exclusive-hero__button {
+	color: #fff;
+	font-size: 1rem;
+	padding: .5rem 1rem;
+	font-family: 'RalewayLight', 'Open Sans', serif;
+}
+
+.lytkarino-exclusive-hero__phone {
+	color: #fff;
+	font-size: 1.5rem;
+	margin-left: auto;
+}
+
+.lytkarino-exclusive-hero__phone a {
+	color: inherit;
+	font-family: 'Futura', 'Open Sans', serif;
+	font-weight: 300;
+}
+
+.lytkarino-exclusive-hero__overlay {
+	position: absolute;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.6);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2rem;
+}
+
+.lytkarino-exclusive-hero__title {
+	font-family: 'RalewayLight', 'Open Sans', serif;
+	text-align: center;
+
+	color: #fff;
+	font-size: 4rem;
+	font-weight: 400;
+	text-transform: uppercase;
+
+	text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.lytkarino-exclusive-hero__subtitle {
+	font-family: 'Futura', 'Open Sans', serif;
+	font-weight: 300;
+	font-size: 2.5rem;
+
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	color: #fdec8a;
+}
+
+/* map */
+
+.lytkarino-exclusive-map {
+	height: 650px;
+	position: relative;
+}
+
+.lytkarino-exclusive-map__description {
+	position: absolute;
+	inset: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 2rem;
+	transition: opacity 1s ease .5s;
+	opacity: 1;
+	color: #fff;
+}
+
+.lytkarino-exclusive-map__description:hover {
+	opacity: 0;
+}
+
+.lytkarino-exclusive-map.hovered .lytkarino-exclusive-map__description {
+	z-index: -1;
+	opacity: 0;
+}
+
+.lytkarino-exclusive-map__title {
+	font-family: 'RalewayMedium', 'Open Sans', serif;
+	font-size: 3rem;
+	font-weight: 400;
+	margin: 0;
+}
+
+.lytkarino-exclusive-map__subtitle {
+	font-family: 'RalewayLight', 'Open Sans', serif;
+	font-size: 2.5rem;
+	font-weight: 400;
+	margin: 0;
+}
