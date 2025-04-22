@@ -4,13 +4,15 @@
 	'plugins/slick/slick-theme.css',
 	'filter.css',
 	'mainpage.css',
-	'media_mainpage.css'
+	'media_mainpage.css',
+	'aos.css',
 ] %}
 {% set scripts = [
 	'plugins/slick/slick.min.js',
 	'mainpage.js',
 	'plugins/jquery.iosslider.min.js',
-	'skelet.js'
+	'skelet.js',
+	'aos.js',
 ] %}
 
 {% block content %}
@@ -19,10 +21,15 @@
 			<div class="title">Найди свой<br>объект за 2 минуты</div>
 			<div class="filter mainfilter">
 				{% include "DefaultBundle:IncludeBlocks:mainfilter.html.twig" %}
-				<div class="more-param"><a href="{{ path('catalog', {'deal_type': 'rent'}) }}#filter"><span>Больше параметров</span><i class="fa fa-angle-right"></i></a></div>
+				<div class="more-param">
+					<a href="{{ path('catalog', {'deal_type': 'rent'}) }}#filter">
+						<span>Больше параметров</span>
+						<i class="fa fa-angle-right"></i>
+					</a>
+				</div>
 			</div>
 		</div>
-		{#<div class="bottom-bar">
+		{# <div class="bottom-bar">
 			<a class="maplink" href="#">
 				<i class="fa fa-map-o" aria-hidden="true"></i>
 				Смотреть предложения на карте
@@ -30,9 +37,10 @@
 					<i class="fa fa-angle-right" aria-hidden="true"></i>
 				</span>
 			</a>
-		</div>#}
+		</div> #}
 		<div class="eclipse"></div>
-		<div class="image" style="background-image: url('/public/images/mainpage/{% if is_mobile() %}mobile/{% endif %}1.jpg')"></div>
+		<div class="image"
+		     style="background-image: url('/public/images/mainpage/{% if is_mobile() %}mobile/{% endif %}1.jpg')"></div>
 	</div>
 	{% include "DefaultBundle:IncludeBlocks:mainpage_block_links.html.twig" %}
 
