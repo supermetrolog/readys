@@ -25,6 +25,7 @@
 }
 
 .lytkarino-exclusive-hero__button {
+	margin-left: auto;
 	color: #fff;
 	font-size: 1rem;
 	padding: .5rem 1rem;
@@ -34,7 +35,6 @@
 .lytkarino-exclusive-hero__phone {
 	color: #fff;
 	font-size: 1.5rem;
-	margin-left: auto;
 }
 
 .lytkarino-exclusive-hero__phone a {
@@ -118,4 +118,108 @@
 	font-size: 2.5rem;
 	font-weight: 400;
 	margin: 0;
+}
+
+/* features */
+
+.lytkarino-exclusive-features {
+	background-color: #fbfbfb;
+	background-image: url('/public/images/exclusive/background.png');
+	background-size: 110%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	padding: 50px 0;
+}
+
+.lytkarino-exclusive-features__list {
+	display: flex;
+	flex-direction: column;
+	gap: 100px;
+}
+
+.lytkarino-exclusive-feature {
+	display: flex;
+	align-items: start;
+}
+
+.lytkarino-exclusive-feature__description {
+	display: flex;
+	flex-direction: column;
+	border-bottom: 1px solid #000;
+	padding-bottom: 10px;
+	padding-left: 50px;
+}
+
+.lytkarino-exclusive-feature__description.lytkarino-exclusive-feature__description--inverted {
+	border-top: 1px solid #000;
+	border-bottom: none;
+	padding-top: 10px;
+	padding-bottom: 0;
+}
+
+.lytkarino-exclusive-feature__title {
+	font-size: 2.5rem;
+	letter-spacing: 3px;
+	margin: 0 0 5px 0;
+	font-family: 'Futura', 'Open Sans', serif;
+	font-weight: 400;
+}
+
+.lytkarino-exclusive-feature__subtitle {
+	font-size: 1.6rem;
+	font-family: 'RalewayMedium', 'Open Sans', serif;
+	font-weight: 400;
+	margin: 0;
+}
+
+#lytkarino-exclusive-feature-1 {
+
+.lytkarino-exclusive-feature__description {
+	margin-top: 100px;
+	width: 40%;
+}
+
+.lytkarino-exclusive-feature__photo {
+	background: url('/public/images/exclusive/lytkarino-feature-1.jpeg') no-repeat;
+	background-size: cover;
+	aspect-ratio: 4 / 5;
+	width: 500px;
+}
+
+}
+
+
+#lytkarino-exclusive-feature-2 {
+	align-items: center;
+
+.lytkarino-exclusive-feature__description {
+	width: 40%;
+	padding-left: 0;
+	padding-right: 50px;
+}
+
+.lytkarino-exclusive-feature__photo {
+	background: url('/public/images/exclusive/lytkarino-feature-1.jpeg') no-repeat;
+	background-size: cover;
+	aspect-ratio: 3 / 2;
+	width: 60%;
+}
+
+}
+
+#lytkarino-exclusive-feature-3 {
+
+.lytkarino-exclusive-feature__description {
+	margin-top: 60px;
+	text-align: end;
+	width: 40%;
+}
+
+.lytkarino-exclusive-feature__photo {
+	background: url('/public/images/exclusive/lytkarino-feature-1.jpeg') no-repeat;
+	background-size: cover;
+	aspect-ratio: 3 / 2;
+	width: 60%;
+}
+
 }

@@ -12,8 +12,12 @@
 		<div class="dpmenu"></div>
 		{% if "now"|getTimeJob() %}
 			<div class="call disable">
-				<i class="fa fa-phone"></i><span class="call_phone_new1"><span class="ph">+7 495 <span
-								class="red2"><b>{{ constant('PHONE') }}</b></span></span></span>
+				<div class="call__row">
+					<i class="fa fa-phone"></i>
+					<span class="call_phone_new1">
+						<span class="ph">+7 495 <span class="red2"><b>{{ constant('PHONE') }}</b></span></span>
+					</span>
+				</div>
 				<div class="clear"></div>
 				<div class="time-job">Работаем с 9:00 до 20:00</div>
 				<a class="feedback start-dialog" href="#"
@@ -27,9 +31,11 @@
 		{% else %}
 			<div class="call line vertical-center column">
 				<div class="line horizontal-center vertical-center">
-					<i class="fa fa-phone"></i><span class="call_phone_new1"><a class="ph"
-					                                                            href="tel:+7 (495) {{ constant('PHONE')|replace({".":" "}) }}">+7 495 <span
-									class="red2"><b>{{ constant('PHONE') }}</b></span></a></span>
+					<i class="fa fa-phone"></i>
+					<span class="call_phone_new1">
+						<a class="ph" href="tel:+7 (495) {{ constant('PHONE')|replace({".":" "}) }}">+7 495 <span
+									class="red2"><b>{{ constant('PHONE') }}</b></span></a>
+					</span>
 				</div>
 				<div>
 					<a href="#" class="feedback start-dialog" style="float: right;"

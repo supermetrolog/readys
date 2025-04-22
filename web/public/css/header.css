@@ -74,6 +74,13 @@
 	text-align: center;
 }
 
+.head .call__row {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+}
+
 .head .call .number_phone {
 	font-size: 20px;
 	font-weight: bold;
