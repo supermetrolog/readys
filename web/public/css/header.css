@@ -542,6 +542,12 @@
 	color: #626366;
 }
 
+@media screen and (max-width: 1000px) {
+	.header-subtitle {
+		display: none;
+	}
+}
+
 /* dropdown */
 
 .dropdown-menu {

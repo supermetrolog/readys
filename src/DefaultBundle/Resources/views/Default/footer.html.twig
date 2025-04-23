@@ -13,48 +13,47 @@
 		<div class="child">
 			<div class="min_title">Информация о департаменте</div>
 			<div><a href="" class="start-dialog red-link"
-						data-wish="Пользователь отправил заявку из меню сайта"
-						data-title="Заявка"
-						data-reachgoal="ORDER"
-						data-field="name,phone,email,deal,comments"
-						data-requare="name,phone,deal">Оставить заявку</a>
+			        data-wish="Пользователь отправил заявку из меню сайта"
+			        data-title="Заявка"
+			        data-reachgoal="ORDER"
+			        data-field="name,phone,email,deal,comments"
+			        data-requare="name,phone,deal">Оставить заявку</a>
 			</div>
 		</div>
 		<div class="child">
 			<div class="min_title">Офисы</div>
 			<div class="marker">
 				<div class="offtitle">Центральный офис</div>
-				<div class="off"><span class="glyphicon glyphicon-map-marker"></span> Москва, Знаменка д. 13,стр 3</div>
+				<div class="off">
+					<i class="footer-address__map-icon fas fa-map-marker-alt"></i>
+					<span>Москва, Знаменка д. 13, стр 3</span>
+				</div>
 			</div>
 		</div>
 		<div class="child">
 			<div class="fphone">
 				<i class="fa fa-phone"></i>
 				<span class="call_phone_new2">
-					<a class="ph" href="tel:+7 (495) {{ constant('PHONE')|replace({".":" "}) }}">+7 495 <span class="red bold">{{ constant('PHONE') }}</span></a>
+					<a class="ph" href="tel:+7 (495) {{ constant('PHONE')|replace({".":" "}) }}">+7 495 <span
+								class="red bold">{{ constant('PHONE') }}</span></a>
 				</span>
 				<div class="clear"></div>
 				<a href="#" class="feedback start-dialog"
-						data-wish="Пользователь Заказал Звонок"
-						data-reachgoal="CALLBACK"
-						data-title="Заказать звонок"
-						data-field="name,phone,comments"
-						data-requare="name,phone">перезвоните мне</a>
+				   data-wish="Пользователь Заказал Звонок"
+				   data-reachgoal="CALLBACK"
+				   data-title="Заказать звонок"
+				   data-field="name,phone,comments"
+				   data-requare="name,phone">перезвоните мне</a>
 				<a href="#" class="feedback anchor-start-dialog">перезвоните мне</a>
 			</div>
 			<div class="fdescr">
 				<div>© {{ 'now'|date("Y") }} RAYS ARMA</div>
-								Аренда и продажа складских и<br>
-								производственных помещений,<br>
-								промышленной земли в Москве и<br>
-								Подмосковье. Отвественное <br>
-								хранение товаров.
+				Аренда и продажа складских и<br>
+				производственных помещений,<br>
+				промышленной земли в Москве и<br>
+				Подмосковье. Отвественное <br>
+				хранение товаров.
 			</div>
 		</div>
-{# 		<div class="copyright">#}
-{# 			<div class="left">#}
-{# 				<div class="right">© Penny Lane Realty 1993 - {{ 'now'|date("Y") }}</div>#}
-{# 			</div>#}
-{# 		</div>#}
 	</div>
 </div>

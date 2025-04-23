@@ -1,19 +1,22 @@
 <div class="wrap header-mobile">
 	<div class="head line vertical-center column">
 		<div>
-			<a href="{% if app.request.get('section') != "index" %}{{ path("index") }}{% else %}#{% endif %}"><img class="site-logo" src="/public/images/ico/readys-logo.svg" alt="Rays Arma" /></a>
+			<a href="{% if app.request.get('section') != "index" %}{{ path("index") }}{% else %}#{% endif %}"><img
+						class="site-logo" src="/public/images/ico/readys-logo.svg" alt="Rays Arma"/></a>
 		</div>
 		<div>
-			<a href="{% if app.request.get('section') != "index" %}{{ path("index") }}{% else %}#{% endif %}" class="depname">ИНДУСТРИАЛЬНАЯ НЕДВИЖИМОСТЬ</a>
+			<a href="{% if app.request.get('section') != "index" %}{{ path("index") }}{% else %}#{% endif %}"
+			   class="depname">ИНДУСТРИАЛЬНАЯ НЕДВИЖИМОСТЬ</a>
 		</div>
-		
-		<div class="nav-mobile">
+
+		<div class="nav-mobile" data-top="{{ navMobileTop ?? 0 }}">
 			<div class="line nav-mobile-sub">
-				{#<a class="line vertical-center horizontal-center ripple">
+				{# <a class="line vertical-center horizontal-center ripple">
 					<div class="login"><i class="fa fa-key" aria-hidden="true"></i></div>
-				</a>#}
+				</a> #}
 				<a class="line vertical-center horizontal-center ripple">
-					<div class="favorite"><i class="fa fa-heart" aria-hidden="true"></i> <span class="countFavorites">0</span></div>
+					<div class="favorite"><i class="fa fa-heart" aria-hidden="true"></i> <span
+								class="countFavorites">0</span></div>
 				</a>
 				<a class="line vertical-center horizontal-center mobile-phone ripple" href="#">
 					<div class="phone-iconblock">
@@ -21,7 +24,7 @@
 						<i class="fa fa-angle-down fa-angle"></i>
 					</div>
 				</a>
-				<a class="line vertical-center horizontal-center sandwich" > 
+				<a class="line vertical-center horizontal-center sandwich">
 					<div>
 						<span class="si-icon si-icon-hamburger-cross" data-icon-name="hamburgerCross"></span>
 						<script type="text/javascript">
@@ -42,7 +45,7 @@
 						<a href="">Ответ. хранение</a>
 					</div>
 					<div class="lmenu">
-						<a href="" >Открытое хранение</a>
+						<a href="">Открытое хранение</a>
 					</div>
 					<div class="lmenu">
 						<a href="">Земельные участки</a>
@@ -60,14 +63,17 @@
 			</div>
 			<div class="wrap-phone-block">
 				<div class="phone">
-					<a href="tel:+7 (495) {{ constant('PHONE')|replace({".":" "}) }}"><span class="call_phone_new1"><span class="ph">+7 495 <span class="red2"><b>{{ constant('PHONE') }}</b></span></span></span></a>
+					<a href="tel:+7 (495) {{ constant('PHONE')|replace({".":" "}) }}"><span
+								class="call_phone_new1"><span class="ph">+7 495 <span
+										class="red2"><b>{{ constant('PHONE') }}</b></span></span></span></a>
 					<div class="feedback">
 						<span class="start-dialog"
-							data-wish="Пользователь Заказал Звонок"
-							data-title="Заказать звонок"
-							data-reachgoal="CALLBACK"
-							data-field="name,phone,comments"
-							data-requare="name,phone"><span>перезвоните мне</span><i class="fa fa-angle-down fa-angle"></i></span>
+						      data-wish="Пользователь Заказал Звонок"
+						      data-title="Заказать звонок"
+						      data-reachgoal="CALLBACK"
+						      data-field="name,phone,comments"
+						      data-requare="name,phone"><span>перезвоните мне</span><i
+									class="fa fa-angle-down fa-angle"></i></span>
 					</div>
 				</div>
 			</div>

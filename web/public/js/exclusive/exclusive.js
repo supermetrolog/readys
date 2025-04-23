@@ -63,7 +63,7 @@ $(document).ready(() => {
 
 	AOS.init({
 		once: true,
-		duration: 500
+		duration: 900
 	});
 })
 

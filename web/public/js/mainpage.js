@@ -46,7 +46,7 @@ $(document).ready(function () {
 
 	AOS.init({
 		once: true,
-		duration: 500
+		duration: 900
 	});
 });
 

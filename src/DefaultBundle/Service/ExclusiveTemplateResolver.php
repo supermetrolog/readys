@@ -15,7 +15,7 @@ class ExclusiveTemplateResolver
 		'lytkarino' => [
 			'template' => 'lytkarino.html.twig',
 			'meta'     => [
-				'title'       => 'Лыткарино - индустриальный парк | RAYSARMA',
+				'title'       => 'Лыткарино - Индустриальный парк | RAYSARMA',
 				'description' => 'Индустриальный парк Лыткарино в Москве - производственно-складской комплекс класса А+. Качество, безопасность, хорошая локация'
 			]
 		],

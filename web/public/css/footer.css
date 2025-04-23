@@ -45,7 +45,7 @@
 .layout .footer .offtitle {
 	color: #FFF;
 	font-size: 15px;
-	margin-bottom: 3px;
+	margin-bottom: 5px;
 }
 
 .layout .footer .off {
@@ -171,4 +171,8 @@
 
 .footer .feedback.anchor-start-dialog {
 	display: none;
+}
+
+.footer-address__map-icon {
+	margin-right: 4px;
 }
