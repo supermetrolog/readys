@@ -31,7 +31,7 @@ jobs:
             git pull || git clone ${{env.REPO_URL}} .
             
             : 🚀 Install dependencies...
-            composer install
+            composer2.2.9 install
             
             : 🚀 Clear app cache...
             php app/console cache:clear --env=prod
