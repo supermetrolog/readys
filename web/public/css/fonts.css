@@ -2,526 +2,635 @@
 	font-family: 'pfdintextcondpro-thin';
 	src: url('/public/fonts/pfdintextcondpro-thin.ttf');
 }
-@font-face{
-	font-family:'u2000';
-	src:url("/public/fonts/u2000.eot");
-	src:url("/public/fonts/u/u2000.eot?#iefix") format("embedded-opentype"),
-		url("/public/fonts/u2000.woff") format("woff"),
-		url("/public/fonts/u2000.ttf") format("truetype"),
-		url("/public/fonts/u2000.svg#universaliaregular") format("svg");
-	font-weight:normal;
-	font-style:normal;
+
+@font-face {
+	font-family: 'u2000';
+	src: url("/public/fonts/u2000.eot");
+	src: url("/public/fonts/u/u2000.eot?#iefix") format("embedded-opentype"),
+	url("/public/fonts/u2000.woff") format("woff"),
+	url("/public/fonts/u2000.ttf") format("truetype"),
+	url("/public/fonts/u2000.svg#universaliaregular") format("svg");
+	font-weight: normal;
+	font-style: normal;
 }
+
 /* font-family: "RalewayRegular"; */
 @font-face {
-    font-family: "RalewayRegular";
-    src: url("../fonts/RalewayRegular/RalewayRegular.eot");
-    src: url("../fonts/RalewayRegular/RalewayRegular.eot?#iefix")format("embedded-opentype"),
-    url("../fonts/RalewayRegular/RalewayRegular.woff") format("woff"),
-    url("../fonts/RalewayRegular/RalewayRegular.ttf") format("truetype");
-    font-style: normal;
-    font-weight: normal;
+	font-family: "RalewayRegular";
+	src: url("../fonts/RalewayRegular/RalewayRegular.eot");
+	src: url("../fonts/RalewayRegular/RalewayRegular.eot?#iefix") format("embedded-opentype"),
+	url("../fonts/RalewayRegular/RalewayRegular.woff") format("woff"),
+	url("../fonts/RalewayRegular/RalewayRegular.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
 }
+
 /* font-family: "RalewayThin"; */
 @font-face {
-    font-family: "RalewayThin";
-    src: url("../fonts/RalewayThin/RalewayThin.eot");
-    src: url("../fonts/RalewayThin/RalewayThin.eot?#iefix")format("embedded-opentype"),
-    url("../fonts/RalewayThin/RalewayThin.woff") format("woff"),
-    url("../fonts/RalewayThin/RalewayThin.ttf") format("truetype");
-    font-style: normal;
-    font-weight: normal;
+	font-family: "RalewayThin";
+	src: url("../fonts/RalewayThin/RalewayThin.eot");
+	src: url("../fonts/RalewayThin/RalewayThin.eot?#iefix") format("embedded-opentype"),
+	url("../fonts/RalewayThin/RalewayThin.woff") format("woff"),
+	url("../fonts/RalewayThin/RalewayThin.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
 }
+
 /* font-family: "RalewayExtraLight"; */
 @font-face {
-    font-family: "RalewayExtraLight";
-    src: url("../fonts/RalewayExtraLight/RalewayExtraLight.eot");
-    src: url("../fonts/RalewayExtraLight/RalewayExtraLight.eot?#iefix")format("embedded-opentype"),
-    url("../fonts/RalewayExtraLight/RalewayExtraLight.woff") format("woff"),
-    url("../fonts/RalewayExtraLight/RalewayExtraLight.ttf") format("truetype");
-    font-style: normal;
-    font-weight: normal;
+	font-family: "RalewayExtraLight";
+	src: url("../fonts/RalewayExtraLight/RalewayExtraLight.eot");
+	src: url("../fonts/RalewayExtraLight/RalewayExtraLight.eot?#iefix") format("embedded-opentype"),
+	url("../fonts/RalewayExtraLight/RalewayExtraLight.woff") format("woff"),
+	url("../fonts/RalewayExtraLight/RalewayExtraLight.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
 }
+
 /* font-family: "RalewayLight"; */
 @font-face {
-    font-family: "RalewayLight";
-    src: url("../fonts/RalewayLight/RalewayLight.eot");
-    src: url("../fonts/RalewayLight/RalewayLight.eot?#iefix")format("embedded-opentype"),
-    url("../fonts/RalewayLight/RalewayLight.woff") format("woff"),
-    url("../fonts/RalewayLight/RalewayLight.ttf") format("truetype");
-    font-style: normal;
-    font-weight: normal;
+	font-family: "RalewayLight";
+	src: url("../fonts/RalewayLight/RalewayLight.eot");
+	src: url("../fonts/RalewayLight/RalewayLight.eot?#iefix") format("embedded-opentype"),
+	url("../fonts/RalewayLight/RalewayLight.woff") format("woff"),
+	url("../fonts/RalewayLight/RalewayLight.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
 }
+
 /* font-family: "RalewayMedium"; */
 @font-face {
-    font-family: "RalewayMedium";
-    src: url("../fonts/RalewayMedium/RalewayMedium.eot");
-    src: url("../fonts/RalewayMedium/RalewayMedium.eot?#iefix")format("embedded-opentype"),
-    url("../fonts/RalewayMedium/RalewayMedium.woff") format("woff"),
-    url("../fonts/RalewayMedium/RalewayMedium.ttf") format("truetype");
-    font-style: normal;
-    font-weight: normal;
+	font-family: "RalewayMedium";
+	src: url("../fonts/RalewayMedium/RalewayMedium.eot");
+	src: url("../fonts/RalewayMedium/RalewayMedium.eot?#iefix") format("embedded-opentype"),
+	url("../fonts/RalewayMedium/RalewayMedium.woff") format("woff"),
+	url("../fonts/RalewayMedium/RalewayMedium.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
 }
+
 /* font-family: "RalewaySemiBold"; */
 @font-face {
-    font-family: "RalewaySemiBold";
-    src: url("../fonts/RalewaySemiBold/RalewaySemiBold.eot");
-    src: url("../fonts/RalewaySemiBold/RalewaySemiBold.eot?#iefix")format("embedded-opentype"),
-    url("../fonts/RalewaySemiBold/RalewaySemiBold.woff") format("woff"),
-    url("../fonts/RalewaySemiBold/RalewaySemiBold.ttf") format("truetype");
-    font-style: normal;
-    font-weight: normal;
+	font-family: "RalewaySemiBold";
+	src: url("../fonts/RalewaySemiBold/RalewaySemiBold.eot");
+	src: url("../fonts/RalewaySemiBold/RalewaySemiBold.eot?#iefix") format("embedded-opentype"),
+	url("../fonts/RalewaySemiBold/RalewaySemiBold.woff") format("woff"),
+	url("../fonts/RalewaySemiBold/RalewaySemiBold.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
 }
+
 /* font-family: "RalewayBold"; */
 @font-face {
-    font-family: "RalewayBold";
-    src: url("../fonts/RalewayBold/RalewayBold.eot");
-    src: url("../fonts/RalewayBold/RalewayBold.eot?#iefix")format("embedded-opentype"),
-    url("../fonts/RalewayBold/RalewayBold.woff") format("woff"),
-    url("../fonts/RalewayBold/RalewayBold.ttf") format("truetype");
-    font-style: normal;
-    font-weight: normal;
+	font-family: "RalewayBold";
+	src: url("../fonts/RalewayBold/RalewayBold.eot");
+	src: url("../fonts/RalewayBold/RalewayBold.eot?#iefix") format("embedded-opentype"),
+	url("../fonts/RalewayBold/RalewayBold.woff") format("woff"),
+	url("../fonts/RalewayBold/RalewayBold.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
 }
+
 /* font-family: "RalewayExtraBold"; */
 @font-face {
-    font-family: "RalewayExtraBold";
-    src: url("../fonts/RalewayExtraBold/RalewayExtraBold.eot");
-    src: url("../fonts/RalewayExtraBold/RalewayExtraBold.eot?#iefix")format("embedded-opentype"),
-    url("../fonts/RalewayExtraBold/RalewayExtraBold.woff") format("woff"),
-    url("../fonts/RalewayExtraBold/RalewayExtraBold.ttf") format("truetype");
-    font-style: normal;
-    font-weight: normal;
+	font-family: "RalewayExtraBold";
+	src: url("../fonts/RalewayExtraBold/RalewayExtraBold.eot");
+	src: url("../fonts/RalewayExtraBold/RalewayExtraBold.eot?#iefix") format("embedded-opentype"),
+	url("../fonts/RalewayExtraBold/RalewayExtraBold.woff") format("woff"),
+	url("../fonts/RalewayExtraBold/RalewayExtraBold.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
 }
+
 /* font-family: "RalewayBlack"; */
 @font-face {
-    font-family: "RalewayBlack";
-    src: url("../fonts/RalewayBlack/RalewayBlack.eot");
-    src: url("../fonts/RalewayBlack/RalewayBlack.eot?#iefix")format("embedded-opentype"),
-    url("../fonts/RalewayBlack/RalewayBlack.woff") format("woff"),
-    url("../fonts/RalewayBlack/RalewayBlack.ttf") format("truetype");
-    font-style: normal;
-    font-weight: normal;
+	font-family: "RalewayBlack";
+	src: url("../fonts/RalewayBlack/RalewayBlack.eot");
+	src: url("../fonts/RalewayBlack/RalewayBlack.eot?#iefix") format("embedded-opentype"),
+	url("../fonts/RalewayBlack/RalewayBlack.woff") format("woff"),
+	url("../fonts/RalewayBlack/RalewayBlack.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
 }
+
 @font-face {
-  font-family: 'icomoon';
-  src:  url('../fonts/realtor-fonts/icomoon.eot?idvzmu');
-  src:  url('../fonts/realtor-fonts/icomoon.eot?idvzmu#iefix') format('embedded-opentype'),
-    url('../fonts/realtor-fonts/icomoon.ttf?idvzmu') format('truetype'),
-    url('../fonts/realtor-fonts/icomoon.woff?idvzmu') format('woff'),
-    url('../fonts/realtor-fonts/icomoon.svg?idvzmu#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal;
+	font-family: 'icomoon';
+	src: url('../fonts/realtor-fonts/icomoon.eot?idvzmu');
+	src: url('../fonts/realtor-fonts/icomoon.eot?idvzmu#iefix') format('embedded-opentype'),
+	url('../fonts/realtor-fonts/icomoon.ttf?idvzmu') format('truetype'),
+	url('../fonts/realtor-fonts/icomoon.woff?idvzmu') format('woff'),
+	url('../fonts/realtor-fonts/icomoon.svg?idvzmu#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
+
 
 [class^="icon-"], [class*=" icon-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'icomoon' !important;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: 'icomoon' !important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
 
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
+
 
 .icon-circle-check:before {
-  content: "\e95e";
+	content: "\e95e";
 }
+
 .icon-error:before {
-  content: "\e95f";
+	content: "\e95f";
 }
+
 .icon-d:before {
-  content: "\e953";
+	content: "\e953";
 }
+
 .icon-etazh:before {
-  content: "\e954";
+	content: "\e954";
 }
+
 .icon-parking .path1:before {
-  content: "\e955";
-  color: rgb(189, 192, 197);
+	content: "\e955";
+	color: rgb(189, 192, 197);
 }
+
 .icon-parking .path2:before {
-  content: "\e956";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
+	content: "\e956";
+	margin-left: -1em;
+	color: rgb(255, 255, 255);
 }
+
 .icon-play .path1:before {
-  content: "\e957";
-  color: rgb(239, 51, 51);
+	content: "\e957";
+	color: rgb(239, 51, 51);
 }
+
 .icon-play .path2:before {
-  content: "\e958";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
+	content: "\e958";
+	margin-left: -1em;
+	color: rgb(255, 255, 255);
 }
+
 .icon-rent:before {
-  content: "\e959";
+	content: "\e959";
 }
+
 .icon-sale:before {
-  content: "\e95a";
+	content: "\e95a";
 }
+
 .icon-sanuzel:before {
-  content: "\e95b";
+	content: "\e95b";
 }
+
 .icon-s-m2:before {
-  content: "\e95c";
+	content: "\e95c";
 }
+
 .icon-x-komnat:before {
-  content: "\e95d";
+	content: "\e95d";
 }
+
 .icon-fire-popular:before {
-  content: "\e952";
+	content: "\e952";
 }
+
 .icon-id:before {
-  content: "\e900";
+	content: "\e900";
 }
+
 .icon-marker:before {
-  content: "\e901";
+	content: "\e901";
 }
+
 .icon-baza:before {
-  content: "\e902";
+	content: "\e902";
 }
+
 .icon-baza-active:before {
-  content: "\e903";
+	content: "\e903";
 }
+
 .icon-note:before {
-  content: "\e904";
+	content: "\e904";
 }
+
 .icon-settings:before {
-  content: "\e905";
+	content: "\e905";
 }
+
 .icon-zhka:before {
-  content: "\e906";
+	content: "\e906";
 }
+
 .icon-tao:before {
-  content: "\e966";
+	content: "\e966";
 }
+
 .icon-detsky-sad .path1:before {
-  content: "\e907";
-  color: rgb(255, 255, 255);
+	content: "\e907";
+	color: rgb(255, 255, 255);
 }
+
 .icon-detsky-sad .path2:before {
-  content: "\e908";
-  margin-left: -0.7255859375em;
-  color: rgb(245, 123, 203);
+	content: "\e908";
+	margin-left: -0.7255859375em;
+	color: rgb(245, 123, 203);
 }
+
 .icon-fitness .path1:before {
-  content: "\e909";
-  color: rgb(255, 255, 255);
+	content: "\e909";
+	color: rgb(255, 255, 255);
 }
+
 .icon-fitness .path2:before {
-  content: "\e90a";
-  margin-left: -0.7255859375em;
-  color: rgb(150, 159, 158);
+	content: "\e90a";
+	margin-left: -0.7255859375em;
+	color: rgb(150, 159, 158);
 }
+
 .icon-fitness .path3:before {
-  content: "\e90b";
-  margin-left: -0.7255859375em;
-  color: rgb(150, 159, 158);
+	content: "\e90b";
+	margin-left: -0.7255859375em;
+	color: rgb(150, 159, 158);
 }
+
 .icon-fitness .path4:before {
-  content: "\e90c";
-  margin-left: -0.7255859375em;
-  color: rgb(150, 159, 158);
+	content: "\e90c";
+	margin-left: -0.7255859375em;
+	color: rgb(150, 159, 158);
 }
+
 .icon-fitness .path5:before {
-  content: "\e90d";
-  margin-left: -0.7255859375em;
-  color: rgb(150, 159, 158);
+	content: "\e90d";
+	margin-left: -0.7255859375em;
+	color: rgb(150, 159, 158);
 }
+
 .icon-krasota-salon .path1:before {
-  content: "\e90e";
-  color: rgb(255, 255, 255);
+	content: "\e90e";
+	color: rgb(255, 255, 255);
 }
+
 .icon-krasota-salon .path2:before {
-  content: "\e90f";
-  margin-left: -0.7255859375em;
-  color: rgb(238, 71, 74);
+	content: "\e90f";
+	margin-left: -0.7255859375em;
+	color: rgb(238, 71, 74);
 }
+
 .icon-medicine .path1:before {
-  content: "\e910";
-  color: rgb(255, 255, 255);
+	content: "\e910";
+	color: rgb(255, 255, 255);
 }
+
 .icon-medicine .path2:before {
-  content: "\e911";
-  margin-left: -0.7255859375em;
-  color: rgb(101, 182, 174);
+	content: "\e911";
+	margin-left: -0.7255859375em;
+	color: rgb(101, 182, 174);
 }
+
 .icon-pool .path1:before {
-  content: "\e912";
-  color: rgb(255, 255, 255);
+	content: "\e912";
+	color: rgb(255, 255, 255);
 }
+
 .icon-pool .path2:before {
-  content: "\e913";
-  margin-left: -0.7255859375em;
-  color: rgb(37, 178, 216);
+	content: "\e913";
+	margin-left: -0.7255859375em;
+	color: rgb(37, 178, 216);
 }
+
 .icon-restaurant .path1:before {
-  content: "\e914";
-  color: rgb(255, 255, 255);
+	content: "\e914";
+	color: rgb(255, 255, 255);
 }
+
 .icon-restaurant .path2:before {
-  content: "\e915";
-  margin-left: -0.7255859375em;
-  color: rgb(126, 103, 243);
+	content: "\e915";
+	margin-left: -0.7255859375em;
+	color: rgb(126, 103, 243);
 }
+
 .icon-shool .path1:before {
-  content: "\e916";
-  color: rgb(255, 255, 255);
+	content: "\e916";
+	color: rgb(255, 255, 255);
 }
+
 .icon-shool .path2:before {
-  content: "\e917";
-  margin-left: -0.7255859375em;
-  color: rgb(33, 151, 215);
+	content: "\e917";
+	margin-left: -0.7255859375em;
+	color: rgb(33, 151, 215);
 }
+
 .icon-detsky-sad2 .path1:before {
-  content: "\e918";
-  color: rgb(255, 255, 255);
+	content: "\e918";
+	color: rgb(255, 255, 255);
 }
+
 .icon-detsky-sad2 .path2:before {
-  content: "\e919";
-  margin-left: -1em;
-  color: rgb(245, 123, 203);
+	content: "\e919";
+	margin-left: -1em;
+	color: rgb(245, 123, 203);
 }
+
 .icon-fitness2 .path1:before {
-  content: "\e91a";
-  color: rgb(255, 255, 255);
+	content: "\e91a";
+	color: rgb(255, 255, 255);
 }
+
 .icon-fitness2 .path2:before {
-  content: "\e91b";
-  margin-left: -1em;
-  color: rgb(150, 159, 158);
+	content: "\e91b";
+	margin-left: -1em;
+	color: rgb(150, 159, 158);
 }
+
 .icon-fitness2 .path3:before {
-  content: "\e91c";
-  margin-left: -1em;
-  color: rgb(150, 159, 158);
+	content: "\e91c";
+	margin-left: -1em;
+	color: rgb(150, 159, 158);
 }
+
 .icon-fitness2 .path4:before {
-  content: "\e91d";
-  margin-left: -1em;
-  color: rgb(150, 159, 158);
+	content: "\e91d";
+	margin-left: -1em;
+	color: rgb(150, 159, 158);
 }
+
 .icon-fitness2 .path5:before {
-  content: "\e91e";
-  margin-left: -1em;
-  color: rgb(150, 159, 158);
+	content: "\e91e";
+	margin-left: -1em;
+	color: rgb(150, 159, 158);
 }
+
 .icon-krasota-salon2 .path1:before {
-  content: "\e91f";
-  color: rgb(255, 255, 255);
+	content: "\e91f";
+	color: rgb(255, 255, 255);
 }
+
 .icon-krasota-salon2 .path2:before {
-  content: "\e920";
-  margin-left: -1em;
-  color: rgb(238, 71, 74);
+	content: "\e920";
+	margin-left: -1em;
+	color: rgb(238, 71, 74);
 }
+
 .icon-medicine2 .path1:before {
-  content: "\e921";
-  color: rgb(255, 255, 255);
+	content: "\e921";
+	color: rgb(255, 255, 255);
 }
+
 .icon-medicine2 .path2:before {
-  content: "\e922";
-  margin-left: -1em;
-  color: rgb(101, 182, 174);
+	content: "\e922";
+	margin-left: -1em;
+	color: rgb(101, 182, 174);
 }
+
 .icon-pool2 .path1:before {
-  content: "\e923";
-  color: rgb(255, 255, 255);
+	content: "\e923";
+	color: rgb(255, 255, 255);
 }
+
 .icon-pool2 .path2:before {
-  content: "\e924";
-  margin-left: -1em;
-  color: rgb(37, 178, 216);
+	content: "\e924";
+	margin-left: -1em;
+	color: rgb(37, 178, 216);
 }
+
 .icon-restaurant2 .path1:before {
-  content: "\e925";
-  color: rgb(255, 255, 255);
+	content: "\e925";
+	color: rgb(255, 255, 255);
 }
+
 .icon-restaurant2 .path2:before {
-  content: "\e926";
-  margin-left: -1em;
-  color: rgb(126, 103, 243);
+	content: "\e926";
+	margin-left: -1em;
+	color: rgb(126, 103, 243);
 }
+
 .icon-shool2 .path1:before {
-  content: "\e927";
-  color: rgb(255, 255, 255);
+	content: "\e927";
+	color: rgb(255, 255, 255);
 }
+
 .icon-shool2 .path2:before {
-  content: "\e928";
-  margin-left: -1em;
-  color: rgb(33, 151, 215);
+	content: "\e928";
+	margin-left: -1em;
+	color: rgb(33, 151, 215);
 }
+
 .icon-acrobat .path1:before {
-  content: "\e929";
-  color: rgb(255, 255, 255);
+	content: "\e929";
+	color: rgb(255, 255, 255);
 }
+
 .icon-acrobat .path2:before {
-  content: "\e92a";
-  margin-left: -1.044921875em;
-  color: rgb(234, 76, 58);
+	content: "\e92a";
+	margin-left: -1.044921875em;
+	color: rgb(234, 76, 58);
 }
+
 .icon-acrobat .path3:before {
-  content: "\e92b";
-  margin-left: -1.044921875em;
-  color: none;
+	content: "\e92b";
+	margin-left: -1.044921875em;
+	color: none;
 }
+
 .icon-add:before {
-  content: "\e92c";
+	content: "\e92c";
 }
+
 .icon-add-podborka:before {
-  content: "\e92d";
+	content: "\e92d";
 }
+
 .icon-add-podborka-complete:before {
-  content: "\e92e";
+	content: "\e92e";
 }
+
 .icon-arrow:before {
-  content: "\e92f";
+	content: "\e92f";
 }
+
 .icon-checkmark:before {
-  content: "\e930";
+	content: "\e930";
 }
+
 .icon-clear-search:before {
-  content: "\e931";
+	content: "\e931";
 }
+
 .icon-close-popup-tag:before {
-  content: "\e932";
+	content: "\e932";
 }
+
 .icon-comment:before {
-  content: "\e933";
+	content: "\e933";
 }
+
 .icon-edit:before {
-  content: "\e934";
+	content: "\e934";
 }
+
 .icon-filter:before {
-  content: "\e935";
+	content: "\e935";
 }
+
 .icon-filter-a-z:before {
-  content: "\e936";
+	content: "\e936";
 }
+
 .icon-like:before {
-  content: "\e937";
+	content: "\e937";
 }
+
 .icon-like-active:before {
-  content: "\e938";
+	content: "\e938";
 }
+
 .icon-metro_mos:before {
-  content: "\e939";
+	content: "\e939";
 }
+
 .icon-plr .path1:before {
-  content: "\e93a";
-  color: rgb(237, 28, 36);
+	content: "\e93a";
+	color: rgb(237, 28, 36);
 }
+
 .icon-plr .path2:before {
-  content: "\e93b";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
+	content: "\e93b";
+	margin-left: -1em;
+	color: rgb(255, 255, 255);
 }
+
 .icon-plr .path3:before {
-  content: "\e93c";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
+	content: "\e93c";
+	margin-left: -1em;
+	color: rgb(255, 255, 255);
 }
+
 .icon-plr .path4:before {
-  content: "\e93d";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
+	content: "\e93d";
+	margin-left: -1em;
+	color: rgb(255, 255, 255);
 }
+
 .icon-plr .path5:before {
-  content: "\e93e";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
+	content: "\e93e";
+	margin-left: -1em;
+	color: rgb(255, 255, 255);
 }
+
 .icon-plr .path6:before {
-  content: "\e93f";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
+	content: "\e93f";
+	margin-left: -1em;
+	color: rgb(255, 255, 255);
 }
+
 .icon-plr .path7:before {
-  content: "\e940";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
+	content: "\e940";
+	margin-left: -1em;
+	color: rgb(255, 255, 255);
 }
+
 .icon-plr .path8:before {
-  content: "\e941";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
+	content: "\e941";
+	margin-left: -1em;
+	color: rgb(255, 255, 255);
 }
+
 .icon-plr .path9:before {
-  content: "\e942";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
+	content: "\e942";
+	margin-left: -1em;
+	color: rgb(255, 255, 255);
 }
+
 .icon-plr .path10:before {
-  content: "\e943";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
+	content: "\e943";
+	margin-left: -1em;
+	color: rgb(255, 255, 255);
 }
+
 .icon-plr .path11:before {
-  content: "\e944";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
+	content: "\e944";
+	margin-left: -1em;
+	color: rgb(255, 255, 255);
 }
+
 .icon-plr .path12:before {
-  content: "\e945";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
+	content: "\e945";
+	margin-left: -1em;
+	color: rgb(255, 255, 255);
 }
+
 .icon-plr .path13:before {
-  content: "\e946";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
+	content: "\e946";
+	margin-left: -1em;
+	color: rgb(255, 255, 255);
 }
+
 .icon-plr .path14:before {
-  content: "\e947";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
+	content: "\e947";
+	margin-left: -1em;
+	color: rgb(255, 255, 255);
 }
+
 .icon-plr .path15:before {
-  content: "\e948";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
+	content: "\e948";
+	margin-left: -1em;
+	color: rgb(255, 255, 255);
 }
+
 .icon-plr .path16:before {
-  content: "\e949";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
+	content: "\e949";
+	margin-left: -1em;
+	color: rgb(255, 255, 255);
 }
+
 .icon-plr .path17:before {
-  content: "\e94a";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
+	content: "\e94a";
+	margin-left: -1em;
+	color: rgb(255, 255, 255);
 }
+
 .icon-plr .path18:before {
-  content: "\e94b";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
+	content: "\e94b";
+	margin-left: -1em;
+	color: rgb(255, 255, 255);
 }
+
 .icon-rouble:before {
-  content: "\e94c";
+	content: "\e94c";
 }
+
 .icon-send-mail:before {
-  content: "\e94d";
+	content: "\e94d";
 }
+
 .icon-warning:before {
-  content: "\e94e";
+	content: "\e94e";
 }
+
 .icon-word .path1:before {
-  content: "\e94f";
-  color: rgb(255, 255, 255);
+	content: "\e94f";
+	color: rgb(255, 255, 255);
 }
+
 .icon-word .path2:before {
-  content: "\e950";
-  margin-left: -1.044921875em;
-  color: rgb(35, 114, 186);
+	content: "\e950";
+	margin-left: -1.044921875em;
+	color: rgb(35, 114, 186);
 }
+
 .icon-word .path3:before {
-  content: "\e951";
-  margin-left: -1.044921875em;
-  color: rgb(35, 114, 186);
+	content: "\e951";
+	margin-left: -1.044921875em;
+	color: rgb(35, 114, 186);
 }
 

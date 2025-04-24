@@ -1,34 +1,49 @@
 <div class="wrap header-desctop">
 	<div class="head line vertical-center">
 		<div class="line vertical-center flex-nowrap">
-			<a href="{% if app.request.get('section') != "index" %}{{ path("index") }}{% else %}#{% endif %}"><img class="site-logo" src="/public/images/ico/readys-logo.svg" alt="Penny Lane Realty" /></a>
-			<a href="{% if app.request.get('section') != "index" %}{{ path("index") }}{% else %}#{% endif %}" class="depname">ИНДУСТРИАЛЬНАЯ<br>НЕДВИЖИМОСТЬ</a>
+			<a href="{% if app.request.get('section') != "index" %}{{ path("index") }}{% else %}#{% endif %}"><img
+						class="site-logo" src="/public/images/ico/readys-logo.svg" alt="Penny Lane Realty"/></a>
+			<a href="{% if app.request.get('section') != "index" %}{{ path("index") }}{% else %}#{% endif %}"
+			   class="depname">ИНДУСТРИАЛЬНАЯ<br>НЕДВИЖИМОСТЬ</a>
+			{% if headerSubtitle is defined %}
+				<span class="header-subtitle">{{ headerSubtitle }}</span>
+			{% endif %}
 		</div>
 		<div class="dpmenu"></div>
 		{% if "now"|getTimeJob() %}
 			<div class="call disable">
-				<i class="fa fa-phone"></i><span class="call_phone_new1"><span class="ph">+7 495 <span class="red2"><b>{{ constant('PHONE') }}</b></span></span></span>
+				<div class="call__row">
+					<i class="fa fa-phone"></i>
+					<span class="call_phone_new1">
+						<span class="ph">+7 495 <span class="red2"><b>{{ constant('PHONE') }}</b></span></span>
+					</span>
+				</div>
 				<div class="clear"></div>
-				<div class="time-job">Работаем с 9:00 до 20:00</div><a class="feedback start-dialog" href="#"
-						data-wish="Пользователь Заказал Звонок"
-						data-title="Заказать звонок"
-						data-reachgoal="CALLBACK"
-						data-field="name,phone,comments"
-						data-requare="name,phone">перезвоните мне</a>
+				<div class="time-job">Работаем с 9:00 до 20:00</div>
+				<a class="feedback start-dialog" href="#"
+				   data-wish="Пользователь Заказал Звонок"
+				   data-title="Заказать звонок"
+				   data-reachgoal="CALLBACK"
+				   data-field="name,phone,comments"
+				   data-requare="name,phone">перезвоните мне</a>
 				<img alt="" src="/public/images/ico/arrow.svg" class="redirection">
 			</div>
 		{% else %}
 			<div class="call line vertical-center column">
 				<div class="line horizontal-center vertical-center">
-					<i class="fa fa-phone"></i><span class="call_phone_new1"><a class="ph" href="tel:+7 (495) {{ constant('PHONE')|replace({".":" "}) }}">+7 495 <span class="red2"><b>{{ constant('PHONE') }}</b></span></a></span>
+					<i class="fa fa-phone"></i>
+					<span class="call_phone_new1">
+						<a class="ph" href="tel:+7 (495) {{ constant('PHONE')|replace({".":" "}) }}">+7 495 <span
+									class="red2"><b>{{ constant('PHONE') }}</b></span></a>
+					</span>
 				</div>
 				<div>
 					<a href="#" class="feedback start-dialog" style="float: right;"
-						data-wish="Пользователь Заказал Звонок"
-						data-title="Заказать звонок"
-						data-reachgoal="CALLBACK"
-						data-field="name,phone,comments"
-						data-requare="name,phone">перезвоните мне</a>
+					   data-wish="Пользователь Заказал Звонок"
+					   data-title="Заказать звонок"
+					   data-reachgoal="CALLBACK"
+					   data-field="name,phone,comments"
+					   data-requare="name,phone">перезвоните мне</a>
 				</div>
 			</div>
 		{% endif %}
@@ -46,7 +61,20 @@
 			<div class="lmenu">
 				<a href="{{ path('catalog',{deal_type: "otvetstvennoe-hranenie"}) }}">Ответ. хранение</a>
 			</div>
-			{#<div class="lmenu">
+			<div class="lmenu dropdown-menu">
+				<a href="#" class="dropdown-menu__main">Эксклюзивы</a>
+				<ul class="dropdown-menu__list">
+					<li class="dropdown-menu__item lmenu">
+						<a href="{{ path('exclusive', { name: "lytkarino" }) }}" class="dropdown-menu__link">
+							Лыткарино Парк
+						</a>
+					</li>
+					{#                    <li class="dropdown-menu__item lmenu"> #}
+					{#                        <a href="{{ path('exclusive', { name: "golaz" }) }}" class="dropdown-menu__link">ГолАЗ</a> #}
+					{#                    </li> #}
+				</ul>
+			</div>
+			{# <div class="lmenu">
 				<a href="" >Открытое хранение</a>
 			</div>
 			<div class="lmenu">
@@ -60,28 +88,31 @@
 			</div>
 			<div class="lmenu">
 				<a href="">Собственнику</a>
-			</div>#}
+			</div> #}
 		</div>
 		<div class="lmenu right sandwich-desctop dropdown">
 			<a class="" href="#">
 				<span class="si-icon si-icon-hamburger-cross" data-icon-name="hamburgerCross"></span>
 				<script type="text/javascript">
-					new svgIcon( document.querySelector( '.header-desctop .si-icon-hamburger-cross' ), svgIconConfig, { easing : mina.elastic, speed: 600 } );
+					new svgIcon(document.querySelector('.header-desctop .si-icon-hamburger-cross'), svgIconConfig, {
+						easing: mina.elastic,
+						speed: 600
+					});
 				</script>
 			</a>
 			<div class="active-dropdown">
 				<div class="insdrpdwn">
 					<a href="">О нас</a>
 					<a href='#' class="start-dialog"
-						data-wish="Пользователь отправил заявку из меню сайта"
-						data-title="Заявка"
-						data-reachgoal="ORDER"
-						data-field="name,phone,email,deal,comments"
-						data-requare="name,phone,deal">Заявка</a>
+					   data-wish="Пользователь отправил заявку из меню сайта"
+					   data-title="Заявка"
+					   data-reachgoal="ORDER"
+					   data-field="name,phone,email,deal,comments"
+					   data-requare="name,phone,deal">Заявка</a>
 					<a href="">Контакты</a>
 				</div>
 			</div>
 		</div>
-		
+
 	</div>
 </div>

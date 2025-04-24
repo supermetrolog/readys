@@ -82,3 +82,10 @@ sendpdf:
     defaults:
         _controller: DefaultBundle:Default:sendpdf
         section: lot
+
+exclusive:
+    path: /{name}/
+    defaults:
+        _controller: DefaultBundle:Exclusive:index
+    requirements:
+        name: lytkarino|golaz

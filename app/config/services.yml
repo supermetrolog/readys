@@ -1,44 +1,47 @@
 # Learn more about services, parameters and containers at
 # http://symfony.com/doc/current/service_container.html
 parameters:
-    #parameter_name: value
+#parameter_name: value
 
 services:
-    #service_name:
-    #    class: AppBundle\Directory\ClassName
-    #    arguments: ['@another_service_name', 'plain_value', '%parameter_name%']
-    #sitemap.listener:
-    #    class: DefaultBundle\Event\Listener\SitemapListener
-    #    arguments:
-    #        - @router
-    #        - @doctrine.orm.entity_manager
-    #        - @service_container
-    #    tags: [{name: "presta.sitemap.listener"}]
-     
-    replacement_phone.listener:
-        class: DefaultBundle\Event\Listener\BeforeListener
-        arguments:
-            - @service_container
-        tags:
-            - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
-     
-    kernel.listener.exception:
-        class: DefaultBundle\Event\Listener\ExceptionListener
-        arguments:
-            - @service_container
-            - @templating
-        tags:
-            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
-     
-    helpers:
-        class: DefaultBundle\Helper\GeneralHelper
-        arguments: 
-    #        - @doctrine.orm.entity_manager
-            - @service_container
-    
-    app.twig_extension:
-        class: AppBundle\Twig\AppExtension
-        arguments: 
-            - @service_container
-        tags:
-            - { name: twig.extension }    
+  #service_name:
+  #    class: AppBundle\Directory\ClassName
+  #    arguments: ['@another_service_name', 'plain_value', '%parameter_name%']
+  #sitemap.listener:
+  #    class: DefaultBundle\Event\Listener\SitemapListener
+  #    arguments:
+  #        - @router
+  #        - @doctrine.orm.entity_manager
+  #        - @service_container
+  #    tags: [{name: "presta.sitemap.listener"}]
+
+  replacement_phone.listener:
+    class: DefaultBundle\Event\Listener\BeforeListener
+    arguments:
+      - @service_container
+    tags:
+      - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
+
+  kernel.listener.exception:
+    class: DefaultBundle\Event\Listener\ExceptionListener
+    arguments:
+      - @service_container
+      - @templating
+    tags:
+      - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
+
+  helpers:
+    class: DefaultBundle\Helper\GeneralHelper
+    arguments:
+      #        - @doctrine.orm.entity_manager
+      - @service_container
+
+  app.twig_extension:
+    class: AppBundle\Twig\AppExtension
+    arguments:
+      - @service_container
+    tags:
+      - { name: twig.extension }
+
+  exclusive_template_resolver:
+    class: DefaultBundle\Service\ExclusiveTemplateResolver

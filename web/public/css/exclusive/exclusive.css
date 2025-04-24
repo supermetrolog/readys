@@ -1,0 +1,75 @@
+.exclusive-page .layout {
+	padding-top: 0;
+}
+
+@media screen and (max-width: 1000px) {
+	.exclusive-page .header-desctop {
+		display: none !important;
+	}
+}
+
+html:has(.exclusive-page) {
+	scroll-behavior: smooth;
+}
+
+.exclusive-page .header-desctop {
+	position: fixed;
+	z-index: 30;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	max-width: none;
+	transform: translateY(calc(-100% - 1px));
+	transition: transform 0.5s ease-in-out;
+}
+
+.exclusive-page .header-desctop.wrap {
+	background-color: #fff;
+	display: flex;
+	justify-content: center;
+}
+
+.exclusive-page .header-desctop.wrap .head.line {
+	width: 100%;
+	max-width: 1600px;
+	padding: 10px 30px;
+}
+
+.exclusive-page .header-desctop.topmenu {
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.exclusive-page .header-desctop.wrap.fixed {
+	transform: translateY(0);
+}
+
+.exclusive-page .header-desctop.topmenu.fixed {
+	transform: translateY(75px);
+}
+
+.exclusive-page-delimiter {
+	border-left: 1px solid rgba(255, 255, 255, .3);
+}
+
+.exclusive-page .layout .footer {
+	margin-top: 0;
+}
+
+/* button */
+
+.glass-button {
+	backdrop-filter: blur(10px);
+	background-color: rgba(255, 255, 255, 0.15);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: 1rem;
+	cursor: pointer;
+
+	transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.glass-button:hover {
+	background-color: rgba(255, 255, 255, 0.25);
+	border-color: rgba(255, 255, 255, 0.4);
+	box-shadow: 0 0 10px rgba(255, 255, 255, 0.3),
+	0 0 20px rgba(255, 255, 255, 0.2) inset;
+}
