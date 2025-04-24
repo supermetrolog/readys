@@ -89,7 +89,7 @@
 	{% if title is defined %}
 		<title>{{ title|raw }}</title>
 	{% endif %}
-
+	{% include "DefaultBundle:Default:metrika.html.twig" %}
 </head>
 
 {% if pageClass is defined %}
