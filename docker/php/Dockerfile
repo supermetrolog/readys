@@ -1,4 +1,6 @@
 ARG DOCKER_PHP_VERSION
+ARG DOCKER_MONGODB_VERSION='mongodb'
+ARG DOCKER_REDIS_VERSION='redis'
 
 FROM php:${DOCKER_PHP_VERSION}-fpm-alpine
 
@@ -70,11 +72,11 @@ RUN php -m && \
     zip \
     calendar \
     pdo_mysql && \
-    pecl install redis && \
+    pecl install ${DOCKER_REDIS_VERSION} && \
     docker-php-ext-enable redis && \
     apk add --update --no-cache --virtual .docker-php-mongodb-dependencies \
     heimdal-dev && \
-    pecl install mongodb && \
+    pecl install ${DOCKER_MONGODB_VERSION} && \
     docker-php-ext-enable mongodb && \
     apk del .docker-php-mongodb-dependencies && \
     apk add --update --no-cache \
