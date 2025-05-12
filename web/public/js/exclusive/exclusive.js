@@ -65,5 +65,29 @@ $(document).ready(() => {
 		once: true,
 		duration: 900
 	});
+
+	// hero slider
+
+	const heroSliderElement = $('#exclusive-hero-slider');
+	if (heroSliderElement) initHeroSlider(heroSliderElement);
+
 })
 
+function initHeroSlider(jqElement) {
+	jqElement.lightSlider({
+		item: 1,
+		controls: false,
+		pager: false,
+		gallery: false,
+		slideMargin: 0,
+		mode: 'fade',
+		auto: true,
+		loop: true,
+		enableTouch: false,
+		enableDrag: false,
+		freeMove: false,
+		addClass: 'exclusive-hero-slider',
+		pause: 4000,
+		speed: 600
+	});
+}
