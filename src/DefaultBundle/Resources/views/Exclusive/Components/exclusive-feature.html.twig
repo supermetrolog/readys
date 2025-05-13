@@ -1,0 +1,20 @@
+<div class="exclusive-feature {{ feature.inverted ? 'exclusive-feature--inverted' : '' }}" id="{{ feature.id }}">
+	<div class="exclusive-feature__slider" data-aos="fade-right">
+		{% for image in feature.images %}
+			<div data-thumb="{{ image.src }}"
+				 class="exclusive-feature__photo">
+				<img
+					class="exclusive-feature__image"
+					alt="{{ image.alt }}"
+					src="{{ image.src }}"
+				/>
+			</div>
+		{% endfor %}
+	</div>
+	<div class="exclusive-feature__description">
+		<h2 data-aos="fade-up" class="exclusive-feature__title">{{ feature.title }}</h2>
+		{% for subtitle in feature.subtitles %}
+			<h3 data-aos="fade-up" class="exclusive-feature__subtitle">{{ subtitle }}</h3>
+		{% endfor %}
+	</div>
+</div>

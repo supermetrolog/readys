@@ -1,0 +1,41 @@
+.exclusive-line {
+	background-color: #a70017;
+	color: #fff;
+	text-align: center;
+	font-family: 'RalewayMedium', 'Open Sans', serif;
+	font-size: 1.3rem;
+}
+
+.exclusive-line__wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 60px;
+}
+
+.exclusive-line__phone {
+	font-family: 'Open Sans', sans-serif;
+	border-left: 1px solid rgba(255, 255, 255, .4);
+	padding-left: 5px;
+	margin-left: 5px;
+}
+
+.exclusive-line__label {
+	font-size: .9rem;
+	color: #e0e0e0;
+}
+
+@media screen and (max-width: 500px) {
+	.exclusive-line {
+		height: 90px;
+	}
+
+	.exclusive-line__phone {
+		width: 100%;
+		display: block;
+		border-left: none;
+		margin-top: 5px;
+		margin-left: 0;
+		padding-left: 0;
+	}
+}

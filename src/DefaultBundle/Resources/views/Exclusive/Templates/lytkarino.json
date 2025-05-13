@@ -1,0 +1,70 @@
+{
+  "features": [
+    {
+      "id": "lytkarino-feature-1",
+      "title": "Локация",
+      "subtitles": [
+        "Основан по поручению Губернатора Московской области Андрея Юрьевича Воробьева",
+        "Территория имеет статус Индустриального парка"
+      ],
+      "images": [
+        {
+          "src": "/public/images/exclusive/lytkarino/lytkarino-location-1.png",
+          "alt": "Локация индустриального парка"
+        }
+      ]
+    },
+    {
+      "id": "lytkarino-feature-2",
+      "inverted": true,
+      "title": "Безопасность и доступность",
+      "subtitles": [
+        "Несущие конструкции из монолита",
+        "Современная система пожаротушения",
+        "Приточно-вытяжная система",
+        "Ворота с доклевеллерами и докшелтерами",
+        "Антипыль",
+        "Нагрузан 8 тонн"
+      ],
+      "images": [
+        {
+          "src": "/public/images/exclusive/lytkarino/lytkarino-accessibility-1.jpg",
+          "alt": "Современная система пожаротушения в Лыткарино Парк"
+        },
+        {
+          "src": "/public/images/exclusive/lytkarino/lytkarino-accessibility-2.jpg",
+          "alt": "Прочные несущие конструкции из монолита в Лыткарино Парк"
+        },
+        {
+          "src": "/public/images/exclusive/lytkarino/lytkarino-accessibility-3.jpg",
+          "alt": "Ворота с доклевеллерами и докшелтерами в Лыткарино Парк"
+        }
+      ]
+    },
+    {
+      "id": "lytkarino-feature-3",
+      "title": "Качество",
+      "subtitles": [
+        "Застроощиком выступает специализированная строительная компания с многолетним опытом"
+      ],
+      "images": [
+        {
+          "src": "/public/images/exclusive/lytkarino/lytkarino-quality-1.jpg",
+          "alt": "Вид сверху на помещения, построенные застройщиком Лыткарино Парк"
+        },
+        {
+          "src": "/public/images/exclusive/lytkarino/lytkarino-quality-2.jpg",
+          "alt": "Вид на фасад склада, построенного застройщиком Лыткарино Парк"
+        },
+        {
+          "src": "/public/images/exclusive/lytkarino/lytkarino-quality-3.jpg",
+          "alt": "Вид на угол качественного склада, построенного застройщиком Лыткарино Парк"
+        },
+        {
+          "src": "/public/images/exclusive/lytkarino/lytkarino-quality-4.jpg",
+          "alt": "Вид на удобную и практичную парковку, построенную застройщиком Лыткарино Парк"
+        }
+      ]
+    }
+  ]
+}

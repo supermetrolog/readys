@@ -18,6 +18,6 @@ class ExclusiveController extends Controller
 
 		$template = $templateResolver->resolveTemplate($templateName);
 
-		return $this->render($template['path'], $template['meta']);
+		return $this->render($template['path'], $template['data']);
 	}
 }

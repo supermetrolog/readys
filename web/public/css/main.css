@@ -723,3 +723,11 @@ i.icon-metro_mos {
 		max-width: 1600px;
 	}
 }
+
+.text-gray {
+	color: #626366;
+}
+
+.mt-3 {
+	margin-top: .75rem !important;
+}
