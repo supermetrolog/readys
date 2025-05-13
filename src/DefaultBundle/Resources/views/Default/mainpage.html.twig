@@ -2,17 +2,17 @@
 {% set styles = [
 	'plugins/slick/slick.css',
 	'plugins/slick/slick-theme.css',
+	'plugins/aos.css',
 	'filter.css',
 	'mainpage.css',
 	'media_mainpage.css',
-	'aos.css',
 ] %}
 {% set scripts = [
 	'plugins/slick/slick.min.js',
 	'mainpage.js',
 	'plugins/jquery.iosslider.min.js',
 	'skelet.js',
-	'aos.js',
+	'plugins/aos.js',
 ] %}
 
 {% block content %}
@@ -40,7 +40,7 @@
 		</div> #}
 		<div class="eclipse"></div>
 		<div class="image"
-		     style="background-image: url('/public/images/mainpage/{% if is_mobile() %}mobile/{% endif %}1.jpg')"></div>
+			 style="background-image: url('/public/images/mainpage/{% if is_mobile() %}mobile/{% endif %}1.jpg')"></div>
 	</div>
 	{% include "DefaultBundle:IncludeBlocks:mainpage_block_links.html.twig" %}
 
