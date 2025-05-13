@@ -19,6 +19,7 @@
 	 'plugins/lightgallery/lightgallery.min.js',
 	 'aos.js',
 	 'exclusive/exclusive.js',
+	 'exclusive/lytkarino.js',
  ] %}
 
 {% set meta = {
@@ -53,8 +54,6 @@
 			 <img src="/public/images/exclusive/lytkarino/lytkarino-hero-2.webp" alt="slide-2"
 			      class="lytkarino-exclusive-hero__slide"/>
 			 <img src="/public/images/exclusive/lytkarino/lytkarino-hero-3.jpg" alt="slide-3"
-			      class="lytkarino-exclusive-hero__slide"/>
-			 <img src="/public/images/exclusive/lytkarino/lytkarino-hero-4.jpg" alt="slide-4"
 			      class="lytkarino-exclusive-hero__slide"/>
 		 </div>
 		 <div class="lytkarino-exclusive-hero__header">
@@ -105,33 +104,82 @@
 		 <div class="container">
 			 <div class="lytkarino-exclusive-features__list">
 				 <div class="lytkarino-exclusive-feature" id="lytkarino-exclusive-feature-1">
-					 <div class="lytkarino-exclusive-feature__photo" data-aos="fade-right"></div>
-					 <div class="lytkarino-exclusive-feature__description">
-						 <h2 data-aos="fade-up" class="lytkarino-exclusive-feature__title">Качество</h2>
-						 <h3 data-aos="fade-up" class="lytkarino-exclusive-feature__subtitle">Застройщиком выступает
-							 специализированная
-							 строительная
-							 компания</h3>
+					 <div class="lytkarino-exclusive-feature__slider" data-aos="fade-up">
+						 <div class="lytkarino-exclusive-feature__photo">
+							 <img class="lytkarino-exclusive-feature__image"
+							      src="/public/images/exclusive/lytkarino/lytkarino-location-1.png"/>
+						 </div>
+					 </div>
+					 <div class="lytkarino-exclusive-feature__description lytkarino-exclusive-feature__description">
+						 <h2 data-aos="fade-up" class="lytkarino-exclusive-feature__title">Локация</h2>
+						 <h3 data-aos="fade-up" class="lytkarino-exclusive-feature__subtitle">Основан по поручению
+							 Губернатора Московской области Андрея Юрьевича Воробьева</h3>
+						 <h3 data-aos="fade-up" class="lytkarino-exclusive-feature__subtitle">Территория имеет статус
+							 Индустриального парка</h3>
 					 </div>
 				 </div>
 				 <div class="lytkarino-exclusive-feature" id="lytkarino-exclusive-feature-2">
-					 <div class="lytkarino-exclusive-feature__description lytkarino-exclusive-feature__description--inverted">
-						 <h2 data-aos="fade-up" class="lytkarino-exclusive-feature__title">Безопасность</h2>
+					 <div class="lytkarino-exclusive-feature__description lytkarino-exclusive-feature__description">
+						 <h2 data-aos="fade-up" class="lytkarino-exclusive-feature__title">Безопасность и
+							 доступность</h2>
 						 <h3 data-aos="fade-up" class="lytkarino-exclusive-feature__subtitle">Несущие конструкции из
 							 монолита</h3>
 						 <h3 data-aos="fade-up" class="lytkarino-exclusive-feature__subtitle">Современная система
 							 пожаротушения</h3>
+						 <h3 data-aos="fade-up" class="lytkarino-exclusive-feature__subtitle">Приточно-вытяжная
+							 система</h3>
+						 <h3 data-aos="fade-up" class="lytkarino-exclusive-feature__subtitle">Ворота с доклевеллерами и
+							 докшелтерами</h3>
+						 <h3 data-aos="fade-up" class="lytkarino-exclusive-feature__subtitle">Антипыль</h3>
+						 <h3 data-aos="fade-up" class="lytkarino-exclusive-feature__subtitle">Нагрузка 8
+							 тонн</h3>
 					 </div>
-					 <div class="lytkarino-exclusive-feature__photo" data-aos="fade-left"></div>
+					 <div class="lytkarino-exclusive-feature__slider" data-aos="fade-left">
+						 <div data-thumb="/public/images/exclusive/lytkarino/lytkarino-accessibility-1.jpg"
+						      class="lytkarino-exclusive-feature__photo">
+							 <img class="lytkarino-exclusive-feature__image"
+							      src="/public/images/exclusive/lytkarino/lytkarino-accessibility-1.jpg"/>
+						 </div>
+						 <div data-thumb="/public/images/exclusive/lytkarino/lytkarino-accessibility-2.jpg"
+						      class="lytkarino-exclusive-feature__photo">
+							 <img class="lytkarino-exclusive-feature__image"
+							      src="/public/images/exclusive/lytkarino/lytkarino-accessibility-2.jpg"/>
+						 </div>
+						 <div data-thumb="/public/images/exclusive/lytkarino/lytkarino-accessibility-3.jpg"
+						      class="lytkarino-exclusive-feature__photo">
+							 <img class="lytkarino-exclusive-feature__image"
+							      src="/public/images/exclusive/lytkarino/lytkarino-accessibility-3.jpg"/>
+						 </div>
+					 </div>
 				 </div>
 				 <div class="lytkarino-exclusive-feature" id="lytkarino-exclusive-feature-3">
-					 <div class="lytkarino-exclusive-feature__photo" data-aos="fade-up"></div>
-					 <div class="lytkarino-exclusive-feature__description lytkarino-exclusive-feature__description--inverted">
-						 <h2 data-aos="fade-up" class="lytkarino-exclusive-feature__title">Локация</h2>
-						 <h3 data-aos="fade-up" class="lytkarino-exclusive-feature__subtitle">Территория имеет статус
-							 Индустриального парка</h3>
-						 <h3 data-aos="fade-up" class="lytkarino-exclusive-feature__subtitle">Парковка для грузового и
-							 легкового транспорта</h3>
+					 <div class="lytkarino-exclusive-feature__slider" data-aos="fade-right">
+						 <div data-thumb="/public/images/exclusive/lytkarino/lytkarino-quality-1.jpg"
+						      class="lytkarino-exclusive-feature__photo">
+							 <img class="lytkarino-exclusive-feature__image"
+							      src="/public/images/exclusive/lytkarino/lytkarino-quality-1.jpg"/>
+						 </div>
+						 <div data-thumb="/public/images/exclusive/lytkarino/lytkarino-quality-2.jpg"
+						      class="lytkarino-exclusive-feature__photo">
+							 <img class="lytkarino-exclusive-feature__image"
+							      src="/public/images/exclusive/lytkarino/lytkarino-quality-2.jpg"/>
+						 </div>
+						 <div data-thumb="/public/images/exclusive/lytkarino/lytkarino-quality-3.jpg"
+						      class="lytkarino-exclusive-feature__photo">
+							 <img class="lytkarino-exclusive-feature__image"
+							      src="/public/images/exclusive/lytkarino/lytkarino-quality-3.jpg"/>
+						 </div>
+						 <div data-thumb="/public/images/exclusive/lytkarino/lytkarino-quality-4.jpg"
+						      class="lytkarino-exclusive-feature__photo">
+							 <img class="lytkarino-exclusive-feature__image"
+							      src="/public/images/exclusive/lytkarino/lytkarino-quality-4.jpg"/>
+						 </div>
+					 </div>
+					 <div class="lytkarino-exclusive-feature__description">
+						 <h2 data-aos="fade-up" class="lytkarino-exclusive-feature__title">Качество</h2>
+						 <h3 data-aos="fade-up" class="lytkarino-exclusive-feature__subtitle">Застроощиком выступает
+							 специализированная строительная
+							 компания с многолетним опытом</h3>
 					 </div>
 				 </div>
 			 </div>
