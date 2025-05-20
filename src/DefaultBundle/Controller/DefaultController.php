@@ -8,7 +8,19 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 
-class DefaultController extends Controller{
+class DefaultController extends Controller
+{
+	private function isDevMode(): bool
+	{
+		return $this->container->getParameter('kernel.environment') === "dev";
+	}
+
+	private function dumpInDevMode($data): void
+	{
+		if ($this->isDevMode()) {
+			dump($data);
+		}
+	}
 
     /**
      * @Route("/", name="index")
@@ -159,45 +171,52 @@ class DefaultController extends Controller{
         return new Response(json_encode($json));
     }
 
-    public function lotAction(Request $request){
-        $this->get('helpers')->setParam($request);
-        if($request->get("blockid")){
-            $res = $this->get('helpers')->api("/get/index/?id={$request->get('blockid')}&type_id=1");
-        }else{
-            $res = $this->get('helpers')->api("/get/index/?id={$request->get('id')}&type_id=2");
-        }
+	public function lotAction(Request $request): ?Response
+	{
+		$this->get('helpers')->setParam($request);
 
-        if($this->container->getParameter('kernel.environment') == "dev"){
-            dump($res);
-        }
-        $lot = $res['res'];
-        if(is_null($lot)){
-            throw $this->createNotFoundException("Упс, 404");
-        }
-        $router = $this->get('router');
-        $breadcrumbs = $this->get('white_october_breadcrumbs');
-        $breadcrumbs->addItem('Индустриальная недвижимость', $router->generate('index'));
-        $this->get('helpers')->getLotBreadcrumbs($lot, $breadcrumbs, $request->get('deal_type'), $router);
-        $blocks = [];
-        if(!empty($lot->blocks) && count($lot->blocks) > 0){
-            $this->get('helpers')->param = ['offers_id' => $lot->blocks];
-            $res = $this->get('helpers')->api("/get/list/");
-            $blocks = $res['res'];
-            if($this->container->getParameter('kernel.environment') == "dev"){
-                dump($res);
-            }
-            $breadcrumbs->addItem("ID_".$request->get('id'));
-        }
+		if ($request->get("blockid")) {
+			$response = $this->get('helpers')->api("/get/index/?id={$request->get('blockid')}&type_id=1");
+		} else {
+			$response = $this->get('helpers')->api("/get/index/?id={$request->get('id')}&type_id=2");
+		}
 
+		$lot = $response['res'];
 
-        return $this->render('DefaultBundle:Default:lot.html.twig', array(
-            'h1'=> "Индустриальная недвижимость",
-            'title' => "Индустриальная недвижимость",
-            'lot'=> $lot,
-            'blocks' =>$blocks
+		if (is_null($lot)) {
+			throw $this->createNotFoundException("Упс, 404");
+		}
 
-        ));
-    }
+		$router = $this->get('router');
+
+		$breadcrumbs = $this->get('white_october_breadcrumbs');
+		$breadcrumbs->addItem('Индустриальная недвижимость', $router->generate('index'));
+
+		$this->get('helpers')->getLotBreadcrumbs($lot, $breadcrumbs, $request->get('deal_type'), $router);
+
+		$blocks = [];
+
+		if (!empty($lot->blocks) && count($lot->blocks) > 0) {
+			$this->get('helpers')->param = ['offers_id' => $lot->blocks];
+
+			$response = $this->get('helpers')->api("/get/list/");
+
+			$blocks = $response['res'];
+
+			$breadcrumbs->addItem("ID_" . $request->get('id'));
+		}
+
+		$title       = $this->get('helpers')->generateLotTitle($lot, $request->get('deal_type'));
+		$description = $this->get('helpers')->generateLotDescription($lot, $request->get('deal_type'));
+
+		return $this->render('DefaultBundle:Default:lot.html.twig', [
+			'h1'          => $description,
+			'title'       => $title,
+			'description' => $description,
+			'lot'         => $lot,
+			'blocks'      => $blocks
+		]);
+	}
 
     public function sendpdfAction(Request $request, $id){
         $server_name = $request->server->get('HTTP_HOST');

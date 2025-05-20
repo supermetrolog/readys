@@ -5,8 +5,10 @@ use \PHPMorphy;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\Container;
 
-class GeneralHelper{
-	
+class GeneralHelper
+{
+	private const COMPANY_NAME = "RAYS ARMA";
+
 	/*public $em;*/
 	public $container;
 	public $param;
@@ -366,6 +368,35 @@ class GeneralHelper{
         return $breadcrumbs;
     }
 
+	public function generateLotTitle($lot, $dealType)
+	{
+		$words = ["Лот $lot->visual_id"];
 
-	
+		$words[] = $dealType === "rent" ? "Аренда" : "Продажа";
+
+		$words[] = "Индустриальная недвижимость";
+
+		$words[] = self::COMPANY_NAME;
+
+		return implode(" | ", $words);
+	}
+
+	public function generateLotDescription($lot, $dealType)
+	{
+		$words = [];
+
+		$words[] = $dealType === "rent" ? "Аренда склада" : "Продажа склада";
+
+		if (isset($lot->class_name)) {
+			$words[] = "Класс " . $lot->class_name;
+		}
+
+		if (isset($lot->building[1]->address[1])) {
+			$words[] = $lot->building[1]->address[1];
+		}
+
+		$words[] = self::COMPANY_NAME;
+
+		return implode("; ", $words);
+	}
 }
