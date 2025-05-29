@@ -84,7 +84,7 @@
 	{% endfor %}
 
 	<script src="https://api-maps.yandex.ru/2.1/?apikey=cdc5a0b2-5310-4fba-93a9-434be45408f9&lang=ru_RU"
-	        type="text/javascript"></script>
+			type="text/javascript"></script>
 
 	{% if title is defined %}
 		<title>{{ title|raw }}</title>
@@ -101,7 +101,7 @@
 	<div class="head line vertical-center">
 		<div class="line vertical-center flex-nowrap">
 			<a href="{% if app.request.get('section') != "index" %}{{ path("index") }}{% else %}#{% endif %}"><img
-						class="site-logo" src="/public/images/ico/readys-logo.svg" alt="Penny Lane Realty"/></a>
+					class="site-logo" src="/public/images/ico/readys-logo.svg" alt="Rays Arma"/></a>
 			<a href="{% if app.request.get('section') != "index" %}{{ path("index") }}{% else %}#{% endif %}"
 			   class="depname">ИНДУСТРИАЛЬНАЯ<br>НЕДВИЖИМОСТЬ</a>
 			{% if exclusiveName is defined %}
@@ -119,28 +119,13 @@
 				</div>
 				<div class="clear"></div>
 				<div class="time-job">Работаем с 9:00 до 20:00</div>
-				<a class="feedback start-dialog" href="#"
-				   data-wish="Пользователь Заказал Звонок"
-				   data-title="Заказать звонок"
-				   data-reachgoal="CALLBACK"
-				   data-field="name,phone,comments"
-				   data-requare="name,phone">перезвоните мне</a>
-				<img alt="" src="/public/images/ico/arrow.svg" class="redirection">
 			</div>
 		{% else %}
 			<div class="call line vertical-center column">
 				<div class="line horizontal-center vertical-center">
 					<i class="fa fa-phone"></i><span class="call_phone_new1"><a class="ph"
-					                                                            href="tel:+7 (495) {{ constant('PHONE')|replace({".":" "}) }}">+7 495 <span
-									class="red2"><b>{{ constant('PHONE') }}</b></span></a></span>
-				</div>
-				<div>
-					<a href="#" class="feedback start-dialog" style="float: right;"
-					   data-wish="Пользователь Заказал Звонок"
-					   data-title="Заказать звонок"
-					   data-reachgoal="CALLBACK"
-					   data-field="name,phone,comments"
-					   data-requare="name,phone">перезвоните мне</a>
+																				href="tel:+7 (495) {{ constant('PHONE')|replace({".":" "}) }}">+7 495 <span
+								class="red2"><b>{{ constant('PHONE') }}</b></span></a></span>
 				</div>
 			</div>
 		{% endif %}

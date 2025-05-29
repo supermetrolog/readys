@@ -2,7 +2,7 @@
 	<div class="head line vertical-center">
 		<div class="line vertical-center flex-nowrap">
 			<a href="{% if app.request.get('section') != "index" %}{{ path("index") }}{% else %}#{% endif %}"><img
-						class="site-logo" src="/public/images/ico/readys-logo.svg" alt="Penny Lane Realty"/></a>
+					class="site-logo" src="/public/images/ico/readys-logo.svg" alt="Rays Arma"/></a>
 			<a href="{% if app.request.get('section') != "index" %}{{ path("index") }}{% else %}#{% endif %}"
 			   class="depname">ИНДУСТРИАЛЬНАЯ<br>НЕДВИЖИМОСТЬ</a>
 			{% if headerSubtitle is defined %}
@@ -20,13 +20,6 @@
 				</div>
 				<div class="clear"></div>
 				<div class="time-job">Работаем с 9:00 до 20:00</div>
-				<a class="feedback start-dialog" href="#"
-				   data-wish="Пользователь Заказал Звонок"
-				   data-title="Заказать звонок"
-				   data-reachgoal="CALLBACK"
-				   data-field="name,phone,comments"
-				   data-requare="name,phone">перезвоните мне</a>
-				<img alt="" src="/public/images/ico/arrow.svg" class="redirection">
 			</div>
 		{% else %}
 			<div class="call line vertical-center column">
@@ -34,16 +27,8 @@
 					<i class="fa fa-phone"></i>
 					<span class="call_phone_new1">
 						<a class="ph" href="tel:+7 (495) {{ constant('PHONE')|replace({".":" "}) }}">+7 495 <span
-									class="red2"><b>{{ constant('PHONE') }}</b></span></a>
+								class="red2"><b>{{ constant('PHONE') }}</b></span></a>
 					</span>
-				</div>
-				<div>
-					<a href="#" class="feedback start-dialog" style="float: right;"
-					   data-wish="Пользователь Заказал Звонок"
-					   data-title="Заказать звонок"
-					   data-reachgoal="CALLBACK"
-					   data-field="name,phone,comments"
-					   data-requare="name,phone">перезвоните мне</a>
 				</div>
 			</div>
 		{% endif %}
@@ -103,12 +88,6 @@
 			<div class="active-dropdown">
 				<div class="insdrpdwn">
 					<a href="">О нас</a>
-					<a href='#' class="start-dialog"
-					   data-wish="Пользователь отправил заявку из меню сайта"
-					   data-title="Заявка"
-					   data-reachgoal="ORDER"
-					   data-field="name,phone,email,deal,comments"
-					   data-requare="name,phone,deal">Заявка</a>
 					<a href="">Контакты</a>
 				</div>
 			</div>
