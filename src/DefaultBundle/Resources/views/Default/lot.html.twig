@@ -25,49 +25,47 @@
 	"og:image": (lot.photos|length > 0 ? lot.photos[0] : "") ,
 	"og:description": title,
 	"og:type": "article"
-	} 
-%}
+} %}
 
 {% block content %}
-    {% import "DefaultBundle:Macros:fromTo.html.twig" as info %}
-    <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css" />
+	{% import "DefaultBundle:Macros:fromTo.html.twig" as info %}
+	<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet"
+		  type="text/css"/>
 	<div class="wrap wrap-lot">
 		<div class="lot">
 			<div class="header line">
-				<div>Лот {{ lot.visual_id }}{% if app.request.get("blockid") %}-{{ app.request.get("blockid") }}{% endif %}</div>
+				<div>
+					Лот {{ lot.visual_id }}{% if app.request.get("blockid") %}-{{ app.request.get("blockid") }}{% endif %}</div>
 				<div class="line share-buttons">
 					<div class="share-soc">
-						<a href="#" class="social-toggle"><span class="fa fa-share-alt"></span><span class="lot-mobile-hidden share-span-text">Поделиться</span></a>
+						<a href="#" class="social-toggle"><span class="fa fa-share-alt"></span><span
+								class="lot-mobile-hidden share-span-text">Поделиться</span></a>
 						<div class="social-networks">
-						  <ul>
-							<li class="social-twitter">
-							  <a target="_blank" href="http://twitter.com/share?url={{ app.request.getUri }}&text={{ title }}"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-							</li>
-							<li class="social-facebook">
-								<a target="_blank" href="http://www.facebook.com/sharer.php?u={{ app.request.getUri }}"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-							</li>
-							<li class="social-vk">
-								<a target="_blank" href="http://vk.com/share.php?url={{ app.request.getUri }}&title={{ title }}&description={{ title }}&image={% if lot.photos|length > 0 %}https://pennylane.pro/inter.php/400/{{ lot.building[1].object_id[1] }}/{{ lot.photos[0] }}{% endif %}"><i class="fa fa-vk" aria-hidden="true"></i></a>
-							</li>
-						  </ul>
+							<ul>
+								<li class="social-twitter">
+									<a target="_blank"
+									   href="http://twitter.com/share?url={{ app.request.getUri }}&text={{ title }}"><i
+											class="fa fa-twitter" aria-hidden="true"></i></a>
+								</li>
+								<li class="social-facebook">
+									<a target="_blank"
+									   href="http://www.facebook.com/sharer.php?u={{ app.request.getUri }}"><i
+											class="fa fa-facebook" aria-hidden="true"></i></a>
+								</li>
+								<li class="social-vk">
+									<a target="_blank"
+									   href="http://vk.com/share.php?url={{ app.request.getUri }}&title={{ title }}&description={{ title }}&image={% if lot.photos|length > 0 %}https://pennylane.pro/inter.php/400/{{ lot.building[1].object_id[1] }}/{{ lot.photos[0] }}{% endif %}"><i
+											class="fa fa-vk" aria-hidden="true"></i></a>
+								</li>
+							</ul>
 						</div>
 					</div>
-                        {% set lotid = lot.visual_id %}
-                        {% if app.request.get("blockid") %}
-                            {% set lotid = lot.visual_id ~ "-" ~app.request.get("blockid") %}
-                        {% endif %}
-                        <div><a class="print-button" href="http://imgo.realtor.ru/industry-{{ lotid }}.pdf" target="_blank"><span class="fa fa-print"></span><span class="lot-mobile-hidden">Печать</span></a></div>
-                        <div>
-                            <a class="print-button start-dialog" href="" target="_blank"
-                                data-wish="Пользователь отправил презентацию на почту"
-                                data-title="Отправить презентацию на почту"
-                                data-reachgoal="SEND_PDF"
-                                data-field="name,phone,email,comments"
-                                data-requare="name,email"
-                                data-route="{{ path('sendpdf', {"id": lotid}) }}">
-                                  <span class="fa fa-envelope-o"></span><span class="lot-mobile-hidden">Отправить на почту</span>
-                            </a>
-                        </div>
+					{% set lotid = lot.visual_id %}
+					{% if app.request.get("blockid") %}
+						{% set lotid = lot.visual_id ~ "-" ~app.request.get("blockid") %}
+					{% endif %}
+					<div><a class="print-button" href="http://imgo.realtor.ru/industry-{{ lotid }}.pdf" target="_blank"><span
+								class="fa fa-print"></span><span class="lot-mobile-hidden">Печать</span></a></div>
 				</div>
 			</div>
 			<h1 hidden>{{ h1 }}</h1>
@@ -78,16 +76,17 @@
 				</div>
 				<div class="info_wrap">
 					{% if lot.building[1].metro is defined and lot.building[1].metro[1] %}
-						<div class="metro"><i class="icon-metro_mos" style=""></i><span>{{ lot.metro_name }}</span></div>
+						<div class="metro"><i class="icon-metro_mos" style=""></i><span>{{ lot.metro_name }}</span>
+						</div>
 					{% endif %}
-					{#<div class="metro"><i class="icon-metro_mos" style=""></i><span>{{ lot.metro_name }}</span></div>#}
+					{# <div class="metro"><i class="icon-metro_mos" style=""></i><span>{{ lot.metro_name }}</span></div> #}
 					<div class="addr">
 						{% if lot.building[1].address is defined and lot.building[1].address[1] %}
 							{{ lot.building[1].address[1] }}
 						{% endif %}
-						{#{% include "DefaultBundle:IncludeBlocks:lotAddress.html.twig" %}#}
+						{# {% include "DefaultBundle:IncludeBlocks:lotAddress.html.twig" %} #}
 					</div>
-                    {% if lot.building[1].class is defined and lot.building[1].class[1] %}
+					{% if lot.building[1].class is defined and lot.building[1].class[1] %}
 						<div class="object-class">Класс «{{ lot.class_name }}»</div>
 					{% endif %}
 					<div class="flat-params line horizontal-left">
@@ -101,49 +100,60 @@
 					<div class="flat-price line">
 						<div class="line">
 							<div class="line column vertical-between">
-                                <div class="">
-                                    <div class="line title-price">
-                                        {% if app.request.get("deal_type") == "rent" %}
-                                            Арендная плата
+								<div class="">
+									<div class="line title-price">
+										{% if app.request.get("deal_type") == "rent" %}
+											Арендная плата
 										{% elseif  app.request.get("deal_type") == "sale" %}
-                                            Цена продажи
+											Цена продажи
 										{% elseif  app.request.get("deal_type") == "otvetstvennoe-hranenie" %}
 											Цена
-                                        {% endif %}
-                                    </div>
-                                    {% if app.request.get("deal_type") == "rent" %}
-                                        <div class="prices rent active deal-tabs">
-                                                <div class="price-all">
-													{{ info.fromTo(lot.price_floor_max_month , lot.price_floor_max_month ) }} <span>{{ 'rub'|get_currency_symbol()|raw }} м<sup>2</sup>/мес.</span>
+										{% endif %}
+									</div>
+									{% if app.request.get("deal_type") == "rent" %}
+										<div class="prices rent active deal-tabs">
+											<div class="price-all">
+												{{ info.fromTo(lot.price_floor_max_month , lot.price_floor_max_month ) }}
+												<span>{{ 'rub'|get_currency_symbol()|raw }} м<sup>2</sup>/мес.</span>
+											</div>
+											<div class="price-detail">
+												{{ info.fromTo(lot.price_floor_max , lot.price_floor_min ) }}
+												<span>{{ 'rub'|get_currency_symbol()|raw }} (за м<sup>2</sup> в год)</span>
+											</div>
+											{# {% if lot.general == "block" %}<div class="price-detail"><span>{{ (lot.rent_price/lot.)|number_format(0, '.', ' ') }}</span></div> #}
+										</div>
+									{% elseif  app.request.get("deal_type") == "sale" %}
+										<div class="prices sale active deal-tabs">
+											<div>
+												<div class="old-price"></div>
+												<div
+													class="price-all">{{ info.fromTo(lot.price_sale_min_all, lot.price_sale_max_all) }}
+													<span>{{ 'rub'|get_currency_symbol()|raw }}</span></div>
+												<div
+													class="price-detail">{{ info.fromTo(lot.price_sale_min, lot.price_sale_max) }}
+													<span>{{ 'rub'|get_currency_symbol()|raw }} (за м<sup>2</sup>)</span>
 												</div>
-												<div class="price-detail">
-													{{ info.fromTo(lot.price_floor_max , lot.price_floor_min ) }} <span>{{ 'rub'|get_currency_symbol()|raw }} (за м<sup>2</sup> в год)</span>
-												</div>
-                                                {#{% if lot.general == "block" %}<div class="price-detail"><span>{{ (lot.rent_price/lot.)|number_format(0, '.', ' ') }}</span></div>#}
-                                        </div>
-                                    {% elseif  app.request.get("deal_type") == "sale" %}
-									   <div class="prices sale active deal-tabs">
-                                           <div>
-                                               <div class="old-price"></div>
-                                               <div class="price-all">{{ info.fromTo(lot.price_sale_min_all, lot.price_sale_max_all) }} <span>{{ 'rub'|get_currency_symbol()|raw }}</span></div>
-                                               <div class="price-detail">{{ info.fromTo(lot.price_sale_min, lot.price_sale_max) }} <span>{{ 'rub'|get_currency_symbol()|raw }} (за м<sup>2</sup>)</span></div>
-                                           </div>
-                                       </div>
+											</div>
+										</div>
 									{% else %}
 										<div class="prices sale active deal-tabs">
 											<div>
 												<div class="old-price"></div>
 												{% if lot.price_safe_pallet_min != 0 and lot.price_safe_pallet_max != 0 %}
-													<div class="price-all">{{ info.fromTo(lot.price_safe_pallet_min, lot.price_safe_pallet_max) }} <span>{{ 'rub'|get_currency_symbol()|raw }}</span></div>
+													<div
+														class="price-all">{{ info.fromTo(lot.price_safe_pallet_min, lot.price_safe_pallet_max) }}
+														<span>{{ 'rub'|get_currency_symbol()|raw }}</span></div>
 												{% endif %}
 												{% if lot.price_sale_min_all != 0 and lot.price_sale_max_all != 0 %}
-													<div class="price-detail">{{ info.fromTo(lot.price_sale_min_all, lot.price_sale_max_all) }} <span>{{ 'rub'|get_currency_symbol()|raw }}</span></div>
+													<div
+														class="price-detail">{{ info.fromTo(lot.price_sale_min_all, lot.price_sale_max_all) }}
+														<span>{{ 'rub'|get_currency_symbol()|raw }}</span></div>
 												{% endif %}
 											</div>
 										</div>
-                                    {% endif %}
-                                </div>
-								{#{% if lot.type_id.id == 2 %}
+									{% endif %}
+								</div>
+								{# {% if lot.type_id.id == 2 %}
                                     <div>
                                         {% if app.request.get("deal") == "rent" %}
                                             <div class="small-text">Дополнительно</div>
@@ -153,77 +163,40 @@
                                     </div>
                                 {% else %}
 
-                                {% endif %}#}
+                                {% endif %} #}
 							</div>
 						</div>
-                    	<a class="line horizontal-center vertical-center start-dialog ripple"
-								data-wish="Пользователь изъявил желание следить за ценой"
-								data-title="Следить за ценой"
-								data-reachgoal="FOLLOW_PRICE"
-								data-field="name,phone,email,comments"
-								data-requare="name,email">
-							<div class="btn-ellipse hover-animate">
-								<span>Следить за ценой</span>
-							</div>
-						</a>
-					</div>
-					<div class="my-price-title">Предложить собственнику <span class="red">свою</span> цену</div>
-					<div class="my-price">
-						<div class="line horizontal-left">
-							<div class="wrap-input-my-price">
-								{#<input name="my_price" value="" placeholder="Например: {% if lot.priceSale and app.request.get("deal") != "rent" %}{{ ( app.request.cookies.get('currency', 'rub')|get_price(lot.priceSale) * 0.95)|number_format(0, '.', ' ') }}{% else %}{{ (app.request.cookies.get('currency', 'rub')|get_price(lot.priceRent) * 0.95)|number_format(0, '.', ' ') }}{% endif %} {{ app.request.cookies.get('currency', 'rub')|get_currency_symbol()|raw }}">#}
-							</div>
-							<a class="line horizontal-center vertical-center start-dialog ripple"
-									data-wish="Пользователь предложил свою цену"
-									data-title="Предложить свою цену собственнику"
-									data-reachgoal="OFFER_PRICE"
-									data-field="name,phone,email,comments,price"
-									data-requare="name,price,phone">
-								<div class="btn-ellipse hover-animate">
-									<span>Предложить цену</span>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="line wrap-btn-see">
-						<a class="btn-ellipse see-apartment start-dialog ripple"
-								data-wish="Пользователь запросил просмтр склада № {{ lot.visual_id }}"
-								data-title="Посмотреть склад сейчас!"
-								data-field="name,phone,email,comments"
-								data-reachgoal="ORDER_VIEW"
-								data-requare="name,phone">
-								<i class="fa fa-eye" aria-hidden="true"></i>Посмотреть склад сейчас!
-						</a>
 					</div>
 				</div>
-                <div class="tab">
-                    <div class="line horizontal-center a" data-general="tab-description{% if lot.type_id == 1 %}-block{% endif %}">
-                        <div class="active" data="a">Описание</div>
+				<div class="tab">
+					<div class="line horizontal-center a"
+						 data-general="tab-description{% if lot.type_id == 1 %}-block{% endif %}">
+						<div class="active" data="a">Описание</div>
 						{% if app.request.get("blockid") is null and lot.blocks %}
-                            <div class="" data="b">Деление на блоки</div>
-                        {% endif %}
-                        <div class="" data="c">Планировки</div>
-                    </div>
-                </div>
-                <div class="content-lot">
-                    <div class="flat-parametrs a active tab-description">
-                        {% include "DefaultBundle:IncludeBlocks:industry-parametrs.html.twig" %}
-                    </div>
-                    {% if app.request.get("blockid") is null and lot.blocks %}
-                        <div class="block-parametrs b tab-description">
-                            {% include "DefaultBundle:IncludeBlocks:industry-blocks.html.twig" %}
-                        </div>
-                    {% endif %}
-                    <div class="plans c tab-description">
+							<div class="" data="b">Деление на блоки</div>
+						{% endif %}
+						<div class="" data="c">Планировки</div>
+					</div>
+				</div>
+				<div class="content-lot">
+					<div class="flat-parametrs a active tab-description">
+						{% include "DefaultBundle:IncludeBlocks:industry-parametrs.html.twig" %}
+					</div>
+					{% if app.request.get("blockid") is null and lot.blocks %}
+						<div class="block-parametrs b tab-description">
+							{% include "DefaultBundle:IncludeBlocks:industry-blocks.html.twig" %}
+						</div>
+					{% endif %}
+					<div class="plans c tab-description">
 
-                    </div>
-                </div>
+					</div>
+				</div>
 				<div class="tab tab-maps">
 					<div class="line horizontal-center a">
 						<div class="active" data="a">Расположение</div>
 					</div>
 				</div>
-			
+
 				<div class="block">
 					<div class="map-wrap a active">
 						<div id="map"></div>
@@ -234,9 +207,9 @@
 			</div>
 		</div>
 	</div>
-	{#{% include "CityBundle:IncludeBlocks:similar.html.twig" %}#}
-<script type="text/javascript">
-	var lat = {{ lot.building[1].latitude[1] }}
-	var lng = {{ lot.building[1].longitude[1] }}
-</script>
+	{# {% include "CityBundle:IncludeBlocks:similar.html.twig" %} #}
+	<script type="text/javascript">
+		var lat = {{ lot.building[1].latitude[1] }}
+		var lng = {{ lot.building[1].longitude[1] }}
+	</script>
 {% endblock %}
